@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>goproxy.io - A global proxy for go modules</title>
+  <link type="favicon" rel="shortcut icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="wrapper">
+        <div class="site-name">
+          goproxy.io
+        </div>
+        <ul class="nav">
+          <li>
+            <select class="lang-switch" value="en">
+              <option value="en">English</option>
+              <option value="zh">中文</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrapper">
+        <div class="aside">
+          <img src="img/anim-logo.svg" width="200" alt="Logo" />
+        </div>
+        <div class="main">
+          <h1>A Global Proxy<br>for Go Modules</h1>
+          <p class="links">
+            <span class="github-btn">
+              <a class="gh-btn" href="https://github.com/goproxyio/goproxy" target="_blank">
+                <span class="gh-ico"></span>
+                <span class="gh-text">Star</span>
+              </a>
+              <a class="gh-count" href="https://github.com/goproxyio/goproxy" target="_blank"></a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="usage">
+      <div class="wrapper">
+        <p>First, you will need to enable the Go Modules feature and configure Go to use the proxy.</p>
+        <figure class="bash">
+          <figcaption>
+            <span class="platform">Bash (Linux/macOS)</span>
+            <button class="copy-btn" data-target=".bash pre code" data-copied-text="Copied">Copy</button>
+          </figcaption>
+          <pre><code>export GOPROXY=https://goproxy.io</code></pre>
+        </figure>
+        <p>Or</p>
+        <figure class="powershell">
+          <figcaption>
+            <span class="platform">PowerShell (Windows)</span>
+            <button class="copy-btn" data-target=".powershell pre code" data-copied-text="Copied">Copy</button>
+          </figcaption>
+          <pre><code>$env:GOPROXY = "https://goproxy.io"</code></pre>
+        </figure>
+        <p>Now, when you build and run your applications, go will fetch dependencies via goproxy.io.</p>
+      </div>
+    </div>
+    <div class="highlights">
+      <div class="wrapper">
+        <div class="point">
+          <h2>Fast</h2>
+          <p>Global proxy servers</p>
+        </div>
+        <div class="point">
+          <h2>Reliable</h2>
+          <p>Some description</p>
+        </div>
+        <div class="point">
+          <h2>Open Source</h2>
+          <p>Some description</p>
+        </div>
+      </div>
+    </div>
+    <div class="showcases">
+      <div class="wrapper">
+        <h3>These are using goproxy.io</h3>
+        <p>
+          <a href="https://www.ifeng.com">
+            <img src="img/ifeng.png" width="195" alt="ifeng">
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="wrapper">
+        <p class="copyright">
+          @2019 <a href="https://goproxy.io">goproxy.io</a>. Under MIT License.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

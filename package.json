@@ -1,0 +1,23 @@
+{
+  "name": "goproxy.io",
+  "version": "0.1.0",
+  "description": "goproxy.io site",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8080 src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex1990/goproxy.io.git"
+  },
+  "author": "Alex Chao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alex1990/goproxy.io/issues"
+  },
+  "homepage": "https://github.com/Alex1990/goproxy.io#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}

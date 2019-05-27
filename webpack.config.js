@@ -9,15 +9,14 @@ const root = process.cwd()
 const distPath = path.join(root, 'dist')
 
 const config = {
-  // mode: NODE_ENV === 'development' ? 'development ' : 'production',
-  mode: 'development',
+  mode: NODE_ENV === 'development' ? 'development' : 'production',
   context: root,
   devtool: 'source-map',
   entry: './src/app.js',
   output: {
     path: distPath,
     publicPath: '/',
-    filename: '[name].[hash:16].js'
+    filename: 'js/[name].[hash:16].js'
   },
   plugins: [],
   module: {
@@ -94,7 +93,8 @@ config.module.rules.push(
       {
         loader: 'file-loader',
         options: {
-          name: '[path][name].[ext]'
+          name: '[name].[hash:16].[ext]',
+          outputPath: 'images'
         }
       }
     ]
@@ -106,45 +106,13 @@ config.module.rules.push(
  */
 config.module.rules.push(
   {
-    test: /\.eot(\?.*)?$/,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]'
-        }
-      }
-    ]
-  },
-  {
     test: /\.woff(\?.*)?$/,
     use: [
       {
         loader: 'file-loader',
         options: {
-          name: '[path][name].[ext]'
-        }
-      }
-    ]
-  },
-  {
-    test: /\.woff2(\?.*)?$/,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]'
-        }
-      }
-    ]
-  },
-  {
-    test: /\.otf(\?.*)?$/,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]'
+          name: '[name].[hash:16].[ext]',
+          outputPath: 'fonts'
         }
       }
     ]
@@ -155,7 +123,8 @@ config.module.rules.push(
       {
         loader: 'file-loader',
         options: {
-          name: '[path][name].[ext]'
+          name: '[name].[hash:16].[ext]',
+          outputPath: 'fonts'
         }
       }
     ]
@@ -173,13 +142,28 @@ config.plugins.push(
   ]),
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: 'src/index.html'
+    template: 'src/index.html',
+    minify: {
+      collapseWhitespace: true,
+      keepClosingSlash: true,
+      minifyCSS: true,
+      minifyJS: true,
+      minifyURLs: true,
+      removeAttributeQuotes: true,
+      removeComments: true,
+      removeEmtpyAttributes: true,
+      removeOptionalTags: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true
+    }
   })
 )
 
 if (NODE_ENV !== 'development') {
   config.plugins.push(
-    new ExtractText('[name].[md5:contenthash:hex:8].css')
+    new ExtractText('css/[name].[md5:contenthash:hex:16].css')
   )
 }
 

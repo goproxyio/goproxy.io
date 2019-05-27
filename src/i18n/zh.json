@@ -1,0 +1,41 @@
+{
+  "site": {
+    "name": "goproxy.io",
+    "desc": "一个全球代理为 Go 模块而生"
+  },
+  "hero": {
+    "title": [
+      "一个全球代理",
+      "为 Go 模块而生"
+    ]
+  },
+  "usage": {
+    "copy": "复制",
+    "copied": "已复制",
+    "lines": [
+      "首先，你需要启用 Go 模块功能，然后配置 Go 使用代理",
+      "或",
+      "现在，当你构建或运行你的应用时，Go 将会通过 goproxy.io 获取依赖"
+    ]
+  },
+  "highlights": [
+    {
+      "title": "极速",
+      "desc": "分布于全球的代理服务器"
+    },
+    {
+      "title": "可靠",
+      "desc": "一些说明"
+    },
+    {
+      "title": "开源",
+      "desc": "一些说明"
+    }
+  ],
+  "showcases": {
+    "title": "正在使用 goproxy.io 的公司或组织"
+  },
+  "footer": {
+    "license": "源码遵循 MIT 开源协议"
+  }
+}

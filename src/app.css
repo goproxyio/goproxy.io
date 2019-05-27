@@ -118,6 +118,7 @@ select {
 
 .hero h1 {
   font-size: 48px;
+  font-weight: 400;
   line-height: 64px;
   color: #B3E5FC;
 }

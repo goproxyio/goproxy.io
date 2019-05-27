@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>goproxy.io - A global proxy for go modules</title>
+  <title><%= localeData.site.name %> - <%= localeData.site.desc %></title>
   <% if (isProd) { %>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140467706-1"></script>
   <script>
@@ -20,14 +20,14 @@
     <div class="header">
       <div class="wrapper">
         <div class="site-name">
-          goproxy.io
+          <%= localeData.site.name %>
         </div>
         <ul class="nav">
           <li>
             <div class="select">
-              <select class="lang-switch" value="en">
-                <option value="en">English</option>
-                <option value="zh">中文</option>
+              <select class="lang-switch">
+                <option value="en" <% if (localeName === 'en') { %>selected<% } %>>English</option>
+                <option value="zh" <% if (localeName === 'zh') { %>selected<% } %>>中文</option>
               </select>
               <span class="arrow"></span>
             </div>
@@ -41,7 +41,7 @@
           <img src="img/anim-logo.svg" width="200" alt="Logo" />
         </div>
         <div class="main">
-          <h1>A Global Proxy<br>for Go Modules</h1>
+          <h1><%= localeData.hero.title[0] %><br><%= localeData.hero.title[1] %></h1>
           <p class="links">
             <span class="github-btn">
               <a class="gh-btn" href="https://github.com/goproxyio/goproxy" target="_blank">
@@ -56,54 +56,48 @@
     </div>
     <div class="usage">
       <div class="wrapper">
-        <p>First, you will need to enable the Go Modules feature and configure Go to use the proxy.</p>
+        <p><%= localeData.usage.lines[0] %></p>
         <figure class="bash">
           <figcaption>
             <span class="platform">
               Bash <span class="icon icon-linux"></span>/<span class="icon icon-macos"></span>
             </span>
-            <button class="copy-btn" data-target=".bash pre code" data-copied-text="Copied">
+            <button class="copy-btn" data-target=".bash pre code" data-copied-text="<%= localeData.usage.copied %>">
               <span class="icon icon-copy"></span>
-              <span class="btn-text">Copy</span>
+              <span class="btn-text"><%= localeData.usage.copy %></span>
             </button>
           </figcaption>
           <pre><code>export GOPROXY=https://goproxy.io</code></pre>
         </figure>
-        <p>Or</p>
+        <p><%= localeData.usage.lines[1] %></p>
         <figure class="powershell">
           <figcaption>
             <span class="platform">
               PowerShell <span class="icon icon-windows"></span>
             </span>
-            <button class="copy-btn" data-target=".powershell pre code" data-copied-text="Copied">
+            <button class="copy-btn" data-target=".powershell pre code" data-copied-text="<%= localeData.usage.copied %>">
               <span class="icon icon-copy"></span>
-              <span class="btn-text">Copy</span>
+              <span class="btn-text"><%= localeData.usage.copy %></span>
             </button>
           </figcaption>
           <pre><code>$env:GOPROXY = "https://goproxy.io"</code></pre>
         </figure>
-        <p>Now, when you build and run your applications, go will fetch dependencies via goproxy.io.</p>
+        <p><%= localeData.usage.lines[2] %></p>
       </div>
     </div>
     <div class="highlights">
       <div class="wrapper">
+        <% localeData.highlights.forEach(function (point) { %>
         <div class="point">
-          <h2>Fast</h2>
-          <p>Global proxy servers</p>
+          <h2><%= point.title %></h2>
+          <p><%= point.desc %></p>
         </div>
-        <div class="point">
-          <h2>Reliable</h2>
-          <p>Some description</p>
-        </div>
-        <div class="point">
-          <h2>Open Source</h2>
-          <p>Some description</p>
-        </div>
+        <% }) %>
       </div>
     </div>
     <div class="showcases">
       <div class="wrapper">
-        <h3>These are using goproxy.io</h3>
+        <h3><%= localeData.showcases.title %></h3>
         <p>
           <a href="https://www.ifeng.com">
             <img src="img/ifeng.png" width="195" alt="ifeng">
@@ -114,7 +108,7 @@
     <div class="footer">
       <div class="wrapper">
         <p class="copyright">
-          @2019 <a href="https://goproxy.io">goproxy.io</a>. Under MIT License.
+          @<%= thisYear %> <a href="https://goproxy.io"><%= localeData.site.name %></a>. <%= localeData.footer.license %>.
         </p>
       </div>
     </div>

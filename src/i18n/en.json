@@ -1,0 +1,41 @@
+{
+  "site": {
+    "name": "goproxy.io",
+    "desc": "A Global Proxy for Go Modules"
+  },
+  "hero": {
+    "title": [
+      "A Global Proxy",
+      "for Go Modules"
+    ]
+  },
+  "usage": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "lines": [
+      "First, you will need to enable the Go Modules feature and configure Go to use the proxy.",
+      "Or",
+      "Now, when you build and run your applications, go will fetch dependencies via goproxy.io."
+    ]
+  },
+  "highlights": [
+    {
+      "title": "Fast",
+      "desc": "Global proxy servers"
+    },
+    {
+      "title": "Reliable",
+      "desc": "Some description"
+    },
+    {
+      "title": "Open Source",
+      "desc": "Some description"
+    }
+  ],
+  "showcases": {
+    "title": "These are using goproxy.io"
+  },
+  "footer": {
+    "license": "Under the MIT License"
+  }
+}

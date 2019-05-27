@@ -4,10 +4,14 @@ const ExtractText = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+const locales = require('./src/i18n')
+
 const { NODE_ENV } = process.env
 const isProd = NODE_ENV === 'production'
+
 const root = process.cwd()
 const distPath = path.join(root, 'dist')
+const localeNames = Object.keys(locales)
 
 const config = {
   mode: NODE_ENV === 'development' ? 'development' : 'production',
@@ -137,35 +141,43 @@ config.module.rules.push(
 /**
  * Plugins
  */
-
 config.plugins.push(
   new CleanWebpackPlugin(),
   new CopyWebpackPlugin([
     { from: 'public', to: '' }
-  ]),
-  new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: 'src/index.ejs',
-    templateParameters: {
-      isProd
-    },
-    minify: {
-      collapseWhitespace: true,
-      keepClosingSlash: true,
-      minifyCSS: true,
-      minifyJS: true,
-      minifyURLs: true,
-      removeAttributeQuotes: true,
-      removeComments: true,
-      removeEmtpyAttributes: true,
-      removeOptionalTags: true,
-      removeRedundantAttributes: true,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      useShortDoctype: true
-    }
-  })
+  ])
 )
+
+for (const localeName of localeNames) {
+  const filename = localeName === 'en' ? 'index.html' : `${localeName}/index.html`
+  config.plugins.push(
+    new HtmlWebpackPlugin({
+      filename,
+      template: 'src/index.ejs',
+      templateParameters: {
+        isProd,
+        thisYear: new Date().getFullYear(),
+        localeName,
+        localeData: locales[localeName]
+      },
+      minify: {
+        collapseWhitespace: true,
+        keepClosingSlash: true,
+        minifyCSS: true,
+        minifyJS: true,
+        minifyURLs: true,
+        removeAttributeQuotes: true,
+        removeComments: true,
+        removeEmtpyAttributes: true,
+        removeOptionalTags: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+      }
+    })
+  )
+}
 
 if (NODE_ENV !== 'development') {
   config.plugins.push(

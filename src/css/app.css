@@ -7,7 +7,7 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
-  -webkit-tab-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {

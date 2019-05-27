@@ -1,0 +1,20 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "targets": {
+        "browsers": [
+          "last 4 versions",
+          "> 0.5%",
+          "android >= 4.4",
+          "ios >= 8.0",
+          "ie >= 10"
+        ],
+      },
+      "modules": false,
+      "loose": true
+    }]
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-object-rest-spread"]
+  ]
+}

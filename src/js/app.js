@@ -1,5 +1,7 @@
+import '../css/app.css'
+
 // Language switch
-(function() {
+(function () {
   const langSiteMap = {
     'en': 'https://goproxy.io',
     'zh': 'https://goproxy.io/zh'
@@ -11,7 +13,7 @@
     const expires = new Date(Date.now() + 365 * 24 * 3600 * 1000)
     document.cookie = 'lang=' + select.value + ';path=/;expires=' + expires.toGMTString()
     window.location.href = siteUrl
-  });
+  })
 })();
 
 // Copy buttons
@@ -61,11 +63,11 @@
 
 // Github button
 (function () {
-  function get(url, callback) {
-    const xhr = new XMLHttpRequest()
+  function get (url, callback) {
+    const xhr = new window.XMLHttpRequest()
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
-        var status = xhr.status;
+        var status = xhr.status
         if (status >= 200 && status < 300) {
           callback && callback(null, xhr.responseText)
         } else {
@@ -78,10 +80,14 @@
   }
 
   get('https://api.github.com/repos/goproxyio/goproxy', function (err, res) {
-    const data = JSON.parse(res)
-    stars = data.stargazers_count
-    const countElem = document.querySelector('.gh-count')
-    countElem.textContent = stars
-    countElem.style.display = 'inline'
+    if (err) {
+      console.error(err)
+    } else {
+      const data = JSON.parse(res)
+      const stars = data.stargazers_count
+      const countElem = document.querySelector('.gh-count')
+      countElem.textContent = stars
+      countElem.style.display = 'inline'
+    }
   })
-})();
+})()

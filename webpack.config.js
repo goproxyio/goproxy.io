@@ -12,7 +12,7 @@ const config = {
   mode: 'development',
   context: root,
   devtool: 'source-map',
-  entry: './src/js/app.js',
+  entry: './src/app.js',
   output: {
     path: distPath,
     publicPath: '/',
@@ -169,8 +169,7 @@ config.plugins.push(
   new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: 'src/index.html',
-    favicon: 'src/img/favicon.ico'
+    template: 'src/index.html'
   })
 )
 

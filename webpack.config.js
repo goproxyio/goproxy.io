@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const { NODE_ENV } = process.env
+const isProd = NODE_ENV === 'production'
 const root = process.cwd()
 const distPath = path.join(root, 'dist')
 
@@ -29,10 +30,12 @@ const config = {
  * Html loaders
  */
 config.module.rules.push({
-  test: /\.html$/,
-  use: {
-    loader: 'html-loader'
-  }
+  test: /\.ejs/,
+  use: [
+    'extract-loader',
+    'html-loader',
+    'ejs-loader'
+  ]
 })
 
 /**
@@ -142,7 +145,10 @@ config.plugins.push(
   ]),
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: 'src/index.html',
+    template: 'src/index.ejs',
+    templateParameters: {
+      isProd
+    },
     minify: {
       collapseWhitespace: true,
       keepClosingSlash: true,

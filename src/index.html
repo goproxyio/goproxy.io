@@ -36,7 +36,7 @@
           <p class="links">
             <span class="github-btn">
               <a class="gh-btn" href="https://github.com/goproxyio/goproxy" target="_blank">
-                <span class="gh-ico"></span>
+                <span class="icon icon-github gh-ico"></span>
                 <span class="gh-text">Star</span>
               </a>
               <a class="gh-count" href="https://github.com/goproxyio/goproxy" target="_blank"></a>
@@ -50,16 +50,26 @@
         <p>First, you will need to enable the Go Modules feature and configure Go to use the proxy.</p>
         <figure class="bash">
           <figcaption>
-            <span class="platform">Bash (Linux/macOS)</span>
-            <button class="copy-btn" data-target=".bash pre code" data-copied-text="Copied">Copy</button>
+            <span class="platform">
+              Bash <span class="icon icon-linux"></span>/<span class="icon icon-macos"></span>
+            </span>
+            <button class="copy-btn" data-target=".bash pre code" data-copied-text="Copied">
+              <span class="icon icon-copy"></span>
+              <span class="btn-text">Copy</span>
+            </button>
           </figcaption>
           <pre><code>export GOPROXY=https://goproxy.io</code></pre>
         </figure>
         <p>Or</p>
         <figure class="powershell">
           <figcaption>
-            <span class="platform">PowerShell (Windows)</span>
-            <button class="copy-btn" data-target=".powershell pre code" data-copied-text="Copied">Copy</button>
+            <span class="platform">
+              PowerShell <span class="icon icon-windows"></span>
+            </span>
+            <button class="copy-btn" data-target=".powershell pre code" data-copied-text="Copied">
+              <span class="icon icon-copy"></span>
+              <span class="btn-text">Copy</span>
+            </button>
           </figcaption>
           <pre><code>$env:GOPROXY = "https://goproxy.io"</code></pre>
         </figure>

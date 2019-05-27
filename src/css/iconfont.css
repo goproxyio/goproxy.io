@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('../fonts/iconfont.woff?t=1558980873202') format('woff'),
+    url('../fonts/iconfont.ttf?t=1558980873202') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+}
+
+.icon {
+  font-family: "iconfont" !important;
+  font-size: inherit;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-windows:before {
+  content: "\e86f";
+}
+
+.icon-macos:before {
+  content: "\e61b";
+}
+
+.icon-copy:before {
+  content: "\e6e5";
+}
+
+.icon-linux:before {
+  content: "\e697";
+}
+
+.icon-language:before {
+  content: "\e6c8";
+}
+
+.icon-github:before {
+  content: "\e732";
+}

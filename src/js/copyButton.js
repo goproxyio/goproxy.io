@@ -34,10 +34,11 @@ for (const btn of copyBtns) {
     fakeElem.parentNode.removeChild(fakeElem)
 
     if (success) {
-      var originalText = btn.textContent
-      btn.textContent = btnData.copiedText
+      const btnTextEl = btn.querySelector('.btn-text')
+      var originalText = btnTextEl.textContent
+      btnTextEl.textContent = btnData.copiedText
       setTimeout(() => {
-        btn.textContent = originalText
+        btnTextEl.textContent = originalText
       }, 2000)
     }
   })

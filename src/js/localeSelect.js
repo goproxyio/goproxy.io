@@ -5,8 +5,8 @@ const { origin } = window.location
 const localeSiteMap = {}
 
 if (Array.isArray(locales)) {
-  locales.forEach(locale => {
-    localeSiteMap[locale] = locale === 'en' ? origin : `${origin}/${locale}`
+  locales.forEach(({ name, label }) => {
+    localeSiteMap[name] = name === 'en' ? origin : `${origin}/${name}`
   })
 }
 

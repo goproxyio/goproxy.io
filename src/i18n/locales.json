@@ -1,1 +1,10 @@
-["en", "zh"]
+[
+  {
+    "name": "en",
+    "label": "English"
+  },
+  {
+    "name": "zh",
+    "label": "中文"
+  }
+]

@@ -4,14 +4,15 @@ const ExtractText = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const locales = require('./src/i18n')
+const localesData = require('./src/i18n')
+const locales = require('./src/i18n/locales.json')
 
 const { NODE_ENV } = process.env
 const isProd = NODE_ENV === 'production'
 
 const root = process.cwd()
 const distPath = path.join(root, 'dist')
-const localeNames = Object.keys(locales)
+const localeNames = Object.keys(localesData)
 
 const config = {
   mode: NODE_ENV === 'development' ? 'development' : 'production',
@@ -157,8 +158,9 @@ for (const localeName of localeNames) {
       templateParameters: {
         isProd,
         thisYear: new Date().getFullYear(),
+        locales,
         localeName,
-        localeData: locales[localeName]
+        localeData: localesData[localeName]
       },
       minify: {
         collapseWhitespace: true,

@@ -26,8 +26,14 @@
           <li>
             <div class="select">
               <select class="lang-switch">
-                <option value="en" <% if (localeName === 'en') { %>selected<% } %>>English</option>
-                <option value="zh" <% if (localeName === 'zh') { %>selected<% } %>>中文</option>
+                <% locales.forEach(function (locale) { %>
+                <option
+                  value="<%= locale.name %>"
+                  <% if (localeName === locale.name) { %>selected<% } %>
+                >
+                  <%= locale.label %>
+                </option>
+                <% }) %>
               </select>
               <span class="arrow"></span>
             </div>

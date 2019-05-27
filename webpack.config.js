@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractText = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const { NODE_ENV } = process.env
 const root = process.cwd()
@@ -167,6 +168,9 @@ config.module.rules.push(
 
 config.plugins.push(
   new CleanWebpackPlugin(),
+  new CopyWebpackPlugin([
+    { from: 'public', to: '' }
+  ]),
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: 'src/index.html'

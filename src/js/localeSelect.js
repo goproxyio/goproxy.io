@@ -6,7 +6,7 @@ const localeSiteMap = {}
 
 if (Array.isArray(locales)) {
   locales.forEach(({ name, label }) => {
-    localeSiteMap[name] = name === 'en' ? origin : `${origin}/${name}`
+    localeSiteMap[name] = name === 'en' ? origin : `${origin}/${name}/`
   })
 }
 

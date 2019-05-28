@@ -349,6 +349,7 @@ select {
   .header {
     position: sticky;
     top: 0;
+    z-index: 100;
   }
 
   .header .wrapper {
@@ -363,6 +364,15 @@ select {
     margin-right: 0;
     width: 100%;
     text-align: center;
+  }
+
+  .hero .aside {
+    position: relative;
+    z-index: 200;
+  }
+
+  .hero .aside img {
+    max-width: 128px;
   }
 
   .hero .main {

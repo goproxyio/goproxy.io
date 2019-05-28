@@ -310,8 +310,11 @@ select {
 }
 
 .showcases a {
+  display: inline-block;
   margin: 16px;
-  filter: grayscale(50);
+  text-decoration: none;
+  vertical-align: middle;
+  filter: grayscale(50) opacity(.7);
   transition: all .25s ease;
 }
 

@@ -62,7 +62,7 @@
     </div>
     <div class="usage">
       <div class="wrapper">
-        <p><%= localeData.usage.lines[0] %></p>
+        <p><%= localeData.usage.text[0] %></p>
         <figure class="bash">
           <figcaption>
             <span class="platform">
@@ -73,9 +73,15 @@
               <span class="btn-text"><%= localeData.usage.copy %></span>
             </button>
           </figcaption>
-          <pre><code>export GOPROXY=https://goproxy.io</code></pre>
+          <div class="solarized-dark" style="color: rgba(0, 0, 0, 0.85);">
+            <pre style="display: block; overflow-x: auto; padding: 7px; background-color: rgb(0, 43, 54); background-image: none; color: rgb(131, 148, 150);"
+            ><code><span style="color: rgb(88, 110, 117);"># <%= localeData.usage.comments[0] %></span>
+<span>export</span> <span style="color: rgb(181, 137, 0);">GO111MODULE</span>=on
+<span style="color: rgb(88, 110, 117);"># <%= localeData.usage.comments[1] %></span>
+<span>export</span> <span style="color: rgb(181, 137, 0);">GOPROXY</span>=https://goproxy.io</code></pre></div>
         </figure>
-        <p><%= localeData.usage.lines[1] %></p>
+        <p><%= localeData.usage.text[1] %></p>
+        <p><%= localeData.usage.text[2] %></p>
         <figure class="powershell">
           <figcaption>
             <span class="platform">
@@ -86,9 +92,14 @@
               <span class="btn-text"><%= localeData.usage.copy %></span>
             </button>
           </figcaption>
-          <pre><code>$env:GOPROXY = "https://goproxy.io"</code></pre>
+          <div class="solarized-dark" style="color: rgba(0, 0, 0, 0.85);">
+            <pre style="display: block; overflow-x: auto; padding: 7px; background-color: rgb(0, 43, 54); background-image: none; color: rgb(131, 148, 150);"
+            ><code><span style="color: rgb(88, 110, 117);"># <%= localeData.usage.comments[0] %></span>
+<span style="color: rgb(181, 137, 0);">$env:GO111MODULE</span>=on
+<span style="color: rgb(88, 110, 117);"># <%= localeData.usage.comments[1] %></span>
+<span style="color: rgb(181, 137, 0);">$env:GOPROXY</span>=https://goproxy.io</code></pre></div>
         </figure>
-        <p><%= localeData.usage.lines[2] %></p>
+        <p><%= localeData.usage.text[3] %><%= localeData.usage.text[4] %></p>
       </div>
     </div>
     <div class="highlights">

@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "goproxy.io",
+    "name": "GOPROXY.IO",
     "desc": "A Global Proxy for Go Modules"
   },
   "hero": {
@@ -12,10 +12,16 @@
   "usage": {
     "copy": "Copy",
     "copied": "Copied",
-    "lines": [
-      "First, you will need to enable the Go Modules feature and configure Go to use the proxy.",
-      "Or",
-      "Now, when you build and run your applications, go will fetch dependencies via goproxy.io."
+    "comments": [
+      "Enable the go modules feature",
+      "Set the GOPROXY environment variable"
+    ],
+    "text": [
+      "In Linux or macOS, you can execute the below commands.",
+      "Or, write it into the <code>.bashrc</code> or <code>.bash_profile</code> file.",
+      "In Windows, you can execute the below commands.",
+      "Now, when you build and run your applications, go will fetch dependencies via goproxy.io. ",
+      "More information see the <a href=\"https://github.com/goproxyio/goproxy\">github repository</a>."
     ]
   },
   "highlights": [
@@ -25,11 +31,15 @@
     },
     {
       "title": "Reliable",
-      "desc": "Some description"
+      "desc": "99.99% uptime SLA"
     },
     {
       "title": "Open Source",
-      "desc": "Some description"
+      "desc": "One of most active go modules proxy projects"
+    },
+    {
+      "title": "Self Hosted",
+      "desc": "Instantly deploy it in your server or docker"
     }
   ],
   "showcases": {

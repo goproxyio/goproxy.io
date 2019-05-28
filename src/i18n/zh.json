@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "goproxy.io",
+    "name": "GOPROXY.IO",
     "desc": "一个全球代理为 Go 模块而生"
   },
   "hero": {
@@ -12,10 +12,16 @@
   "usage": {
     "copy": "复制",
     "copied": "已复制",
-    "lines": [
-      "首先，你需要启用 Go 模块功能，然后配置 Go 使用代理",
-      "或",
-      "现在，当你构建或运行你的应用时，Go 将会通过 goproxy.io 获取依赖"
+    "comments": [
+      "启用 Go Modules 功能",
+      "配置 GOPROXY 环境变量"
+    ],
+    "text": [
+      "在 Linux 或 macOS 上面，需要运行下面命令：",
+      "或者，可以把上面的命令写到 <code>.bashrc</code> 或 <code>.bash_profile</code> 文件当中。",
+      "在 Windows 上，需要运行下面命令：",
+      "现在，当你构建或运行你的应用时，Go 将会通过 goproxy.io 获取依赖。",
+      "更多信息请查看<a href=\"https://github.com/goproxyio/goproxy\">源码仓库</a>。"
     ]
   },
   "highlights": [
@@ -25,11 +31,15 @@
     },
     {
       "title": "可靠",
-      "desc": "一些说明"
+      "desc": "99.99% 运行时间可用性保证"
     },
     {
       "title": "开源",
-      "desc": "一些说明"
+      "desc": "最活跃的的 Go 模块代理项目之一"
+    },
+    {
+      "title": "自我托管",
+      "desc": "可立即部署到自己的服务器或 Docker 上"
     }
   ],
   "showcases": {

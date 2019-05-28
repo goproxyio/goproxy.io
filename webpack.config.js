@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractText = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 
 const localesData = require('./src/i18n')
 const locales = require('./src/i18n/locales.json')
@@ -183,7 +184,8 @@ for (const localeName of localeNames) {
 
 if (NODE_ENV !== 'development') {
   config.plugins.push(
-    new ExtractText('css/[name].[md5:contenthash:hex:16].css')
+    new ExtractText('css/[name].[md5:contenthash:hex:16].css'),
+    new OfflinePlugin()
   )
 }
 

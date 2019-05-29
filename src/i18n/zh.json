@@ -21,7 +21,7 @@
       "或者，可以把上面的命令写到 <code>.bashrc</code> 或 <code>.bash_profile</code> 文件当中。",
       "在 Windows 上，需要运行下面命令：",
       "现在，当你构建或运行你的应用时，Go 将会通过 goproxy.io 获取依赖。",
-      "更多信息请查看<a href=\"https://github.com/goproxyio/goproxy\">源码仓库</a>。"
+      "更多信息请查看 <a href=\"https://github.com/goproxyio/goproxy\">goproxy 仓库</a>。"
     ]
   },
   "highlights": [

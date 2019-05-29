@@ -21,7 +21,7 @@
       "Or, write it into the <code>.bashrc</code> or <code>.bash_profile</code> file.",
       "In Windows, you can execute the below commands.",
       "Now, when you build and run your applications, go will fetch dependencies via goproxy.io. ",
-      "More information see the <a href=\"https://github.com/goproxyio/goproxy\">github repository</a>."
+      "See more information in the <a href=\"https://github.com/goproxyio/goproxy\">goproxy repository</a>."
     ]
   },
   "highlights": [

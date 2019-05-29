@@ -6,4 +6,6 @@ import './js/localeSelect'
 import './app.css'
 import './css/iconfont.css'
 
-OfflinePluginRuntime.install()
+if (process.env.NODE_ENV === 'production') {
+  OfflinePluginRuntime.install()
+}

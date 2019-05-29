@@ -46,6 +46,7 @@
     "title": "Who are using goproxy.io"
   },
   "footer": {
-    "license": "Under the MIT License"
+    "license": "Under the MIT License.",
+    "logoCopyright": "Logo copyright belongs to goproxy.io."
   }
 }

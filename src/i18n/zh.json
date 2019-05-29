@@ -46,6 +46,7 @@
     "title": "谁在使用 goproxy.io"
   },
   "footer": {
-    "license": "源码遵循 MIT 开源协议"
+    "license": "源码遵循 MIT 开源协议。",
+    "logoCopyright": "Logo 版权归属于 goproxy.io。"
   }
 }

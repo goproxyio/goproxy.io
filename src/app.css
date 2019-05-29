@@ -299,21 +299,12 @@ select {
 }
 
 .showcases h3 {
+  margin-bottom: 32px;
   font-weight: 400;
 }
 
-.showcases a {
-  display: inline-block;
-  margin: 16px;
-  text-decoration: none;
-  vertical-align: middle;
-  filter: grayscale(50) opacity(.7);
-  transition: all .25s ease;
-}
-
-.showcases a:hover {
-  filter: none;
-  transition: all .25s ease;
+.showcases img {
+  max-width: 100%;
 }
 
 /* footer */

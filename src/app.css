@@ -282,6 +282,12 @@ select {
   text-align: center;
 }
 
+.highlights .icon {
+  font-size: 64px;
+  line-height: 1;
+  color: #03A9F4;
+}
+
 .highlights .point h2 {
   color: #03A9F4;
 }

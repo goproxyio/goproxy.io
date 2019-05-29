@@ -26,18 +26,22 @@
   },
   "highlights": [
     {
+      "icon": "rocket",
       "title": "Fast",
       "desc": "Global proxy servers, including Las Vegas, Hong Kong etc."
     },
     {
+      "icon": "server",
       "title": "Reliable",
       "desc": "Enterprise monitor and alert system. Promise 99.99% uptime SLA."
     },
     {
+      "icon": "fork",
       "title": "Open Source",
       "desc": "One of most active go modules proxy projects."
     },
     {
+      "icon": "box",
       "title": "Self Hosted",
       "desc": "Instantly deploy it in your server or docker."
     }

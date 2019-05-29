@@ -107,6 +107,9 @@
       <div class="wrapper">
         <% localeData.highlights.forEach(function (point) { %>
         <div class="point">
+          <div>
+            <span class="icon icon-<%= point.icon %>"></span>
+          </div>
           <h2><%= point.title %></h2>
           <p><%= point.desc %></p>
         </div>

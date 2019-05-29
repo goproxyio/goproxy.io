@@ -12,12 +12,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-rocket:before {
+  content: "\ebb1";
+}
+
+.icon-fork:before {
+  content: "\e6c3";
+}
+
 .icon-windows:before {
   content: "\e86f";
 }
 
 .icon-macos:before {
   content: "\e61b";
+}
+
+.icon-box:before {
+  content: "\e65c";
 }
 
 .icon-copy:before {
@@ -30,6 +42,10 @@
 
 .icon-language:before {
   content: "\e6c8";
+}
+
+.icon-server:before {
+  content: "\e70a";
 }
 
 .icon-github:before {

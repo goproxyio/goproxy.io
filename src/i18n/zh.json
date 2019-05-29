@@ -26,18 +26,22 @@
   },
   "highlights": [
     {
+      "icon": "rocket",
       "title": "极速",
       "desc": "分布于全球的代理服务器"
     },
     {
+      "icon": "server",
       "title": "可靠",
       "desc": "99.99% 运行时间可用性保证"
     },
     {
+      "icon": "fork",
       "title": "开源",
       "desc": "最活跃的的 Go 模块代理项目之一"
     },
     {
+      "icon": "box",
       "title": "自我托管",
       "desc": "可立即部署到自己的服务器或 Docker 上"
     }

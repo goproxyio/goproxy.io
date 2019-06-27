@@ -14,14 +14,16 @@
     "copied": "Copied",
     "comments": [
       "Enable the go modules feature",
-      "Set the GOPROXY environment variable"
+      "Set the GOPROXY environment variable",
+      "Set environment variable allow bypassing the proxy for selected modules"
     ],
     "text": [
       "In Linux or macOS, you can execute the below commands.",
       "Or, write it into the <code>.bashrc</code> or <code>.bash_profile</code> file.",
       "In Windows, you can execute the below commands.",
       "Now, when you build and run your applications, go will fetch dependencies via goproxy.io. ",
-      "See more information in the <a href=\"https://github.com/goproxyio/goproxy\">goproxy repository</a>."
+      "See more information in the <a href=\"https://github.com/goproxyio/goproxy\">goproxy repository</a>.",
+      "If your Go version >= 1.13, the GOPRIVATE environment variable controls which modules the go command considers to be private (not available publicly) and should therefore not use the proxy or checksum database. For example: "
     ]
   },
   "highlights": [

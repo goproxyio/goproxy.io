@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "GOPROXY.IO",
-    "desc": "一个全球代理为 Go 模块而生"
+    "desc": "一个为 Go 模块而生的全球代理"
   },
   "hero": {
     "title": [
@@ -14,14 +14,16 @@
     "copied": "已复制",
     "comments": [
       "启用 Go Modules 功能",
-      "配置 GOPROXY 环境变量"
+      "配置 GOPROXY 环境变量",
+      "设置不走 proxy 的私有仓库，多个用逗号相隔"
     ],
     "text": [
       "在 Linux 或 macOS 上面，需要运行下面命令：",
       "或者，可以把上面的命令写到 <code>.bashrc</code> 或 <code>.bash_profile</code> 文件当中。",
       "在 Windows 上，需要运行下面命令：",
       "现在，当你构建或运行你的应用时，Go 将会通过 goproxy.io 获取依赖。",
-      "更多信息请查看 <a href=\"https://github.com/goproxyio/goproxy\">goproxy 仓库</a>。"
+      "更多信息请查看 <a href=\"https://github.com/goproxyio/goproxy\">goproxy 仓库</a>。",
+      "如果你使用的 Go 版本>=1.13, 你可以通过设置 GOPRIVATE 环境变量来控制哪些私有仓库和依赖(公司内部仓库)不通过 proxy 来拉取，直接走本地，设置如下："
     ]
   },
   "highlights": [

@@ -1,16 +1,33 @@
+if (!window.Element.prototype.matches) {
+  window.Element.prototype.matches = window.Element.prototype.msMatchesSelector ||
+                              window.Element.prototype.webkitMatchesSelector
+}
+
+if (!window.Element.prototype.closest) {
+  window.Element.prototype.closest = function (s) {
+    var el = this
+
+    do {
+      if (el.matches(s)) return el
+      el = el.parentElement || el.parentNode
+    } while (el !== null && el.nodeType === 1)
+    return null
+  }
+}
+
 const copyBtns = document.querySelectorAll('.copy-btn')
 
 for (const btn of copyBtns) {
   btn.addEventListener('click', () => {
     const btnData = btn.dataset
-    let text = ''
 
-    if (btnData.text) {
-      text = btnData.text
-    } else {
-      const target = document.querySelector(btnData.target)
-      text = target.textContent
-    }
+    const container = btn.closest('figure')
+    if (!container) return
+
+    const target = container.querySelector('pre code')
+    if (!target) return
+
+    const text = target.textContent
 
     const fakeElem = document.createElement('textarea')
     // Avoid iPhone auto zooming

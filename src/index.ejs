@@ -64,12 +64,12 @@
     <div class="usage">
       <div class="wrapper">
         <p><%= localeData.usage.text[0] %></p>
-        <figure class="bash">
+        <figure>
           <figcaption>
             <span class="platform">
               Bash <span class="icon icon-linux"></span>/<span class="icon icon-macos"></span>
             </span>
-            <button class="copy-btn" data-target=".bash pre code" data-copied-text="<%= localeData.usage.copied %>">
+            <button class="copy-btn" data-copied-text="<%= localeData.usage.copied %>">
               <span class="icon icon-copy"></span>
               <span class="btn-text"><%= localeData.usage.copy %></span>
             </button>
@@ -88,7 +88,7 @@
             <span class="platform">
               PowerShell <span class="icon icon-windows"></span>
             </span>
-            <button class="copy-btn" data-target=".powershell pre code" data-copied-text="<%= localeData.usage.copied %>">
+            <button class="copy-btn" data-copied-text="<%= localeData.usage.copied %>">
               <span class="icon icon-copy"></span>
               <span class="btn-text"><%= localeData.usage.copy %></span>
             </button>
@@ -102,13 +102,16 @@
         </figure>
         <p><%= localeData.usage.text[3] %><%= localeData.usage.text[4] %></p>
         <p><%= localeData.usage.text[5] %></p>
-        <figure class="bash">
+        <figure>
           <figcaption>
             <span class="platform">
                 Go version >= 1.13
             </span>
+            <button class="copy-btn" data-copied-text="<%= localeData.usage.copied %>">
+              <span class="icon icon-copy"></span>
+              <span class="btn-text"><%= localeData.usage.copy %></span>
+            </button>
           </figcaption>
-         
         <div class="solarized-dark" style="color: rgba(0, 0, 0, 0.85);">
             <pre style="display: block; overflow-x: auto; padding: 7px; background-color: rgb(0, 43, 54); background-image: none; color: rgb(131, 148, 150);"
             ><code><span style="color: rgb(181, 137, 0);">go env -w GOPROXY=https://goproxy.io,direct</span>

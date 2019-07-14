@@ -24,6 +24,11 @@
           <%= localeData.site.name %>
         </div>
         <ul class="nav">
+          <% localeData.nav.forEach(function (item) { %>
+            <li>
+              <a href="<%= item.href %>" title="<%= item.title %>"><%= item.text %></a>
+            </li>
+          <% }) %>
           <li>
             <div class="select">
               <select class="lang-switch">

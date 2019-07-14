@@ -3,6 +3,9 @@
     "name": "GOPROXY.IO",
     "desc": "A Global Proxy for Go Modules"
   },
+  "nav": [
+    { "href": "/dl", "text": "Download Go", "title": "Go installation package mirrors" }
+  ],
   "hero": {
     "title": [
       "A Global Proxy",

@@ -4,7 +4,7 @@
     "desc": "A Global Proxy for Go Modules"
   },
   "nav": [
-    { "href": "/dl", "text": "Download Go", "title": "Go installation package mirrors" }
+    { "href": "https://gomirrors.org", "text": "Download Go", "title": "Go installation package mirrors" }
   ],
   "hero": {
     "title": [

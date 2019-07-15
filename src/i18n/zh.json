@@ -4,7 +4,7 @@
     "desc": "一个为 Go 模块而生的全球代理"
   },
   "nav": [
-    { "href": "/dl", "text": "下载 Go", "title": "Go 安装包镜像文件" }
+    { "href": "https://gomirrors.org", "text": "下载 Go", "title": "Go 安装包镜像文件" }
   ],
   "hero": {
     "title": [

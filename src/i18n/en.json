@@ -47,8 +47,8 @@
     },
     {
       "icon": "box",
-      "title": "Self Hosted",
-      "desc": "Instantly deploy it in your server or docker."
+      "title": "Checksum Database",
+      "desc": "Support sum.golang.org proxy."
     }
   ],
   "showcases": {

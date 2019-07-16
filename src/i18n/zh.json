@@ -47,8 +47,8 @@
     },
     {
       "icon": "box",
-      "title": "自我托管",
-      "desc": "可立即部署到自己的服务器或 Docker 上。"
+      "title": "支持官方sumdb",
+      "desc": "全面支持谷歌官方 sum.golang.org 的代理，无需任何配置。"
     }
   ],
   "showcases": {

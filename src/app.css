@@ -355,6 +355,10 @@ select {
     padding: 12px 16px;
   }
 
+  .header .nav li:not(:last-child) {
+    display: none;
+  }
+
   .hero .wrapper {
     flex-wrap: wrap;
   }

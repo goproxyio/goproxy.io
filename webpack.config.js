@@ -150,36 +150,43 @@ config.plugins.push(
   ])
 )
 
+const pages = [
+  'index',
+  'shop'
+]
+
 for (const localeName of localeNames) {
-  const filename = localeName === 'en' ? 'index.html' : `${localeName}/index.html`
-  config.plugins.push(
-    new HtmlWebpackPlugin({
-      filename,
-      template: 'src/index.ejs',
-      templateParameters: {
-        isProd,
-        thisYear: new Date().getFullYear(),
-        locales,
-        localeName,
-        localeData: localesData[localeName]
-      },
-      minify: {
-        collapseWhitespace: true,
-        keepClosingSlash: true,
-        minifyCSS: true,
-        minifyJS: true,
-        minifyURLs: true,
-        removeAttributeQuotes: true,
-        removeComments: true,
-        removeEmtpyAttributes: true,
-        removeOptionalTags: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
-      }
-    })
-  )
+  for (const page of pages) {
+    const filename = localeName === 'en' ? `${page}.html` : `${localeName}/${page}.html`
+    config.plugins.push(
+      new HtmlWebpackPlugin({
+        filename,
+        template: `src/${page}.ejs`,
+        templateParameters: {
+          isProd,
+          thisYear: new Date().getFullYear(),
+          locales,
+          localeName,
+          localeData: localesData[localeName]
+        },
+        minify: {
+          collapseWhitespace: true,
+          keepClosingSlash: true,
+          minifyCSS: true,
+          minifyJS: true,
+          minifyURLs: true,
+          removeAttributeQuotes: true,
+          removeComments: true,
+          removeEmtpyAttributes: true,
+          removeOptionalTags: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true
+        }
+      })
+    )
+  }
 }
 
 if (NODE_ENV !== 'development') {

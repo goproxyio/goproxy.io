@@ -1,9 +1,11 @@
 {
   "site": {
     "name": "GOPROXY.IO",
-    "desc": "A Global Proxy for Go Modules"
+    "desc": "A Global Proxy for Go Modules",
+    "baseUrl": "/"
   },
   "nav": [
+    { "href": "/shop.html", "text": "T-Shirt", "title": "GoProxy T-Shirt" },
     { "href": "https://gomirrors.org", "text": "Download Go", "title": "Go installation package mirrors" }
   ],
   "hero": {
@@ -53,6 +55,16 @@
   ],
   "showcases": {
     "title": "Who are using goproxy.io"
+  },
+  "product": {
+    "title": "goproxy.io T-Shirt",
+    "desc": "If your pull request is merged, you could obtain a T-Shirt.",
+    "products": [
+      {
+        "title": "goproxy.io T-Shirt (Black)",
+        "image": "/img/goproxy-tshirt.png"
+      }
+    ]
   },
   "footer": {
     "license": "Under the MIT License.",

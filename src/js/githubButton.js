@@ -14,14 +14,17 @@ function get (url, callback) {
   xhr.send()
 }
 
-get('https://api.github.com/repos/goproxyio/goproxy', (err, res) => {
-  if (err) {
-    console.error(err)
-  } else {
-    const data = JSON.parse(res)
-    const stars = data.stargazers_count
-    const countElem = document.querySelector('.gh-count')
-    countElem.textContent = stars
-    countElem.style.display = 'inline'
-  }
-})
+const countElem = document.querySelector('.gh-count')
+
+if (countElem) {
+  get('https://api.github.com/repos/goproxyio/goproxy', (err, res) => {
+    if (err) {
+      console.error(err)
+    } else {
+      const data = JSON.parse(res)
+      const stars = data.stargazers_count
+      countElem.textContent = stars
+      countElem.style.display = 'inline'
+    }
+  })
+}

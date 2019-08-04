@@ -1,9 +1,11 @@
 {
   "site": {
     "name": "GOPROXY.IO",
-    "desc": "一个为 Go 模块而生的全球代理"
+    "desc": "一个为 Go 模块而生的全球代理",
+    "baseUrl": "/zh/"
   },
   "nav": [
+    { "href": "/zh/shop.html", "text": "T-Shirt", "title": "GoProxy T-Shirt" },
     { "href": "https://gomirrors.org", "text": "下载 Go", "title": "Go 安装包镜像文件" }
   ],
   "hero": {
@@ -53,6 +55,16 @@
   ],
   "showcases": {
     "title": "谁在使用 goproxy.io"
+  },
+  "product": {
+    "title": "goproxy.io T-Shirt",
+    "desc": "如果你提交的 Pull Request 被合并，那么你可以获得一件 T-Shirt。",
+    "products": [
+      {
+        "title": "goproxy.io T-Shirt (黑)",
+        "image": "/img/goproxy-tshirt.png"
+      }
+    ]
   },
   "footer": {
     "license": "源码遵循 MIT 开源协议。",

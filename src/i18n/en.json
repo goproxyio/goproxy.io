@@ -5,7 +5,7 @@
     "baseUrl": "/"
   },
   "nav": [
-    { "href": "/shop.html", "text": "T-Shirt", "title": "GoProxy T-Shirt" },
+     { "href": "https://gosum.io", "text": "gosum.io", "title": "sumdb" },
     { "href": "https://gomirrors.org", "text": "Download Go", "title": "Go installation package mirrors" }
   ],
   "hero": {

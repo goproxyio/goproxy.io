@@ -5,7 +5,7 @@
     "baseUrl": "/zh/"
   },
   "nav": [
-    { "href": "/zh/shop.html", "text": "T-Shirt", "title": "GoProxy T-Shirt" },
+    { "href": "https://gosum.io", "text": "gosum.io", "title": "sumdb 校验数据库" },
     { "href": "https://gomirrors.org", "text": "下载 Go", "title": "Go 安装包镜像文件" }
   ],
   "hero": {

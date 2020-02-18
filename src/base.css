@@ -1,0 +1,33 @@
+@import "//at.alicdn.com/t/font_1211640_qzmvsiid949.css";
+@import "~normalize.css/normalize.css";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font: 16px/1.6 sans-serif;
+  background: #fefefe;
+  color: #333;
+}
+
+a {
+  color: #03A9F4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 900px;
+}

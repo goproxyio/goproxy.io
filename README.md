@@ -1,32 +1,63 @@
 # goproxy.io
 
-The goproxy.io source code.
+goproxy.io official site
 
-## Build
+## Prerequisites
 
-You should ensure the Node.js and npm have been installed.
+* Node
+* npm
+* gatsby-cli
 
-```shell
-# Install dependencies
-npm install
+### Install
 
-# Run the webpack to build
-# The bundle files will be output in `dist` directory
-npm run build
+```sh
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+
+# Node.js and npm has been integrated.
+nvm install stable
+
+# gatsby-cli
+npm i -g gatsby-cli
+
+# project dependencies
+cd goproxy.io
+npm i
 ```
 
 ## Development
 
-You should ensure the Node.js and npm have been installed.
-
-```shell
-# Install dependencies
-npm install
-
-# Start a local server at 127.0.0.1:8080
-npm start
+```sh
+npm run develop
 ```
 
-## License
+## Usage
 
-MIT.
+* Write English document in the `content/docs` directory.
+* Write Chinese document in the `content/zh/docs` directory.
+
+## Build
+
+```sh
+npm run clean
+npm run build
+```
+
+Then, all files are generated into the `public` directory.
+
+## Deploy
+
+Serve the `public` directory as root directory.
+
+### Configure the nginx for cors
+
+If your static files use a third domain, you need add the below code in the **`location`** section ([ref](https://enable-cors.org/)), or you need configure the cors in your cdn provider.
+
+```
+if ($request_method = 'GET') {
+   add_header 'Access-Control-Allow-Origin' '*';
+   add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+   add_header 'Access-Control-Allow-Headers' '*';
+   add_header 'Access-Control-Expose-Headers' '*';
+}
+```

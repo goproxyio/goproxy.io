@@ -1,0 +1,14 @@
+.wrapper {
+  padding: 32px 0 64px;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.user-map h3 {
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.user-map img {
+  max-width: 100%;
+}

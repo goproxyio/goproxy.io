@@ -1,0 +1,54 @@
+{
+  "name": "goproxy.io",
+  "title": "GOPROXY.IO - 一个全球代理 为 Go 模块而生",
+  "dateFormat": "YYYY年MM月DD日",
+  "nav": [
+    {
+      "url": "/zh/docs/introduction.html",
+      "title": "文档"
+    },
+    {
+      "url": "https://gomirrors.org",
+      "title": "下载 Go"
+    },
+    {
+      "url": "https://gosum.io",
+      "title": "gosum.io"
+    }
+  ],
+  "slogan": "一个全球代理\n为 Go 模块而生",
+  "features": [
+    {
+      "icon": "rocket",
+      "title": "极速",
+      "description": "分布于全球的代理服务器，包括拉斯维加斯、香港等区域。"
+    },
+    {
+      "icon": "server",
+      "title": "可靠",
+      "description": "企业级监控与报警，99.99% 运行时间可用性保证。"
+    },
+    {
+      "icon": "fork",
+      "title": "开源",
+      "description": "最活跃的的 Go 模块代理项目之一。"
+    },
+    {
+      "icon": "box",
+      "title": "支持官方sumdb",
+      "description": "全面支持谷歌官方 sum.golang.org 的代理，无需任何配置。"
+    }
+  ],
+  "userMapTitle": "谁在使用 goproxy.io",
+  "copyright": "源码遵循 MIT 开源协议。 Logo 版权归属于 goproxy.io。",
+  "notFound": {
+    "title": "404 不存在的页面",
+    "description": "抱歉，该页面不存在:)"
+  },
+  "doc": {
+    "postAt": "发布于",
+    "updateAt": "更新于",
+    "prev": "前一篇",
+    "next": "后一篇"
+  }
+}

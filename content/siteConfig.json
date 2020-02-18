@@ -1,0 +1,54 @@
+{
+  "name": "goproxy.io",
+  "title": "GOPROXY.IO - A Global Proxy for Go Modules",
+  "dateFormat": "YYYY-MM-DD",
+  "nav": [
+    {
+      "url": "/docs/introduction.html",
+      "title": "Document"
+    },
+    {
+      "url": "https://gomirrors.org",
+      "title": "Download Go"
+    },
+    {
+      "url": "https://gosum.io",
+      "title": "gosum.io"
+    }
+  ],
+  "slogan": "A Global Proxy\n for Go Modules",
+  "features": [
+    {
+      "icon": "rocket",
+      "title": "Fast",
+      "description": "Global proxy servers, including Las Vegas, Hong Kong etc."
+    },
+    {
+      "icon": "server",
+      "title": "Reliable",
+      "description": "Enterprise monitor and alert system. Promise 99.99% uptime SLA."
+    },
+    {
+      "icon": "fork",
+      "title": "Open Source",
+      "description": "One of most active go modules proxy projects."
+    },
+    {
+      "icon": "box",
+      "title": "Checksum Database",
+      "description": "Support sum.golang.org proxy."
+    }
+  ],
+  "userMapTitle": "Who are using goproxy.io",
+  "copyright": "Under the MIT License. Logo copyright belongs to goproxy.io.",
+  "notFound": {
+    "title": "404 Not Found",
+    "description": "Sorry, this page is not exist :)"
+  },
+  "doc": {
+    "postAt": "Post at",
+    "updateAt": "Updated at",
+    "prev": "Prev",
+    "next": "Next"
+  }
+}

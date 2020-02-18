@@ -1,0 +1,14 @@
+.footer {
+  padding: 50px 0 10px;
+  font-size: 14px;
+  text-align: center;
+  background: #004880;
+  color: #79acd2;
+  overflow: hidden;
+}
+
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}

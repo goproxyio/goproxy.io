@@ -1,0 +1,182 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: #004880;
+  color: #66a0cc;
+  z-index: 900;
+}
+
+.header a {
+  color: #66a0cc;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 900px;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.site-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 64px;
+  text-align: center;
+  z-index: -1;
+}
+
+.site-name a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-trigger {
+  order: -1;
+}
+
+.menu-trigger button {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  color: #fff;
+}
+
+.menu-trigger i {
+  font-size: 20px;
+}
+
+.menu {
+  display: none;
+  padding: 8px 16px;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu li {
+  border-bottom: 1px dotted #eee;
+}
+
+.menu a {
+  display: block;
+  padding: 12px 8px;
+}
+
+.menu-opened {
+  display: block;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #004880;
+}
+
+.select {
+  position: relative;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 4px 20px 4px 12px;
+  font-size: 16px;
+  line-height: 18px;
+  border: 0;
+  color: #66a0cc;
+  background: transparent;
+}
+
+.select .arrow {
+  position: absolute;
+  top: 11px;
+  right: 6px;
+  border: 4px solid transparent;
+  border-top-color: #66a0cc;
+}
+
+@media screen and (min-width: 960px) {
+  .site-name {
+    position: static;
+    z-index: 0;
+    width: initial;
+  }
+
+  .menu-trigger {
+    order: 0;
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .menu ul {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu li {
+    border-bottom: none;
+  }
+
+  .menu a {
+    display: block;
+    margin: 0 8px;
+    padding: 18px 12px;
+    position: relative;
+    transition: all .15s ease-in;
+  }
+
+  .menu a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    transform: scaleX(0);
+    transition: all .15s ease-in;
+  }
+
+  .menu a:hover {
+    color: #fff;
+    text-decoration: none;
+    transition: all .15s ease-out;
+  }
+  .menu a:hover::after {
+    transform: scaleX(1);
+    background: #fff;
+    transition: all .15s ease-out;
+  }
+}

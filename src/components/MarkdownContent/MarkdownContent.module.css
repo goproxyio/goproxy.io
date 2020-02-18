@@ -1,0 +1,102 @@
+.markdown-content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin: 1.25em 0 0.75em;
+}
+
+.markdown-content h1 {
+  font-size: 1.75em;
+}
+
+.markdown-content h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-content h3 {
+  font-size: 1.25em;
+}
+
+.markdown-content h4 {
+  font-size: 1em;
+}
+
+.markdown-content h5 {
+  font-size: .875em;
+}
+
+.markdown-content h6 {
+  font-size: .75em;
+}
+
+.markdown-content img {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.markdown-content a {
+  word-break: break-all;
+}
+
+.markdown-content blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.5em 1em;
+  border-left: 5px solid #ddd;
+  background: #f8f8f8;
+}
+
+.markdown-content blockquote p {
+  margin: 0;
+}
+
+.markdown-content p {
+  margin: 1em 0;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 1em 0 1em 1em;
+  padding: 0 0 0 1em;
+}
+
+.markdown-content li {
+  margin-bottom: .5em;
+  line-height: 1.6;
+}
+
+.markdown-content :not(pre) > code[class*="language-"] {
+  margin: 0 1px;
+  padding: 2px 5px;
+  line-height: 1;
+  border-radius: 2px;
+  white-space: normal;
+  background-color: #f2f2f2;
+  color: #444;
+}
+
+.markdown-content pre {
+  margin: 1em 0;
+  padding: 1em;
+  font-size: 0.875em;
+  border-radius: 4px;
+  background-color: #2b3a42;
+}
+
+.markdown-content pre > code {
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+  border: 0;
+  border-radius: 0;
+  white-space: pre;
+}

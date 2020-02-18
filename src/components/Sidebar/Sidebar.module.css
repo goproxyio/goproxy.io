@@ -1,0 +1,94 @@
+.container {
+  order: -1;
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    position: sticky;
+    top: 112px;
+    display: block;
+    margin: 48px 0;
+    width: 360px;
+    height: calc(100vh - 160px);
+    padding: 16px 16px 16px 64px;
+    border-right: 1px solid #e4e4e4;
+  }
+
+  .container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 1;
+  }
+
+  .container ul ul {
+    display: none;
+    margin: 0 0 16px 32px;
+    font-size: 14px;
+  }
+
+  .container .active > ul,
+  .container .opened > ul {
+    display: block;
+  }
+
+  .container li {
+    margin-bottom: 8px;
+  }
+
+  .container p {
+    margin: 0 0 8px;
+  }
+
+  .container a {
+    position: relative;
+    display: block;
+    padding: 12px 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .container ul p a {
+    padding-left: 32px;
+  }
+
+  .container ul ul a {
+    padding: 8px 12px;
+  }
+
+  .container a:hover {
+    text-decoration: none;
+  }
+
+  .container > ul > li > p a {
+    font-weight: 500;
+    border-right: 2px solid transparent;
+  }
+
+  .active > p a {
+    background: #f4f4f4;
+  }
+
+  .container > ul > .active > p a {
+    border-right-color: #03A9F4;
+  }
+
+  .has-sublist > p a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    margin-top: -4px;
+    height: 4px;
+    border: 4px solid transparent;
+    border-left-color: #03A9F4;
+    vertical-align: middle;
+  }
+
+  .opened > p a::before {
+    margin-top: -2px;
+    border-left-color: transparent;
+    border-top-color: #03A9F4;
+  }
+}

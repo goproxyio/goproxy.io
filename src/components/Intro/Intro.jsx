@@ -57,7 +57,7 @@ const Intro = ({ slogan }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className={`${styles.icon} ${styles.iconGithub} ${styles.ghIco}`}></span>
+                <span className={`iconfont icon-github ${styles.ghIco}`}></span>
                 <span className={styles.ghText}>Star</span>
               </a>
               <a

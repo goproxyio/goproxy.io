@@ -61,6 +61,16 @@ go get  +-------> |goproxy| +-------> |goproxy.io| +---> golang.org/x/net
 ./bin/goproxy -listen=0.0.0.0:80 -cacheDir=/tmp/test -proxy https://goproxy.io -exclude "git.corp.example.com,rsc.io/private"
 ```
 
+## 使用 docker 运行服务
+
+如果上面这些你感觉非常麻烦，可以直接用 docker hub 上编译好的镜像来运行这个服务：
+
+```
+docker run -d -p80:8081 goproxy/goproxy
+```
+
+这样服务就运行在本地的 80 端口服务上了。
+
 ## 测试
 
 在本地开发机上，通过环境变量将 proxy server 指定到你刚部署的服务器：

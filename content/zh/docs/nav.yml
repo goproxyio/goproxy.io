@@ -1,2 +1,4 @@
 - id: introduction
   title: 介绍
+- id: enterprise
+  title: 企业部署自己的 goproxy.io

@@ -1,0 +1,28 @@
+This is the official list of people who have contributed code to the [goproxy](https://github.com/goproxyio/goproxy) repository.
+
+## goproxy Contributors
+
+- 	[superryanguo](https://github.com/superryanguo)
+- 	[edoger](https://github.com/edoger)
+- 	[mmelnyk](https://github.com/mmelnyk)
+- 	[formych](https://github.com/formych)
+- 	[bastjan](https://github.com/bastjan)
+- 	[jsign](https://github.com/jsign)
+- 	[fancy-rabbit](https://github.com/fancy-rabbit)
+- 	[Senmumu](https://github.com/Senmumu)
+- 	[zjylx](https://github.com/zjylx)
+- 	[Alex1990](https://github.com/Alex1990)
+- 	[mr-tron](https://github.com/mr-tron)
+- 	[fitzix](https://github.com/fitzix)
+- 	[edwardpro](https://github.com/edwardpro)
+- 	[prologic](https://github.com/prologic)
+- 	[nafisfaysal](https://github.com/nafisfaysal)
+- 	[hxzhao527](https://github.com/hxzhao527)
+- 	[Yan1](https://github.com/Yan1)
+- 	[codeskyblue](https://github.com/codeskyblue)
+- 	[webboy89860](https://github.com/webboy89860)
+- 	[Jamlee](https://github.com/Jamlee)
+- 	[jostyee](https://github.com/jostyee)
+- 	[rmfish](https://github.com/rmfish)
+- 	[ianwoolf](https://github.com/ianwoolf)
+- 	[oiooj](https://github.com/oiooj)

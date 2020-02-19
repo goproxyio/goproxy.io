@@ -43,6 +43,10 @@
   max-width: 100%;
 }
 
+.markdown-content :global gatsby-resp-image-wrapper {
+  max-width: 100% !important;
+}
+
 .markdown-content a {
   word-break: break-all;
 }

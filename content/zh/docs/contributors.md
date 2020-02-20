@@ -23,6 +23,7 @@ This is the official list of people who have contributed code to the [goproxy](h
 - 	[oiooj](https://github.com/oiooj)
 - 	[prologic](https://github.com/prologic)
 - 	[rmfish](https://github.com/rmfish)
+- 	[schemacs](https://github.com/schemacs)
 - 	[Senmumu](https://github.com/Senmumu)
 - 	[superryanguo](https://github.com/superryanguo)
 - 	[webboy89860](https://github.com/webboy89860)

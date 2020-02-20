@@ -4,6 +4,8 @@
   title: Getting Started
 - id: GOPRIVATE-env
   title: GOPRIVATE Environment
+- id: GOSUMDB-env
+  title: GOSUMDB Environment
 - id: contributors
   title: Contributors
 - id: contact-us

@@ -1,6 +1,6 @@
 ![contributors](/images/contributors.png)
 
-This is the official list of people who have contributed code to the [goproxy](https://github.com/goproxyio/goproxy) repository.
+This is the official list of people who have contributed code to the [goproxy](https://github.com/goproxyio/) repository.
 
 ## goproxy Contributors
 
@@ -28,3 +28,9 @@ This is the official list of people who have contributed code to the [goproxy](h
 - 	[webboy89860](https://github.com/webboy89860)
 - 	[Yan1](https://github.com/Yan1)
 - 	[zjylx](https://github.com/zjylx)
+
+## Get a "No deploy friedys" T-shirt
+
+If your [pull request](https://github.com/goproxyio/) is merged on github, or you post a story on [GopherChina Community](https://gocn.vip/) to share how you use this service, just [send me an email](/docs/contact-us.html) and you will get a "No deploy friedys" T-shirt.
+
+![t-shirt](/images/goproxy-tshirt.png)

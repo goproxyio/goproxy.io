@@ -1,5 +1,5 @@
 ---
-title: Go Module GOPRIVATE Environment
+title: GOPRIVATE Environment
 ---
 
 The go command defaults to downloading modules from the public Go module

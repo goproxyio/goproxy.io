@@ -1,5 +1,7 @@
 - id: introduction
   title: Introduction
+- id: getting-started
+  title: Getting Started
 - id: GOPRIVATE-env
   title: GOPRIVATE Environment
 - id: contributors

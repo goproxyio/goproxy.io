@@ -4,7 +4,7 @@ title: "快速上手"
 
 ## 开启 Go module 功能
 
-Go module 功能需要您的 go 版本在 go 1.11 及以上， [点击下载](https://golang.google.cn/dl/)最新的 Go 版本。开启 Go module 功能只需配置一个环境变量。
+Go module 功能需要您的 go 版本在 go 1.11 及以上， [点击下载最新的 Go 版本](https://golang.google.cn/dl/)。开启 Go module 功能只需配置一个环境变量。
 
 **Mac/Linux**
 

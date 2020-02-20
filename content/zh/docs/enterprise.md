@@ -1,4 +1,6 @@
-# 部署公司内部自己的 goproxy.io 服务
+---
+title: 部署公司内部自己的 goproxy.io 服务
+---
 
 ![golang](/images/code1.jpg)
 

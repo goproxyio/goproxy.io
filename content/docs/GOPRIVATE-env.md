@@ -1,4 +1,6 @@
-# Go Module GOPRIVATE Environment
+---
+title: Go Module GOPRIVATE Environment
+---
 
 The go command defaults to downloading modules from the public Go module
 mirror at goproxy.io. It also defaults to validating downloaded modules,

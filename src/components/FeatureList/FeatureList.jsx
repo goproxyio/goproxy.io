@@ -1,25 +1,67 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import styles from './FeatureList.module.css'
+// TODO: extract a single Wrapper component
+// TODO: extract theme color configuration into siteConfig.json
+// TODO: extract media query rules
+const Wrapper = styled.section`
+  margin: 0 auto;
+  padding: 30px 16px;
+  max-width: 900px;
+
+  @media (min-width: 960px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 900px;
+  }
+`
+
+const Icon = styled.i`
+  font-size: 72px;
+  line-height: 1;
+  color: #03A9F4;
+`
+
+const Title = styled.h4`
+  margin: 1em 0;
+  font-size: 24px;
+  line-height: 1;
+  color: #03A9F4;
+`
+
+const Description = styled.p`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+  color: #666;
+`
+
+const FeatureItem = styled.div`
+  margin-top: 40px;
+  text-align: center;
+
+  @media (min-width: 960px) {
+    margin: 0 40px;
+    padding-top: 50px;
+    width: 300px;
+  }
+`
 
 const FeatureList = ({ features }) => {
   const list = features.map((datum, index) => (
-    <div className={styles.item} key={index}>
-      <div className={styles.image}>
-        <i className={`iconfont icon-${datum.icon}`}></i>
-      </div>
-      <div className={styles.content}>
-        <h4>{datum.title}</h4>
-        <p>{datum.description}</p>
-      </div>
-    </div>
+    <FeatureItem key={index}>
+      <Icon className={`iconfont icon-${datum.icon}`}></Icon>
+      <Title>{datum.title}</Title>
+      <Description>{datum.description}</Description>
+    </FeatureItem>
   ))
 
   return (
-    <div className={styles.featureList}>
-      <div className={styles.wrapper}>
+    <div>
+      <Wrapper>
         {list}
-      </div>
+      </Wrapper>
     </div>
   )
 }

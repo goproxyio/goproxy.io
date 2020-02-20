@@ -8,11 +8,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import '../../base.css'
-import styles from './Layout.module.css'
+
+// TODO: use more precise computation
+const Main = styled.main`
+  min-height: calc(100vh - 340px);
+`
 
 const Layout = ({ siteConfig, location, children }) => {
   const data = useStaticQuery(graphql`
@@ -28,7 +33,7 @@ const Layout = ({ siteConfig, location, children }) => {
   return (
     <>
       <Header siteConfig={siteConfig} location={location} siteName={data.site.siteMetadata.name} />
-      <main className={styles.main}>{children}</main>
+      <Main>{children}</Main>
       <Footer siteConfig={siteConfig} />
     </>
   )

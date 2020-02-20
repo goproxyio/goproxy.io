@@ -1,9 +1,9 @@
 import React from 'react'
 
 import './prism.css'
-import styles from './MarkdownContent.module.css'
+import './MarkdownContent.css'
 
 const MarkdownContent = ({ html }) =>
-  <div className={styles.markdownContent} dangerouslySetInnerHTML={{ __html: html }} />
+  <div className="markdown-content" dangerouslySetInnerHTML={{ __html: html }} />
 
 export default MarkdownContent

@@ -1,18 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import styles from './Footer.module.css'
+const Container = styled.footer`
+  padding: 50px 0 10px;
+  font-size: 14px;
+  text-align: center;
+  background: #004880;
+  color: #79acd2;
+  overflow: hidden;
+`
+
+const Wrapper = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+`
 
 const Footer = ({ siteConfig }) => {
   const { name, copyright } = siteConfig
   return (
-    <footer className={styles.footer}>
-      <div className={styles.wrapper}>
-        <p className={styles.copyright}>
+    <Container>
+      <Wrapper>
+        <p>
           © {new Date().getFullYear()} {name} {copyright}
         </p>
-      </div>
-    </footer>
+      </Wrapper>
+    </Container>
   )
 }
 

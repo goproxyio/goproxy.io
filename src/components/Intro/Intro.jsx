@@ -1,9 +1,141 @@
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import ajax from 'micell/ajax'
 import Trianglify from 'trianglify'
 
 import animLogo from '../../images/anim-logo.svg'
-import styles from './Intro.module.css'
+
+const Container = styled.div`
+  position: relative;
+  background: #004880;
+  color: #fff;
+`
+
+const Wrapper = styled.div`
+  padding: 32px 16px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  @media (min-width: 960px) {
+    display: flex;
+    justify-content: center;
+  }
+`
+
+const Aside = styled.aside`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 960px) {
+    margin-right: 32px;
+    width: 256px;
+  }
+`
+
+const Main = styled.div`
+  @media (min-width: 960px) {
+    margin-left: -16px;
+    text-align: left;
+  }
+`
+
+const Title = styled.h2`
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 64px;
+  color: #B3E5FC;
+`
+
+const GithubButtonWrapper = styled.span`
+  display: inline-flex;
+  align-items: center;
+`
+
+const GithubButton = styled.a`
+  padding: 2px 5px 2px 4px;
+  font: 700 16px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  line-height: 20px;
+  background-color: #eee;
+  background-image: -webkit-linear-gradient(top,#fcfcfc 0,#eee 100%);
+  background-image: -moz-linear-gradient(top,#fcfcfc 0,#eee 100%);
+  background-image: -ms-linear-gradient(top,#fcfcfc 0,#eee 100%);
+  background-image: linear-gradient(to bottom,#fcfcfc 0,#eee 100%);
+  background-repeat: no-repeat;
+  border: 1px solid #d5d5d5;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(top,#eee 0,#ddd 100%);
+    background-image: -moz-linear-gradient(top,#eee 0,#ddd 100%);
+    background-image: -ms-linear-gradient(top,#eee 0,#ddd 100%);
+    background-image: linear-gradient(to bottom,#eee 0,#ddd 100%);
+    border-color: #ccc;
+  }
+
+  &:active {
+    background-image: none;
+    background-color: #dcdcdc;
+    border-color: #b5b5b5;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,.15)
+  }
+`
+
+const GithubIcon = styled.i`
+  margin-right: 4px;
+`
+
+const GithubCount = styled.a`
+  padding: 2px 5px 2px 4px;
+  font: 700 16px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 4px;
+  position: relative;
+  display: ${props => props.count > 0 ? 'inline' : 'none'};
+  margin-left: 6px;
+  padding: 3px 10px 3px 8px;
+  line-height: 18px;
+  background-color: #fafafa;
+  border: 1px solid #d4d4d4;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid
+  }
+
+  &::before {
+    top: 50%;
+    left: -5px;
+    margin-top: -6px;
+    border-width: 6px 6px 6px 0;
+    border-right-color: #fafafa
+  }
+`
 
 const Intro = ({ slogan }) => {
   const [count, setCount] = useState(0)
@@ -42,37 +174,35 @@ const Intro = ({ slogan }) => {
     </div>
   ))
   return (
-    <div id="intro" className={styles.intro}>
-      <div className={styles.wrapper}>
-        <div className={styles.aside}>
+    <Container id="intro">
+      <Wrapper>
+        <Aside>
           <img src={animLogo} width="200" alt="Logo" />
-        </div>
-        <div className={styles.main}>
-          <h1>{title}</h1>
-          <p className={styles.links}>
-            <span className={styles.githubBtn}>
-              <a
-                className={styles.ghBtn}
+        </Aside>
+        <Main>
+          <Title>{title}</Title>
+          <p>
+            <GithubButtonWrapper>
+              <GithubButton
                 href="https://github.com/goproxyio/goproxy"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className={`iconfont icon-github ${styles.ghIco}`}></span>
-                <span className={styles.ghText}>Star</span>
-              </a>
-              <a
+                <GithubIcon className={`iconfont icon-github`}></GithubIcon>
+                <span>Star</span>
+              </GithubButton>
+              <GithubCount
                 id="ghCount"
-                className={styles.ghCount}
-                style={{ display: count > 0 ? 'inline' : 'none' }}
+                count={count}
                 href="https://github.com/goproxyio/goproxy"
                 target="_blank"
                 rel="noopener noreferrer"
-              >{count}</a>
-            </span>
+              >{count}</GithubCount>
+            </GithubButtonWrapper>
           </p>
-        </div>
-      </div>
-    </div>
+        </Main>
+      </Wrapper>
+    </Container>
   )
 }
 

@@ -12,7 +12,7 @@ const Container = styled.div`
     position: sticky;
     top: 112px;
     display: block;
-    margin: 48px 0;
+    margin: 36px 0;
     width: 360px;
     height: calc(100vh - 160px);
     padding: 16px 16px 16px 64px;

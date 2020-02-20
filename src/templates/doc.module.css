@@ -1,5 +1,4 @@
 .doc {
-  margin-top: 24px;
   display: flex;
   flex-direction: column;
   padding: 0 16px;
@@ -88,7 +87,7 @@
     display: block;
     order: 1;
     width: 240px;
-    margin-top: 48px;
+    margin-top: 36px;
     min-height: 100px;
     max-height: calc(100vh - 112px);
     overflow: auto;
@@ -128,7 +127,7 @@
   }
 
   .entry {
-    margin: 48px 0;
+    margin: 36px 0;
     width: 100%;
     max-width: 900px;
     padding: 0 32px;

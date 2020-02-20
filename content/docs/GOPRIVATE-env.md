@@ -1,7 +1,7 @@
-# Go Module GOPRIVATE Environments
+# Go Module GOPRIVATE Environment
 
 The go command defaults to downloading modules from the public Go module
-mirror at proxy.golang.org. It also defaults to validating downloaded modules,
+mirror at goproxy.io. It also defaults to validating downloaded modules,
 regardless of source, against the public Go checksum database at sum.golang.org.
 These defaults work well for publicly available source code.
 

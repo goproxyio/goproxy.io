@@ -189,7 +189,7 @@ exports.createPages = ({ graphql, actions }) => {
   addSiblingNodes(createNodeField)
 
   return new Promise((resolve, reject) => {
-    const docPage = path.resolve('src/templates/doc.jsx')
+    const docPage = path.resolve('src/templates/doc.tsx')
     resolve(
       graphql(
         `

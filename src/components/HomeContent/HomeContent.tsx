@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import MarkdownContent from '../MarkdownContent/MarkdownContent'
@@ -14,16 +13,16 @@ const Wrapper = styled.div`
   max-width: 900px;
 `
 
-const HomeContent = ({ html }) => (
+interface HomeContentProps {
+  html: string
+}
+
+const HomeContent = ({ html }: HomeContentProps) => (
   <Container>
     <Wrapper>
       <MarkdownContent html={html} />
     </Wrapper>
   </Container>
 )
-
-HomeContent.propTypes = {
-  html: PropTypes.string.isRequired
-}
 
 export default HomeContent

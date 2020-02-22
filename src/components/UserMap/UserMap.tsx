@@ -18,8 +18,11 @@ const Image = styled.img`
   max-width: 100%;
 `
 
+interface UserMapProps {
+  title: string
+}
 
-const UserMap = ({ title }) => (
+const UserMap = ({ title }: UserMapProps) => (
   <div>
     <Wrapper>
       <Title>{ title }</Title>

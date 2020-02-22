@@ -4,7 +4,11 @@ import Layout from "../components/Layout/Layout"
 import SEO from "../components/SEO/SEO"
 import { getSiteConfig } from "../utils"
 
-const NotFoundPage = ({ location }) => {
+interface NotFoundPageProps {
+  location: Location
+}
+
+const NotFoundPage = ({ location }: NotFoundPageProps) => {
   const siteConfig = getSiteConfig(location.pathname)
   return (
     <Layout siteConfig={siteConfig} location={location}>

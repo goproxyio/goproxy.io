@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/SEO/SEO'
@@ -9,7 +9,41 @@ import FeatureList from '../components/FeatureList/FeatureList'
 import UserMap from '../components/UserMap/UserMap'
 import { getSiteConfig } from '../utils'
 
-const IndexPage = ({ data, location }) => {
+interface Frontmatter {
+  title: string
+  author?: string
+  toc?: boolean
+  createdAt?: string
+  updatedAt?: string
+}
+
+interface Fields {
+  type: string
+  createdAt?: string
+  updatedAt?: string
+  prevSlug?: string
+  prevTitle?: string
+  nextSlug?: string
+  nextTitle?: string
+}
+
+interface MarkdownRemark {
+  html: string
+  frontmatter: Frontmatter
+  tableOfContents: string
+  fields: Fields
+}
+
+interface PageData {
+  markdownRemark: MarkdownRemark
+}
+
+interface IndexPageProps {
+  data: PageData
+  location: Location
+}
+
+const IndexPage = ({ data, location }: IndexPageProps) => {
   const siteConfig = getSiteConfig(location.pathname)
   const { title, slogan, features, userMapTitle } = siteConfig
   return (

@@ -1,10 +1,10 @@
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styled from 'styled-components'
 import React from 'react'
 import _ from 'lodash'
 import { useMediaQuery } from 'react-responsive'
+import { DocsNavNode } from '../../utils/getSidebarData'
 
 const Container = styled.div`
   order: -1;
@@ -42,11 +42,17 @@ const TreeNodeList = styled.ul`
   }
 `
 
+interface TreeNodeProps {
+  opened: boolean
+  active: boolean
+  hasSublist: boolean
+}
+
 const TreeNode = styled.li`
   @media (min-width: 960px) {
     margin-bottom: 8px;
 
-    ${props => props.hasSublist ? `
+    ${(props: TreeNodeProps) => props.hasSublist ? `
       & p a::before {
         content: '';
         position: absolute;
@@ -60,14 +66,14 @@ const TreeNode = styled.li`
       }
     ` : ''}
 
-    ${props => props.opend ? `
+    ${(props: TreeNodeProps) => props.opened ? `
       margin-top: -2px;
       border-left-color: transparent;
       border-top-color: #03A9F4;
     ` : ''}
 
     & ul {
-      display: ${props => props.isActive || props.hasActive ? 'block' : 'none'};
+      display: ${(props: TreeNodeProps) => props.active || props.opened ? 'block' : 'none'};
       margin: 0 0 16px 32px;
       font-size: 14px;
     }
@@ -84,6 +90,10 @@ const Text = styled.p`
   }
 `
 
+interface AnchorProps {
+  active: boolean
+}
+
 const Anchor = styled(Link)`
   @media (min-width: 960px) {
     position: relative;
@@ -92,7 +102,7 @@ const Anchor = styled(Link)`
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    background: ${props => props.active  ? '#f4f4f4' : 'transparent'};
+    background: ${(props: AnchorProps) => props.active  ? '#f4f4f4' : 'transparent'};
 
     &:hover {
       text-decoration: none;
@@ -100,19 +110,27 @@ const Anchor = styled(Link)`
   }
 `
 
+interface SidebarProps {
+  location: Location
+  nav: DocsNavNode
+}
+
 // TODO: need a react tree component
-const Sidebar = ({ nav, location }) => {
-  const initNavData = (tree) => {
-    tree.children.forEach((node, index) => {
+const Sidebar = ({ location, nav }: SidebarProps) => {
+  const initNavData = (tree: DocsNavNode) => {
+    if (!tree.children) return
+    tree.children.forEach((node: DocsNavNode, index: number) => {
       const { path, url, children } = node
       const { pathname } = location
       const trimSlashPath = pathname.replace(/(.)\/$/, '$1')
       node.isActive = trimSlashPath === url
-      path.forEach(item => {
-        if (!item.hasActive) {
-          item.hasActive = node.isActive
-        }
-      })
+      if (path) {
+        path.forEach((item: DocsNavNode) => {
+          if (!item.hasActive) {
+            item.hasActive = node.isActive
+          }
+        })
+      }
       if (children) {
         initNavData(node)
       }
@@ -120,11 +138,11 @@ const Sidebar = ({ nav, location }) => {
   }
   const navData = _.cloneDeep(nav)
   initNavData(navData)
-  const getList = (tree) => {
+  const getList = (tree: DocsNavNode) => {
     if (Array.isArray(tree.children) && tree.children.length > 0) {
       return (
         <TreeNodeList>
-          {tree.children.map((node, index) => {
+          {tree.children.map((node: DocsNavNode, index: number) => {
             const { url, title, children, isActive, hasActive } = node
             const cls = classNames({
               active: isActive,
@@ -135,12 +153,12 @@ const Sidebar = ({ nav, location }) => {
               <TreeNode
                 key={index}
                 className={cls}
-                active={isActive}
-                opened={hasActive}
+                active={Boolean(isActive)}
+                opened={Boolean(hasActive)}
                 hasSublist={Boolean(children)}
               >
                 <Text>
-                  <Anchor active={isActive} to={url}>{title}</Anchor>
+                  <Anchor active={Boolean(isActive)} to={String(url)}>{title}</Anchor>
                 </Text>
                 {sublist}
               </TreeNode>
@@ -166,15 +184,6 @@ const Sidebar = ({ nav, location }) => {
       }
     </Container>
   )
-}
-
-Sidebar.propTypes = {
-  nav: PropTypes.shape({
-    children: PropTypes.arrayOf(PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired
-    })).isRequired
-  }).isRequired
 }
 
 export default Sidebar

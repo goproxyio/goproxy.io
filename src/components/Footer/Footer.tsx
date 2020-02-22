@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { SiteConfig } from '../../utils'
 
 const Container = styled.footer`
   padding: 50px 0 10px;
@@ -17,7 +18,11 @@ const Wrapper = styled.div`
   padding: 0 16px;
 `
 
-const Footer = ({ siteConfig }) => {
+interface FooterProps {
+  siteConfig: SiteConfig
+}
+
+const Footer = ({ siteConfig }: FooterProps) => {
   const { name, copyright } = siteConfig
   return (
     <Container>

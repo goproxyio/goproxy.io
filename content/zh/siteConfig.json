@@ -47,7 +47,7 @@
   },
   "doc": {
     "postAt": "发布于",
-    "updateAt": "更新于",
+    "updatedAt": "更新于",
     "prev": "前一篇",
     "next": "后一篇"
   }

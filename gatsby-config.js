@@ -7,9 +7,6 @@ module.exports = {
     author: '@lodastack.com',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-lodash',
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
@@ -18,6 +15,9 @@ module.exports = {
         // allExtensions: true
       }
     },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-lodash',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

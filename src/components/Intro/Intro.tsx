@@ -96,6 +96,10 @@ const GithubIcon = styled.i`
   margin-right: 4px;
 `
 
+interface GithubCountProps {
+  count: number
+}
+
 const GithubCount = styled.a`
   padding: 2px 5px 2px 4px;
   font: 700 16px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -106,7 +110,7 @@ const GithubCount = styled.a`
   cursor: pointer;
   border-radius: 4px;
   position: relative;
-  display: ${props => props.count > 0 ? 'inline' : 'none'};
+  display: ${(props: GithubCountProps) => props.count > 0 ? 'inline' : 'none'};
   margin-left: 6px;
   padding: 3px 10px 3px 8px;
   line-height: 18px;
@@ -137,17 +141,31 @@ const GithubCount = styled.a`
   }
 `
 
-const Intro = ({ slogan }) => {
+interface IntroProps {
+  slogan: string
+}
+
+interface RepoResponse {
+  stargazers_count: number
+}
+
+interface AjaxResult {
+  response?: RepoResponse
+}
+
+const Intro = ({ slogan }: IntroProps) => {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
     const countElem = document.getElementById('ghCount')
     if (countElem) {
       ajax('https://api.github.com/repos/goproxyio/goproxy')
-        .then(({ response }) => {
-          setCount(response.stargazers_count)
+        .then(({ response }: AjaxResult) => {
+          if (response) {
+            setCount(response.stargazers_count)
+          }
         })
-        .catch((err) => {
+        .catch((err: Error) => {
           console.error(err)
         })
     }

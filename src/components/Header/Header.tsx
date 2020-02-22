@@ -1,10 +1,9 @@
 import { Link, navigate } from 'gatsby'
-import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, SyntheticEvent } from 'react'
 import styled from 'styled-components'
 import isAbsoluteUrl from 'micell/url/isAbsolute'
 import locales from '../../../content/locales.json'
-import { getLocale } from '../../utils'
+import { SiteConfig, getLocale } from '../../utils'
 
 const defaultLocale = 'en'
 
@@ -117,12 +116,16 @@ const SelectArrow = styled.span`
   border-top-color: #66a0cc;
 `
 
+interface MenuProps {
+  opened: boolean
+}
+
 // TODO: extract a menu component
-const  Menu = styled.nav`
+const Menu = styled.nav`
   display: none;
   padding: 8px 16px;
 
-  ${props => props.opened ? `
+  ${(props: MenuProps) => props.opened ? `
     display: block;
     position: fixed;
     top: 64px;
@@ -195,13 +198,19 @@ const MenuItem = styled.li`
   }
 `
 
-const Header = ({ location, siteConfig }) => {
+interface HeaderProps {
+  location: Location
+  siteConfig: SiteConfig
+}
+
+const Header = ({ location, siteConfig }: HeaderProps) => {
   const [opened, setOpened] = useState(false)
   const initLocale = getLocale(location.pathname)
   const [locale, setLocale] = useState(initLocale)
   const toggleOpened = () => setOpened(!opened)
-  const toggleLocale = (e) => {
-    setLocale(e.target.value)
+  const toggleLocale = (e: SyntheticEvent) => {
+    const target = e.target as HTMLSelectElement
+    setLocale(target.value)
   }
 
   useEffect(() => {
@@ -245,7 +254,7 @@ const Header = ({ location, siteConfig }) => {
         <Main>
           <Menu opened={opened}>
             <MenuList>
-              {siteConfig.nav.map((item, index) =>
+              {siteConfig.nav.map((item, index: number) =>
                 <MenuItem key={index}>
                   {isAbsoluteUrl(item.url) ?
                     <a
@@ -274,14 +283,6 @@ const Header = ({ location, siteConfig }) => {
       </Wrapper>
     </Container>
   )
-}
-
-Header.propTypes = {
-  siteName: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteName: ``,
 }
 
 export default Header

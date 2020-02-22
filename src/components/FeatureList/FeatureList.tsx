@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Feature } from '../../utils'
 
 // TODO: extract a single Wrapper component
 // TODO: extract theme color configuration into siteConfig.json
@@ -48,7 +49,11 @@ const FeatureItem = styled.div`
   }
 `
 
-const FeatureList = ({ features }) => {
+interface FeatureListProps {
+  features: Feature[]
+}
+
+const FeatureList = ({ features }: FeatureListProps) => {
   const list = features.map((datum, index) => (
     <FeatureItem key={index}>
       <Icon className={`iconfont icon-${datum.icon}`}></Icon>

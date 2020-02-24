@@ -2,7 +2,24 @@ const path = require('path')
 const _ = require('lodash')
 const axios = require('axios')
 const moment = require('moment')
+const pkg = require('./package.json')
 const locales = require('./content/locales.json')
+
+const getRepoBrowserUrl = repo => {
+  if (!repo || !repo.url) return ''
+  let browserUrl = repo.url
+  if (browserUrl.indexOf('git') === 0) {
+    browserUrl = browserUrl.replace(/:/, '/')
+    browserUrl = browserUrl.replace(/git@/, 'https://')
+  }
+  browserUrl = browserUrl.replace(/\.git$/, '')
+  return browserUrl
+}
+
+const browserUrl = getRepoBrowserUrl(pkg.repository)
+const branch = 'master'
+const contentUrl = path.join(browserUrl, 'blob', branch, 'content')
+const getSourceFileUrl = relativePath => path.join(contentUrl, relativePath)
 
 const docNodes = []
 const docNodesBySlug = {}
@@ -133,8 +150,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       }
     }
 
+    const sourceFileUrl = getSourceFileUrl(fileNode.relativePath)
+
     createNodeField({ node, name: 'type', value: type })
     createNodeField({ node, name: 'slug', value: slug })
+    createNodeField({ node, name: 'sourceFileUrl', value: sourceFileUrl })
     docNodes.push(node)
     docNodesBySlug[slug] = node
   }
@@ -158,6 +178,7 @@ exports.createSchemaCustomization = ({ type, actions }) => {
     type Fields {
       type: String!
       slug: String!
+      sourceFileUrl: String
       createdAt: Date
       updatedAt: Date
       prevSlug: String

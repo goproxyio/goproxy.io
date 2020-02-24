@@ -48,6 +48,7 @@
   "doc": {
     "postAt": "Post at",
     "updatedAt": "Updated at",
+    "edit": "Edit",
     "prev": "Prev",
     "next": "Next"
   }

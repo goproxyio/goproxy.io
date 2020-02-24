@@ -24,6 +24,7 @@ interface Fields {
   type: string
   createdAt?: string
   updatedAt?: string
+  sourceFileUrl?: string
   prevSlug?: string
   prevTitle?: string
   nextSlug?: string
@@ -104,6 +105,9 @@ const CreateDate = styled.time`
 
 const Bottom = styled.div`
   margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 const UpdateDateLabel = styled.span`
@@ -112,8 +116,16 @@ const UpdateDateLabel = styled.span`
   color: #444;
 `
 
-const UpdateDate = styled.time`
+const UpdateDateValue = styled.time`
   color: #777;
+`
+
+const EditLink = styled.a`
+  color: #777;
+
+  &:hover {
+    color: #333;
+  }
 `
 
 const DocNav = styled.div`
@@ -201,7 +213,7 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
   const docNode = data.markdownRemark
   const { html, frontmatter, tableOfContents, fields } = docNode
   const { title, author, toc } = frontmatter
-  const { type, createdAt, updatedAt, prevSlug, prevTitle, nextSlug, nextTitle } = fields
+  const { type, createdAt, updatedAt, sourceFileUrl, prevSlug, prevTitle, nextSlug, nextTitle } = fields
   const tocEl: Ref<HTMLDivElement> = useRef(null)
   useEffect(() => {
     if (tocEl.current === null) return
@@ -251,6 +263,11 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
     }
   })
 
+  let bottomJustifyContent = 'flex-end'
+  if (frontmatter.updatedAt && updatedAt) {
+    bottomJustifyContent = 'space-between'
+  }
+
   let justifyContent = 'flex-start'
   if (prevSlug && nextSlug) {
     justifyContent = 'space-between'
@@ -258,7 +275,6 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
   if (!prevSlug && nextSlug) {
     justifyContent = 'flex-end'
   }
-  console.log(frontmatter)
 
   return (
     <Layout siteConfig={siteConfig} location={location}>
@@ -276,13 +292,22 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
             </div>
           )}
           <MarkdownContent html={html} />
-          {frontmatter.updatedAt && updatedAt &&
-            <Bottom>
-              <UpdateDateLabel>{doc.updatedAt}</UpdateDateLabel>
-              <UpdateDate dateTime={updatedAt}>
-                {formatDate(new Date(updatedAt), dateFormat)}
-              </UpdateDate>
-            </Bottom>}
+          <Bottom style={{ justifyContent: bottomJustifyContent }}>
+            {frontmatter.updatedAt && updated &&
+              <div>
+                <UpdateDateLabel>{doc.updatedAt}</UpdateDateLabel>
+                <UpdateDateValue dateTime={updatedAt}>
+                  {formatDate(new Date(updatedAt), dateFormat)}
+                </UpdateDateValue>
+              </div>}
+            {sourceFileUrl &&
+              <EditLink
+                href={sourceFileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >{doc.edit}</EditLink>
+            }
+          </Bottom>
           {(prevSlug || nextSlug) && (
             <DocNav style={{ justifyContent }}>
               {prevSlug ?
@@ -332,6 +357,7 @@ export const pageQuery = graphql`
       }
       fields {
         type
+        sourceFileUrl
         createdAt
         updatedAt
         prevSlug

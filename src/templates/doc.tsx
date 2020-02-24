@@ -1,6 +1,7 @@
 import { graphql, Link } from 'gatsby'
 import React, { Ref, useRef, useEffect } from 'react'
 import _ from 'lodash'
+import styled from 'styled-components'
 import scrollY from 'micell/dom/scrollY'
 import scrollTo from 'micell/dom/scrollTo'
 import formatDate from 'micell/date/format'
@@ -9,7 +10,6 @@ import SEO from '../components/SEO/SEO'
 import Sidebar from '../components/Sidebar/Sidebar'
 import MarkdownContent from '../components/MarkdownContent/MarkdownContent'
 import getSidebarData from '../utils/getSidebarData'
-import styles from './doc.module.css'
 import { SiteConfig, getSiteConfig, getLocale } from '../utils'
 
 interface Frontmatter {
@@ -45,6 +45,153 @@ interface DocTemplateProps {
   data: PageData
   location: Location
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 0 16px;
+
+  @media (min-width: 960px) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 0;
+  }
+`
+
+const Entry = styled.div`
+  @media (min-width: 960px) {
+    margin: 36px 0;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 32px;
+  }
+`
+
+const Summary = styled.summary`
+  padding: 8px;
+  background: #f4f4f4;
+  color: #03A9F4;
+
+  @media (min-width: 960px) {
+    padding: 8px;
+    background: transparent;
+    outline: 0;
+    user-select: none;
+  }
+`
+
+const Title = styled.h1`
+  border-bottom: 2px solid #eee;
+
+  @media (min-width: 960px) {
+    margin-top: 0;
+    padding-bottom: 8px;
+  }
+`
+
+const Author = styled.span`
+  margin-right: 4px;
+  font-weight: 700;
+`
+
+const CreateDate = styled.time`
+  margin-left: 4px;
+  color: #777;
+`
+
+const Bottom = styled.div`
+  margin-top: 32px;
+`
+
+const UpdateDateLabel = styled.span`
+  margin-right: 8px;
+  font-weight: 500;
+  color: #444;
+`
+
+const UpdateDate = styled.time`
+  color: #777;
+`
+
+const DocNav = styled.div`
+  margin: 32px 0 16px;
+  border-top: 1px solid #eee;
+  text-align: center;
+
+  @media (min-width: 960px) {
+    display: flex;
+  }
+`
+
+const DocNavItem = styled.div`
+  padding: 32px 0 8px;
+`
+
+const NavLabel = styled.div`
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #777;
+`
+
+const NavTitle = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+`
+
+const Toc = styled.div`
+  display: none;
+
+  @media (min-width: 960px) {
+    position: sticky;
+    top: 112px;
+    display: block;
+    order: 1;
+    width: 240px;
+    margin-top: 36px;
+    min-height: 100px;
+    max-height: calc(100vh - 112px);
+    overflow: auto;
+    border-left: 1px solid #e4e4e4;
+    font-size: 14px;
+
+    & ul {
+      margin: 0 0 0 16px;
+      padding: 0;
+      list-style: none;
+    }
+
+    & li {
+      margin-bottom: 8px;
+    }
+
+    & p {
+      margin: 0 0 8px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    & a {
+      color: #777;
+    }
+
+    & a:hover {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    & .active,
+    & .active:hover {
+      color: #03A9F4;
+    }
+  }
+`
 
 const DocTemplate = ({ data, location }: DocTemplateProps) => {
   const siteConfig = getSiteConfig(location.pathname)
@@ -111,56 +258,57 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
   if (!prevSlug && nextSlug) {
     justifyContent = 'flex-end'
   }
+  console.log(frontmatter)
 
   return (
     <Layout siteConfig={siteConfig} location={location}>
       <SEO title={title} />
-      <div className={styles.doc}>
-        <div className={styles.entry}>
-          <h1 className={styles.title}>{title}</h1>
+      <Container>
+        <Entry>
+          <Title>{title}</Title>
           {(frontmatter.author && frontmatter.createdAt && createdAt) && (
-            <div className={styles.meta}>
-              <span className={styles.author}>{author}</span>
+            <div>
+              <Author>{author}</Author>
               <span>{doc.postAt}</span>
-              <time className={styles.createDate} dateTime={createdAt}>
+              <CreateDate dateTime={createdAt}>
                 {formatDate(new Date(createdAt), dateFormat)}
-              </time>
+              </CreateDate>
             </div>
           )}
           <MarkdownContent html={html} />
-          {frontmatter.updatedAt && updatedAt && <div className={styles.bottom}>
-            <span className={styles.updateLabel}>{doc.updatedAt}</span>
-            <time className={styles.updateDate} dateTime={updatedAt}>
-              {formatDate(new Date(updatedAt), dateFormat)}
-            </time>
-          </div>}
+          {frontmatter.updatedAt && updatedAt &&
+            <Bottom>
+              <UpdateDateLabel>{doc.updatedAt}</UpdateDateLabel>
+              <UpdateDate dateTime={updatedAt}>
+                {formatDate(new Date(updatedAt), dateFormat)}
+              </UpdateDate>
+            </Bottom>}
           {(prevSlug || nextSlug) && (
-            <div className={styles.docNav} style={{ justifyContent }}>
+            <DocNav style={{ justifyContent }}>
               {prevSlug ?
-                <div className={styles.prev}>
-                  <div className={styles.navLabel}>{doc.prev}</div>
-                  <div className={styles.navTitle}>
+                <DocNavItem>
+                  <NavLabel>{doc.prev}</NavLabel>
+                  <NavTitle>
                     <Link to={prevSlug}>← {prevTitle}</Link>
-                  </div>
-                </div> : null}
+                  </NavTitle>
+                </DocNavItem> : null}
               {nextSlug ?
-                <div className={styles.next}>
-                  <div className={styles.navLabel}>{doc.next}</div>
-                  <div className={styles.navTitle}>
+                <DocNavItem>
+                  <NavLabel>{doc.next}</NavLabel>
+                  <NavTitle>
                     <Link to={nextSlug}>{nextTitle} →</Link>
-                  </div>
-                </div> : null}
-            </div>
+                  </NavTitle>
+                </DocNavItem> : null}
+            </DocNav>
           )}
-        </div>
-        <div
-          className={styles.toc}
+        </Entry>
+        <Toc
           style={{ visibility: toc === false ? 'hidden' : 'visible'}}
           ref={tocEl}
           dangerouslySetInnerHTML={{ __html: tableOfContents }}
         />
         {sidebarData[type] && <Sidebar nav={sidebarData[type]} location={location} />}
-      </div>
+      </Container>
     </Layout>
   )
 }
@@ -178,6 +326,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         author
+        createdAt
+        updatedAt
         toc
       }
       fields {

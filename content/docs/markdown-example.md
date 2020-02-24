@@ -1,5 +1,10 @@
 ---
 title: Markdown 示例
+author: Alex Chao
+createdAt: 2020-02-16
+updatedAt: 2020-02-24
+prev: /docs/introduction.html
+next: /docs/getting-started.html
 ---
 
 ## 简介

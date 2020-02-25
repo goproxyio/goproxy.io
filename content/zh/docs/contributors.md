@@ -19,6 +19,7 @@ This is the official list of people who have contributed code to the [goproxy](h
 - 	[jsign](https://github.com/jsign)
 - 	[mmelnyk](https://github.com/mmelnyk)
 - 	[mr-tron](https://github.com/mr-tron)
+-   [myzhang1029](https://github.com/myzhang1029)
 - 	[nafisfaysal](https://github.com/nafisfaysal)
 - 	[oiooj](https://github.com/oiooj)
 - 	[prologic](https://github.com/prologic)
@@ -32,6 +33,6 @@ This is the official list of people who have contributed code to the [goproxy](h
 
 ## 免费获取限量版 "No Deploy Fridays" T恤
 
-如果你在 github 给[这些项目](https://github.com/goproxyio/)提的 PR 被合并了，或者在 [GopherChina Community](https://gocn.vip/) 分享了你们企业使用 goproxy.io 的成功案例，快给我们[发邮件](/docs/contact-us.html)吧，我们将免费给你邮寄一件 goproxy.io 限量版纪念T恤。
+如果你在 github 给[这些项目](https://github.com/goproxyio/)提的 PR 被合并了，或者在 [GopherChina 社区](https://gocn.vip/) 分享了你们企业使用 goproxy.io 的成功案例，快给我们[发邮件](/docs/contact-us.html)吧，我们将免费给你邮寄一件 goproxy.io 限量版纪念T恤。
 
 ![t-shirt](/images/goproxy-tshirt.png)

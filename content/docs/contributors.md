@@ -19,6 +19,7 @@ This is the official list of people who have contributed code to the [goproxy](h
 - 	[jsign](https://github.com/jsign)
 - 	[mmelnyk](https://github.com/mmelnyk)
 - 	[mr-tron](https://github.com/mr-tron)
+-   [myzhang1029](https://github.com/myzhang1029)
 - 	[nafisfaysal](https://github.com/nafisfaysal)
 - 	[oiooj](https://github.com/oiooj)
 - 	[prologic](https://github.com/prologic)

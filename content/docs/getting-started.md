@@ -4,7 +4,7 @@ title: "Getting Started"
 
 ## Enable Go module
 
-If your Go version is go 1.11 and above, you only need to set an environment to enable Go module. [Click here to update you Go](https://golang.org/dl/).
+If your Go version is Go 1.11 and above, you only need to set an environment to enable Go module. [Click here to update Go](https://golang.org/dl/).
 
 **Mac/Linux**
 
@@ -19,7 +19,7 @@ $env:GO111MODULE="on"
 
 ## Set GOPROXY environment
 
-If you use Go 1.13 and above, we recommand you use this command to set GOPROXY environment. [Click here to update you Go](https://golang.org/dl/).
+If you use Go 1.13 and above, we recommand you use this command to set GOPROXY environment. [Click here to update Go](https://golang.org/dl/).
 
 
 ```shell

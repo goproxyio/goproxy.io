@@ -293,7 +293,7 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
           )}
           <MarkdownContent html={html} />
           <Bottom style={{ justifyContent: bottomJustifyContent }}>
-            {frontmatter.updatedAt && updated &&
+            {frontmatter.updatedAt && updatedAt &&
               <div>
                 <UpdateDateLabel>{doc.updatedAt}</UpdateDateLabel>
                 <UpdateDateValue dateTime={updatedAt}>

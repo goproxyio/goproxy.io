@@ -2,6 +2,7 @@ const path = require('path')
 const _ = require('lodash')
 const axios = require('axios')
 const moment = require('moment')
+const urlJoin = require('url-join')
 const pkg = require('./package.json')
 const locales = require('./content/locales.json')
 
@@ -18,8 +19,8 @@ const getRepoBrowserUrl = repo => {
 
 const browserUrl = getRepoBrowserUrl(pkg.repository)
 const branch = 'master'
-const contentUrl = path.join(browserUrl, 'blob', branch, 'content')
-const getSourceFileUrl = relativePath => path.join(contentUrl, relativePath)
+const contentUrl = urlJoin(browserUrl, 'blob', branch, 'content')
+const getSourceFileUrl = relativePath => urlJoin(contentUrl, relativePath)
 
 const docNodes = []
 const docNodesBySlug = {}

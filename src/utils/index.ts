@@ -21,6 +21,7 @@ export interface NotFound {
 export interface DocLocale {
   postAt: string
   updatedAt: string
+  edit: string
   prev: string
   next: string
 }

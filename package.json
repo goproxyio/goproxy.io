@@ -39,7 +39,8 @@
     "react-helmet": "^5.2.1",
     "react-responsive": "^8.0.3",
     "styled-components": "^5.0.1",
-    "trianglify": "^2.0.0"
+    "trianglify": "^2.0.0",
+    "url-join": "^4.0.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.9",

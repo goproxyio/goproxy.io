@@ -4,7 +4,7 @@ title: ''
 
 在 Linux 或 macOS 上面，需要运行下面命令：
 
-### Bash (Linux or maxOS)
+### Bash (Linux or macOS)
 
 ```shell
 # 启用 Go Modules 功能

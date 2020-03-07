@@ -12,9 +12,9 @@ go env -w GOPROXY="https://goproxy.io,direct"
 go env -w GOPRIVATE="*.corp.example.com"
 ```
 
-### Go version <= 1.12
+Now, when you build your applications, `Go` will fetch dependencies via goproxy.io. See more information in the [doc](docs/getting-started.html).
 
-In Linux or macOS, you can execute the below commands.
+### Go version <= 1.12
 
 **Bash (Linux or macOS)**
 
@@ -27,8 +27,6 @@ export GOPROXY="https://goproxy.io"
 
 Or, write it into the `.profile` or `.bash_profile` file.
 
-In Windows, you can execute the below commands.
-
 **PowerShell (Windows)**
 
 ```shell
@@ -38,4 +36,4 @@ $env:GO111MODULE="on"
 $env:GOPROXY="https://goproxy.io"
 ```
 
-Now, when you build and run your applications, go will fetch dependencies via goproxy.io. See more information in the [doc](docs/getting-started.html).
+Now, when you build your applications, `Go` will fetch dependencies via goproxy.io. See more information in the [doc](docs/getting-started.html).

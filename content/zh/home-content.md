@@ -2,7 +2,7 @@
 title: ''
 ---
 
-### 如果您使用的 Go 版本是 1.13及以上 （推荐）
+### 如果您使用的 Go 版本是 1.13 及以上 （推荐）
 
 ```shell
 go env -w GO111MODULE=on
@@ -12,9 +12,9 @@ go env -w GOPROXY=https://goproxy.io,direct
 go env -w GOPRIVATE=*.corp.example.com
 ```
 
-### 如果您使用的 Go 版本是 1.12 及以下
+设置完上面几个环境变量后，您的 `go` 命令将从公共代理镜像中快速拉取您所需的依赖代码了。
 
-在 Linux 或 macOS 上面，需要运行下面命令：
+### 如果您使用的 Go 版本是 1.12 及以下
 
 **Bash (Linux or macOS)**
 
@@ -25,9 +25,8 @@ export GO111MODULE=on
 export GOPROXY=https://goproxy.io
 ```
 
-或者，可以把上面的命令写到`.bashrc`或`.bash_profile`文件当中。
+或者，根据[文档](docs/getting-started.html)可以把上面的命令写到`.profile`或`.bash_profile`文件中长期生效。
 
-在 Windows 上，需要运行下面命令：
 
 **PowerShell (Windows)**
 

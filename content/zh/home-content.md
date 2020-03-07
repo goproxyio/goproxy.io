@@ -2,9 +2,21 @@
 title: ''
 ---
 
+### 如果您使用的 Go 版本是 1.13及以上 （推荐）
+
+```shell
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.io,direct
+
+# 设置不走 proxy 的私有仓库，多个用逗号相隔（可选）
+go env -w GOPRIVATE=*.corp.example.com
+```
+
+### 如果您使用的 Go 版本是 1.12 及以下
+
 在 Linux 或 macOS 上面，需要运行下面命令：
 
-### Bash (Linux or macOS)
+**Bash (Linux or macOS)**
 
 ```shell
 # 启用 Go Modules 功能
@@ -17,7 +29,7 @@ export GOPROXY=https://goproxy.io
 
 在 Windows 上，需要运行下面命令：
 
-### PowerShell (Windows)
+**PowerShell (Windows)**
 
 ```shell
 # 启用 Go Modules 功能
@@ -26,14 +38,4 @@ $env:GO111MODULE="on"
 $env:GOPROXY="https://goproxy.io"
 ```
 
-现在，当你构建或运行你的应用时，Go 将会通过 goproxy.io 获取依赖。更多信息请查看 [goproxy](https://github.com/goproxyio/goproxy) 仓库。
-
-如果你使用的 Go 版本>=1.13, 你可以通过设置 GOPRIVATE 环境变量来控制哪些私有仓库和依赖(公司内部仓库)不通过 proxy 来拉取，直接走本地，设置如下：
-
-**Go version >= 1.13**
-
-```shell
-go env -w GOPROXY=https://goproxy.io,direct
-# 设置不走 proxy 的私有仓库，多个用逗号相隔
-go env -w GOPRIVATE=*.corp.example.com
-```
+现在，当你构建或运行你的应用时，Go 将会通过 goproxy.io 获取依赖。更多信息请查看 [使用指引](docs/getting-started.html)。

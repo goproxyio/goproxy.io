@@ -164,8 +164,9 @@ const Toc = styled.div`
     top: 112px;
     display: block;
     order: 1;
-    width: 240px;
+    flex: 240px 0 0;
     margin-top: 36px;
+    padding: 0 16px 16px 0;
     min-height: 100px;
     max-height: calc(100vh - 112px);
     overflow: auto;
@@ -180,6 +181,9 @@ const Toc = styled.div`
 
     & li {
       margin-bottom: 8px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     & p {
@@ -201,6 +205,12 @@ const Toc = styled.div`
     & .active,
     & .active:hover {
       color: #03A9F4;
+    }
+
+    & code[class*=language-] {
+      background: transparent;
+      color: inherit;
+      white-space: inherit;
     }
   }
 `

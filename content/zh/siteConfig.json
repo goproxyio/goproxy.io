@@ -3,6 +3,10 @@
   "title": "GOPROXY.IO - 一个全球代理 为 Go 模块而生",
   "dateFormat": "YYYY年MM月DD日",
   "nav": [
+     {
+      "url": "https://user.goproxy.io",
+      "title": "私有库"
+    },
     {
       "url": "/zh/docs/introduction.html",
       "title": "文档"

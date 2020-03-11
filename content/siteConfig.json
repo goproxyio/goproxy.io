@@ -3,6 +3,10 @@
   "title": "GOPROXY.IO - A Global Proxy for Go Modules",
   "dateFormat": "YYYY-MM-DD",
   "nav": [
+     {
+      "url": "https://user.goproxy.io",
+      "title": "Private"
+    },
     {
       "url": "/docs/introduction.html",
       "title": "Document"

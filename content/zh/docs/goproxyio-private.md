@@ -24,9 +24,7 @@ goproxy.io 是 Go 语言公共的镜像代理服务，在中国乃至全球有�
 
 ![private](/images/private-3.jpg)
 
-[github 帮助文档](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
-
-bitbucket 和 gitlab 的配置也类似，大同小异，[有问题随时提 issue 寻求帮助](https://github.com/goproxyio/goproxy/issues/new)。
+[github Deploy Keys 帮助文档](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys),bitbucket 和 gitlab 的配置也类似，大同小异，[有问题随时提 issue 寻求帮助](https://github.com/goproxyio/goproxy/issues/new)。
 
 
 在第三方代码托管平台添加完公钥后，返回添加页面点击”Add“ 进行添加，如果不成功，请查看返回的错误日志，添加成功返回列表页面，就可以看到自己添加的仓库了。使用下面命令将页面下方 "本地设置"（Local Settings）中的环境变量进行设置, [Windows 用户可以参考这篇文章进行环境变量设置](https://goproxy.io/zh/docs/getting-started.html)。
@@ -39,13 +37,11 @@ export GOPROXY="https://yourname:ZOcfnb***5Jwq@goproxy.io,direct"
 
 ```
 GOSUMDB=off
-
-或者设置环境变量 
-
+或者
 GONOSUMDB="github.com/yourname/private1,gitlab.com/yourname/private2“
 ```
 
-跳过你配置的私有仓库的 sumdb 校验，因为是私有仓库，所以sumdb 是没办法进行检验的。为了简单操作可以禁用掉，将 export GOSUMDB=off 写入到 `~/.profile` 文件中，Windows 用户也可以在自己的系统中添加这个环境变量。
+设置这个环境变量跳过你配置的私有仓库的 sumdb 校验，因为是私有仓库，所以sumdb 是没办法进行检验的。为了简单操作可以禁用掉，将 export GOSUMDB=off 写入到 `~/.profile` 文件中，Windows 用户也可以在自己的系统中添加这个环境变量。
 
 好了，一切准备就绪了，现在无论是公有仓库，还是自己的海外私有仓库都可以通过 goproxy.io 镜像来加速了, 当然了只有自己才能访问到自己配置的私有仓库。
 

@@ -2,7 +2,7 @@
 title: goproxy.io Private 功能介绍
 ---
 
-中文版 | (English)[https://goproxy.io/docs/goproxyio-private.html]
+中文版 | [English](https://goproxy.io/docs/goproxyio-private.html)
 
 ![golang](/images/private.jpg)
 
@@ -12,7 +12,7 @@ goproxy.io 是 Go 语言公共的镜像代理服务，在中国乃至全球有�
 
 ## 使用指南
 
-首先，登录 (https://user.goproxy.io)[https://user.goproxy.io] 通过 github oauth 进行登录，无需注册, 点击授权后，登录成功, 如下图所示。
+首先，登录 [https://user.goproxy.io](https://user.goproxy.io) 通过 github oauth 进行登录，无需注册, 点击授权后，登录成功, 如下图所示。
 
 ![private](/images/private-1.jpg)
 
@@ -24,12 +24,12 @@ goproxy.io 是 Go 语言公共的镜像代理服务，在中国乃至全球有�
 
 ![private](/images/private-3.jpg)
 
-(github 帮助文档)[https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys]
+[github 帮助文档](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
 
 bitbucket 和 gitlab 的配置也类似，大同小异，(有问题随时提 issue 寻求帮助)[https://github.com/goproxyio/goproxy/issues/new]。
 
 
-在第三方代码托管平台添加完公钥后，返回添加页面点击”Add“ 进行添加，如果不成功，请查看返回的错误日志，添加成功返回列表页面，就可以看到自己添加的仓库了。使用下面命令将页面下方 "本地设置"（Local Settings）中的环境变量进行设置, (Windows 用户可以参考这篇文章进行环境变量设置)[https://goproxy.io/zh/docs/getting-started.html]]。
+在第三方代码托管平台添加完公钥后，返回添加页面点击”Add“ 进行添加，如果不成功，请查看返回的错误日志，添加成功返回列表页面，就可以看到自己添加的仓库了。使用下面命令将页面下方 "本地设置"（Local Settings）中的环境变量进行设置, [Windows 用户可以参考这篇文章进行环境变量设置](https://goproxy.io/zh/docs/getting-started.html)。
 
 ```shell
 export GOPROXY="https://yourname:ZOcfnb***5Jwq@goproxy.io,direct"
@@ -43,7 +43,7 @@ export GOPROXY="https://yourname:ZOcfnb***5Jwq@goproxy.io,direct"
 
 ## 结语
 
-目前，该功能正在灰度放量中，处于 beta 状态，每个用户可以添加 3 个私有仓库进行测试和使用，赶快来试试吧,遇到任何问题欢迎给我们反馈，(点击这里提交 issue 进行反馈)[https://github.com/goproxyio/goproxy/issues/new]。
+目前，该功能正在灰度放量中，处于 beta 状态，每个用户可以添加 3 个私有仓库进行测试和使用，赶快来试试吧,遇到任何问题欢迎给我们反馈，[点击这里提交 issue 进行反馈](https://github.com/goproxyio/goproxy/issues/new)。
 
 ## 常见问题
 
@@ -76,4 +76,4 @@ goproxy.io 采用 HTTPS 加密协议，token 用 HTTP basic auth 放在加密的
 配置好自己的私有仓库后，配置会在 1 分钟左右生效，如果无法立即获取到，请稍等片刻。
 
 ### 9. 我遇到问题了，怎么反馈呢 ？
-可以直接发送邮件到 admin@goproxy.io , 或者(提交 issue 进行反馈)[https://github.com/goproxyio/goproxy/issues/new]。
+可以直接发送邮件到 admin@goproxy.io , 或者[提交 issue 进行反馈](https://github.com/goproxyio/goproxy/issues/new)。

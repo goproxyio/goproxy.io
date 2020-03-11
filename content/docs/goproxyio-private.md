@@ -2,7 +2,7 @@
 title: Introduce goproxy.io Private
 ---
 
-English | (中文版)[https://goproxy.io/zh/docs/goproxyio-private.html]
+English | [中文版](https://goproxy.io/zh/docs/goproxyio-private.html)
 
 ![golang](/images/private.jpg)
 
@@ -20,9 +20,9 @@ After that, click "New Repo" to add your private repository URL，and add the pu
 
 ![private](/images/private-2.jpg)
 
-(github help doc)[https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys]
+[github help doc](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
 
-(File a issue if you have any question.)[https://github.com/goproxyio/goproxy/issues/new]
+[File a issue if you have any question.](https://github.com/goproxyio/goproxy/issues/new)
 
 Please check the error message after you click the Add button. You will back to the index page if you add repository success. 
 
@@ -40,17 +40,13 @@ All right, now you can get public and private using goproxy.io, and only you can
 
 ## Appendix
 
-The service is beta. Everyone can add 3 private repositories. (Try it now)[https://user.goproxy.io/].
+The service is beta. Everyone can add 3 private repositories. [Try it now](https://user.goproxy.io/).
 
 ## FAQs
 
 ### 1. Why do I need to set the `GOSUMDB = off` environment variable locally?
 
 Because the sumdb cannot record the hash value of the private repository, it will cause the local Go command to fail the verification after downloading. It is recommended to use the environment variable to turn off the verification, or use the environment variable `GONOSUMDB` to skip only the private library you configured, which is a bit troublesome but secure.
-
-### 2. Why do I need to write the token to the `$HOME/.netrc` file, what does this file for?
-
-Introduction about `.netrc` file, you can refer to (this article)[https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html]. Write the token issued by goproxy.io to this file, so that the local go command can pass the authentication to goproxy.io.
 
 ### 3. Why did I fail to add a repository?
 
@@ -74,4 +70,4 @@ If it is leaked, please send us an email: admin@goproxy.io and we will reset it 
 
 ### 8. I have a problem, how can I report it?
 
-Feel free to email us admin@goproxy.io directly, or (file an issue for feedback)[https://github.com/goproxyio/goproxy/issues/new].
+Feel free to email us admin@goproxy.io directly, or [file an issue for feedback](https://github.com/goproxyio/goproxy/issues/new).

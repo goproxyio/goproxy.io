@@ -52,7 +52,12 @@ module.exports = {
       }
     },
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        defaultQuality: 80
+      }
+    },
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',

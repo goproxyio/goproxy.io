@@ -12,7 +12,7 @@ Many Gophers in the world use goproxy.io as their public Go proxy。Now we intri
 
 ## Getting started
 
-First，You can login (https://user.goproxy.io)[https://user.goproxy.io] via github oAuth2.
+First，You can login [https://user.goproxy.io](https://user.goproxy.io) via github oAuth2.
 
 ![private](/images/private-1.jpg)
 
@@ -32,7 +32,15 @@ Then replace the GOPROXY environment with the following command:
 export GOPROXY="https://yourname:Znb***Jwx@goproxy.io,direct"
 ```
 
-At last, you should set `GOSUMDB=off` or `GONOSUMDB="github.com/yourname/private1,gitlab.com/yourname/private2“` to skip Go sumdb verify, we recommend you use `GONOSUMDB` environment since it's more security.
+At last, you should set local environment: 
+
+```
+GOSUMDB=off or 
+
+GONOSUMDB="github.com/yourname/private1,gitlab.com/yourname/private2“ 
+```
+
+to skip Go sumdb verify, we recommend you use `GONOSUMDB` environment since it's more security.
 
 All right, now you can get public and private using goproxy.io, and only you can get your private codebases.
 

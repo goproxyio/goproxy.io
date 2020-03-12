@@ -12,7 +12,7 @@ go env -w GOPROXY=https://goproxy.io,direct
 go env -w GOPRIVATE=*.corp.example.com
 ```
 
-设置完上面几个环境变量后，您的 `go` 命令将从公共代理镜像中快速拉取您所需的依赖代码了。
+设置完上面几个环境变量后，您的 `go` 命令将从公共代理镜像中快速拉取您所需的依赖代码了。[私有库的支持请看这里](docs/goproxyio-private.html)。
 
 ### 如果您使用的 Go 版本是 1.12 及以下
 

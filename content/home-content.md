@@ -12,7 +12,7 @@ go env -w GOPROXY="https://goproxy.io,direct"
 go env -w GOPRIVATE="*.corp.example.com"
 ```
 
-Now, when you build your applications, `Go` will fetch dependencies via goproxy.io. See more information in the [doc](docs/getting-started.html).
+Now, when you build your applications, `Go` will fetch dependencies via goproxy.io. See more information in the [doc](docs/getting-started.html) and [how to use Private service](docs/goproxyio-private.html).
 
 ### Go version <= 1.12
 

@@ -56,7 +56,7 @@ GONOSUMDB="github.com/yourname/private1,gitlab.com/yourname/private2"
 因为 sumdb 无法记录私有仓库的哈希值，会导致本地的 Go 命令下载后检验失败，建议使用环境变量关闭改功能，或者使用环境变量 `GONOSUMDB` 只跳过您配置的私有库，这样虽然麻烦一些，但是更安全。
 
 ### 2. 将 token 放在 URL 中会不会有安全隐患？
-goproxy.io 采用 HTTPS 加密协议，token 用 HTTP basic auth 放在加密的 HEADER 中，没有中间人攻击，不乱信任证书的前提下在网络传输中很难获取到你的 token，Github API 也采用的这种认证方式。即使 Token 泄露，其他人也无法登陆你的账户（githu 认证），更无法知道你配置的私有库是哪些，但是这种情况下我们还是建议你联系我们重置自己的 token。
+goproxy.io 采用 HTTPS 加密协议，token 用 HTTP basic auth 放在加密的 HEADER 中，没有中间人攻击，不乱信任证书的前提下在网络传输中很难获取到你的 token，Github API 也采用的这种认证方式。即使 Token 泄露，其他人也无法登陆你的账户（github 认证），更无法知道你配置的私有库是哪些，但是这种情况下我们还是建议你联系我们重置自己的 token。
 
 ### 3. 为什么我添加仓库总是失败呢？
 

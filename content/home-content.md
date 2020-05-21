@@ -10,6 +10,9 @@ go env -w GOPROXY="https://goproxy.io,direct"
 
 # Set environment variable allow bypassing the proxy for selected modules (optional)
 go env -w GOPRIVATE="*.corp.example.com"
+
+# Set environment variable allow bypassing the proxy for specified organizations (optional)
+go env -w GOPRIVATE="example.com/org_name"
 ```
 
 Now, when you build your applications, `Go` will fetch dependencies via goproxy.io. See more information in the [doc](docs/getting-started.html) and [how to use Private service](docs/goproxyio-private.html).

@@ -47,6 +47,9 @@ $env:GOPROXY="https://goproxy.io"
 **Mac/Linux**
 
 ```shell
+# 如果你的终端是 zsh，使用以下命令
+echo "export GOPROXY=https://goproxy.io" >> ~/.zshrc && source ~/.zshrc
+
 echo "export GOPROXY=https://goproxy.io" >> ~/.profile && source ~/.profile
 ```
 

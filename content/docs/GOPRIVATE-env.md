@@ -19,6 +19,11 @@ causes the go command to treat as private any module with a path prefix
 matching either pattern, including git.corp.example.com/xyzzy, rsc.io/private,
 and rsc.io/private/quux.
 
+if your private repos belonged to a organization, such as a github organization org_name,
+just type the organization name:
+
+        GOPRIVATE=github.com/org_name
+
 The GOPRIVATE environment variable may be used by other tools as well to
 identify non-public modules. For example, an editor could use GOPRIVATE
 to decide whether to hyperlink a package import to a godoc.org page.

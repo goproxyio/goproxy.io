@@ -45,10 +45,11 @@ $env:GOPROXY="https://goproxy.io"
 **Mac/Linux**
 
 ```shell
+# add environment to your profile
+echo "export GOPROXY=https://goproxy.io" >> ~/.profile && source ~/.profile
+
 # if your terminal is zsh，type the command below
 echo "export GOPROXY=https://goproxy.io" >> ~/.zshrc && source ~/.zshrc
-
-echo "export GOPROXY=https://goproxy.io" >> ~/.profile && source ~/.profile
 ```
 
 **Windows**

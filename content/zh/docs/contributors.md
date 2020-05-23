@@ -12,6 +12,7 @@ This is the official list of people who have contributed code to the [goproxy](h
 - 	[fancy-rabbit](https://github.com/fancy-rabbit)
 - 	[fitzix](https://github.com/fitzix)
 - 	[formych](https://github.com/formych)
+- 	[RainbowMango](https://github.com/RainbowMango)
 - 	[hxzhao527](https://github.com/hxzhao527)
 - 	[ianwoolf](https://github.com/ianwoolf)
 - 	[Jamlee](https://github.com/Jamlee)
@@ -28,6 +29,7 @@ This is the official list of people who have contributed code to the [goproxy](h
 - 	[Senmumu](https://github.com/Senmumu)
 - 	[superryanguo](https://github.com/superryanguo)
 - 	[webboy89860](https://github.com/webboy89860)
+- 	[wzqnls](https://github.com/wzqnls)
 - 	[Yan1](https://github.com/Yan1)
 - 	[zjylx](https://github.com/zjylx)
 

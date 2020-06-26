@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 
-import Layout from "../components/Layout/Layout"
-import SEO from "../components/SEO/SEO"
-import { getSiteConfig } from "../utils"
+import Layout from '../components/Layout/Layout'
+import SEO from '../components/SEO/SEO'
+import { getSiteConfig } from '../utils'
 
 interface NotFoundPageProps {
   location: Location

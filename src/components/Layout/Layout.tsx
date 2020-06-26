@@ -17,7 +17,7 @@ import '../../base.css'
 
 // TODO: use more precise computation
 const Main = styled.main`
-  min-height: calc(100vh - 340px);
+  min-height: calc(100vh - 224px);
 `
 
 interface LayoutProps {

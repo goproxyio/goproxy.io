@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "babel-preset-gatsby",
+      {
+        "targets": {
+          "browsers": [">0.25%", "not dead"]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    ["prismjs", {
+      "languages": [
+        "bash",
+        "c",
+        "css",
+        "go",
+        "javascript",
+        "markup",
+        "sql"
+      ]
+    }]
+  ]
+}

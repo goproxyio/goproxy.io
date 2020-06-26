@@ -48,7 +48,7 @@
 }
 
 .markdown-content a {
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .markdown-content blockquote {
@@ -91,9 +91,12 @@
 .markdown-content pre {
   margin: 1em 0;
   padding: 1em;
+  max-width: 100%;
   font-size: 0.875em;
   border-radius: 4px;
   background-color: #2b3a42;
+  color: #ccc;
+  overflow-x: auto;
 }
 
 .markdown-content pre > code {

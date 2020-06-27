@@ -1,7 +1,7 @@
-import { navigate } from 'gatsby'
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import { navigate } from 'gatsby'
 
 import Content from './Content'
 
@@ -38,17 +38,21 @@ const PkgContent = ({ location }: PkgContentProps) => {
   const [error, setError] = useState('')
   const [pkg, setPkg] = useState(null)
   const { href, pathname, search, hash } = location
-  console.log('pathname', pathname)
   const url = href ? new URL(href) : null
   const tab = url ? url.searchParams.get('tab') : ''
   const index = pathname.indexOf('/pkg/')
+  const hasVersion = pathname.includes('@v')
   let pkgPath = pathname.slice(index + 5)
-  console.log('pkgPath', pkgPath)
-  if (!pkgPath.includes('@v')) {
+  if (!hasVersion) {
     pkgPath += (pkgPath[pkgPath.length - 1] === '/' ? '' : '/') + '@v/latest'
   }
-  console.log(href)
-  const getVersionPath = (version) => pathname.replace(/[^/]+$/, version)
+  const getVersionPath = (version) => {
+    let path = pathname
+    if (!hasVersion) {
+      path += (path[path.length - 1] === '/' ? '' : '/') + '@v/latest'
+    }
+    return path.replace(/[^/]+$/, version)
+  }
   const onVersionChange = (version) => {
     navigate(getVersionPath(version))
   }
@@ -83,6 +87,7 @@ const PkgContent = ({ location }: PkgContentProps) => {
   } else if (pkg) {
     content = (
       <Content
+        location={location}
         pkg={pkg}
         tab={tab}
         getVersionPath={getVersionPath}

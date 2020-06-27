@@ -39,10 +39,11 @@ interface TabsProps {
   initialCurrent?: string
   current?: string
   children: React.ReactElement
+  getNavItemHref?: getNavItemHref
   onChange?: (key: string) => void
 }
 
-const Tabs = ({ initialCurrent, current, children, onChange }: TabsProps) => {
+const Tabs = ({ initialCurrent, current, children, getNavItemHref, onChange }: TabsProps) => {
   const firstChild = children ? children[0] : null
   let defaultCurrent = ''
   if (initialCurrent) {
@@ -54,7 +55,7 @@ const Tabs = ({ initialCurrent, current, children, onChange }: TabsProps) => {
   const titles = children.map(child => child.props.title)
   const tabsNavItems = []
   const clonedChildren = []
-  const onTabsNavItemClick = (key: string) => {
+  const onTabsNavItemClick = (key: string): void => {
     if (current) {
       onChange && onChange(key)
     } else {
@@ -71,9 +72,13 @@ const Tabs = ({ initialCurrent, current, children, onChange }: TabsProps) => {
   children.forEach((child, index) => {
     const key = String(child.key || index)
     const isActive = ownCurrent === key
+    const linkProps = {}
+    if (getNavItemHref) {
+      linkProps.href = getNavItemHref(key)
+    }
     tabsNavItems.push(
       <TabsNavItem isActive={isActive} key={key}>
-        <a onClick={() => onTabsNavItemClick(key)}>{child.props.title}</a>
+        <a {...linkProps} onClick={(e) => { e.preventDefault(); onTabsNavItemClick(key) }}>{child.props.title}</a>
       </TabsNavItem>
     )
     clonedChildren.push(React.cloneElement(child, { key, isActive }, child.props.children))

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { navigate } from 'gatsby'
 import marked from 'marked'
 import prism from 'prismjs'
 import timeAgo from 'micell/date/timeAgo'
 import base64 from 'micell/base64'
+import qs from 'micell/qs'
 import semverRsort from 'semver/functions/rsort'
 import Tabs from '../Tabs/Tabs'
 import TabPane from '../Tabs/TabPane'
@@ -109,13 +111,14 @@ const PkgLicense = styled.div`
 `
 
 interface ContentProps {
+  location: Location
   pkg: any
   tab: string
   getVersionPath: (version: string) => string
   onVersionChange: (version: string) => void
 }
 
-const Content = ({ pkg, tab, getVersionPath, onVersionChange }: ContentProps) => {
+const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: ContentProps) => {
   const [currentTab, setCurrentTab] = useState(tab)
   const {
     PackageName,
@@ -169,9 +172,14 @@ const Content = ({ pkg, tab, getVersionPath, onVersionChange }: ContentProps) =>
     }
   }
 
+  const getNavItemHref = (key: string): string => {
+    const query = qs.parse(location.search)
+    return `${location.pathname}?${qs.stringify({ ...query, tab: key })}`
+  }
+
   const onTabsChange = (newCurrent) => {
-    console.log(newCurrent)
     setCurrentTab(newCurrent)
+    navigate(getNavItemHref(newCurrent), { replace: true })
   }
 
   return (
@@ -188,7 +196,7 @@ const Content = ({ pkg, tab, getVersionPath, onVersionChange }: ContentProps) =>
         <PkgMetaLabel>License:</PkgMetaLabel>
         <strong>{Licenses && Licenses[0].Types[0]}</strong>
       </PkgMeta>
-      <Tabs current={currentTab} onChange={onTabsChange}>
+      <Tabs current={currentTab} getNavItemHref={getNavItemHref} onChange={onTabsChange}>
         <TabPane title="Readme" key="readme">
           <MarkdownContent html={marked(base64.decode(Readme))} />
         </TabPane>

@@ -192,15 +192,22 @@ exports.createSchemaCustomization = ({ type, actions }) => {
 }
 
 exports.onCreatePage = ({ page, actions }) => {
+  if (page.path.match(/^\/pkg/)) {
+    page.matchPath = "/pkg/*"
+  }
   const { createPage } = actions
   const otherLocales = locales.filter(v => v.value !== 'en')
-  const homeContentSlug = '/home-content.html'
-  page.context.homeContentSlug = homeContentSlug
+  if (page.path === '/') {
+    const homeContentSlug = '/home-content.html'
+    page.context.homeContentSlug = homeContentSlug
+  }
   createPage(page)
   otherLocales.forEach(v => {
     const clonedPage = _.cloneDeep(page)
-    clonedPage.path = `/${v.value}${clonedPage.path}`
-    clonedPage.context.homeContentSlug = `/${v.value}${homeContentSlug}`
+    if (page.path === `/${v.value}/`) {
+      clonedPage.path = `/${v.value}${clonedPage.path}`
+      clonedPage.context.homeContentSlug = `/${v.value}${homeContentSlug}`
+    }
     createPage(clonedPage)
   })
 }

@@ -31,21 +31,25 @@ const PkgPage = ({ location }: PkgPageProps) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [pkg, setPkg] = useState(null)
-  const [version, setVersion] = useState('latest')
-  const siteConfig = getSiteConfig(location.pathname)
-  const url = new URL(location.href)
-  const { pathname } = url
+  const { href, pathname, search, hash } = location
+  const siteConfig = getSiteConfig(pathname)
   const index = pathname.indexOf('/pkg/')
-  const pkgPath = pathname.slice(index + 5)
-  const tab = url.searchParams.get('tab')
+  let pkgPath = pathname.slice(index + 5)
+  if (!pkgPath.includes('@v')) {
+    pkgPath += (pkgPath[pkgPath.length - 1] === '/' ? '' : '/') + '@v/latest'
+  }
+  console.log(href)
+  const url = href ? new URL(href) : null
+  const tab = url ? url.searchParams.get('tab') : ''
   const onVersionChange = (version) => {
-    setVersion(version)
+    const newPathname = pathname.replace(/[^/]+$/, version)
+    window.history.pushState(null, '', `${newPathname}${search}#${hash}`)
   }
   useEffect(() => {
     async function fetchData() {
       try {
         setLoading(true)
-        const res = await axios.get(`https://pkg.goproxy.io/pkg/github.com/urfave/cli/@v/${version}`)
+        const res = await axios.get(`https://pkg.goproxy.io/pkg/${pkgPath}`)
         setPkg(res.data)
       } catch (err) {
         console.error(err)
@@ -62,7 +66,7 @@ const PkgPage = ({ location }: PkgPageProps) => {
     return () => {
       setError('')
     }
-  }, [version])
+  }, [pkgPath])
   let content = null
   if (loading) {
     content = <Loading>Loading...</Loading>

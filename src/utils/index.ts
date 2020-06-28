@@ -26,6 +26,10 @@ export interface DocLocale {
   next: string
 }
 
+export interface PkgLocale {
+  searchPlaceholder: string
+}
+
 export interface SiteConfig {
   name: string
   title: string
@@ -37,6 +41,7 @@ export interface SiteConfig {
   copyright: string
   notFound: NotFound
   doc: DocLocale
+  pkg: PkgLocale
 }
 
 export interface AllSiteConfig {

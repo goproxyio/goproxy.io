@@ -28,6 +28,7 @@
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-remark": "^2.6.50",
     "gatsby-transformer-sharp": "^2.3.13",
+    "he": "^1.2.0",
     "lodash": "^4.17.15",
     "marked": "^1.1.0",
     "micell": "^0.6.2",

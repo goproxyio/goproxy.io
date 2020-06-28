@@ -7,6 +7,7 @@ import timeAgo from 'micell/date/timeAgo'
 import base64 from 'micell/base64'
 import qs from 'micell/qs'
 import semverRsort from 'semver/functions/rsort'
+import he from 'he'
 import Tabs from '../Tabs/Tabs'
 import TabPane from '../Tabs/TabPane'
 import MarkdownContent from '../MarkdownContent/MarkdownContent'
@@ -165,7 +166,7 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
       index = PackageDoc.indexOf(endTag, lastIndex)
       overviewContents.push({
         type: 'code',
-        text: PackageDoc.slice(lastIndex, index)
+        text: he.decode(PackageDoc.slice(lastIndex, index))
       })
       lastIndex = index + endTag.length
       index = PackageDoc.indexOf(startTag, lastIndex)

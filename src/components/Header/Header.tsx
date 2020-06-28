@@ -87,20 +87,48 @@ const MenuTrigger = styled.div`
   }
 `
 
+interface MainProps {
+  opened: boolean
+}
+
 // TODO: extract grid components
 const Main = styled.div`
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
+  padding: 8px 16px;
+
+  ${(props: MainProps) => props.opened ? `
+    display: block;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 100%;
+    background: #004880;
+  ` : ''}
+
+  @media (min-width: 960px) {
+    display: flex;
+  }
 `
 
 const SelectWrapper = styled.div`
   position: relative;
+  margin-top: 16px;
+  width: 100px;
+
+  @media (min-width: 960px) {
+    margin-top: 0;
+  }
 `
 
 const Select = styled.select`
   appearance: none;
-  padding: 4px 20px 4px 12px;
+  width: 100px;
+  padding: 4px 20px 4px 8px;
   font-size: 16px;
   line-height: 18px;
   border: 0;
@@ -116,31 +144,8 @@ const SelectArrow = styled.span`
   border-top-color: #66a0cc;
 `
 
-interface MenuProps {
-  opened: boolean
-}
-
 // TODO: extract a menu component
-const Menu = styled.nav`
-  display: none;
-  padding: 8px 16px;
-
-  ${(props: MenuProps) => props.opened ? `
-    display: block;
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    width: 100%;
-    background: #004880;
-  ` : ''}
-
-  @media (min-width: 960px) {
-    display: block;
-  }
-`
+const Menu = styled.nav``
 
 const MenuList = styled.ul`
   margin: 0;
@@ -251,8 +256,8 @@ const Header = ({ location, siteConfig }: HeaderProps) => {
             <i className="iconfont icon-nav"></i>
           </button>
         </MenuTrigger>
-        <Main>
-          <Menu opened={opened}>
+        <Main opened={opened}>
+          <Menu>
             <MenuList>
               {siteConfig.nav.map((item, index: number) =>
                 <MenuItem key={index}>

@@ -181,10 +181,17 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
   marked.setOptions({
     baseUrl: `https://${ImportPath}`,
     highlight(code, lang) {
+      let html = code
       if (lang) {
-        return prism.highlight(code, prism.languages[lang], lang)
+        const prismLang = lang === 'sh' ? 'shell' : lang
+        try {
+          return prism.highlight(code, prism.languages[prismLang], prismLang)
+        } catch (err) {
+          console.error(err)
+          html = code
+        }
       }
-      return code
+      return html
     }
   })
 

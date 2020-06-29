@@ -3,13 +3,18 @@ import styled from 'styled-components'
 
 const TabsNav = styled.ul`
   display: flex;
-  margin: 0 0 0 -16px;
+  justify-content: space-between;
+  margin: 0 -16px;
   padding: 0;
   list-style: none;
   overflow: scroll;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (min-width: 960px) {
+    margin: 0;
   }
 `
 
@@ -18,7 +23,8 @@ interface TabsNavItemProps {
 }
 
 const TabsNavItem = styled.li`
-  border-bottom: 1px solid #eee;
+  width: 100%;
+  border-bottom: 2px solid #eee;
   ${(props: TabsNavItemProps) => props.isActive ? `
     font-weight: 700;
     border-bottom-color: #03A9F4;
@@ -27,6 +33,7 @@ const TabsNavItem = styled.li`
   > a {
     display: block;
     padding: 4px 16px;
+    text-align: center;
     &:hover,
     &:focus {
       text-decoration: none;

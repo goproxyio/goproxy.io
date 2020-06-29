@@ -10,8 +10,8 @@ const PreTag = styled.pre`
   max-width: 100%;
   font-size: 0.875em;
   border-radius: 4px;
-  background-color: #2b3a42;
-  color: #ccc;
+  background-color: #eef3f7;
+  color: #444;
   overflow-x: auto;
 
   > code {

@@ -1,26 +1,19 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
+import path from 'path'
 import marked from 'marked'
 import prism from 'prismjs'
-import timeAgo from 'micell/date/timeAgo'
 import base64 from 'micell/base64'
 import qs from 'micell/qs'
+import timeAgo from 'micell/date/timeAgo'
 import semverRsort from 'semver/functions/rsort'
 import he from 'he'
 import Tabs from '../Tabs/Tabs'
 import TabPane from '../Tabs/TabPane'
 import MarkdownContent from '../MarkdownContent/MarkdownContent'
 import CodeBlock from '../MarkdownContent/CodeBlock'
-
-marked.setOptions({
-  highlight(code, lang) {
-    if (lang) {
-      return prism.highlight(code, prism.languages[lang], lang)
-    }
-    return code
-  }
-})
+import { Module } from 'module'
 
 const PkgHeader = styled.div`
   display: flex;
@@ -94,22 +87,7 @@ const GoDoc = styled.div`
   }
 `
 
-const GoModWrapper = styled.div`
-  pre {
-    padding: 8px 16px;
-    background: #fff;
-    border: 1px solid #eee;
-    overflow: auto;
-  }
-`
-
-const PkgLicense = styled.div`
-  pre {
-    padding: 8px 16px;
-    background: #fff;
-    border: 1px solid #eee;
-  }
-`
+const reGoModLink = /href="\//g
 
 interface ContentProps {
   location: Location
@@ -122,8 +100,9 @@ interface ContentProps {
 const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: ContentProps) => {
   const [currentTab, setCurrentTab] = useState(tab)
   const {
-    PackageName,
     ModuleVersion,
+    ModuleRoot,
+    ImportPath,
     Latest,
     Licenses,
     PublishedTime,
@@ -139,6 +118,8 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
     GoMod,
     Readme
   } = pkg
+  const packageName = path.join(path.basename(ModuleRoot), path.relative(ModuleRoot, ImportPath))
+  const hasReadme = !!Readme
   const hasOverview = !!PackageDoc
   const hasConstants = Constants && Constants.length > 0
   const hasVariables = Variables && Variables.length > 0
@@ -147,6 +128,8 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
   const hasIndex = !!(Constants || Variables || Funcs || Types)
   const hasExamples = !!Examples
   const hasSubdirs = Subdirs && Subdirs.length > 0
+  const goMod = GoMod.replace(reGoModLink, 'href="/pkg/')
+  const hasGoMod = !!goMod
   const hasVerions = Versions && Versions.length > 0
   const hasLicenses = Licenses && Licenses.length > 0
   const overviewContents = []
@@ -178,28 +161,57 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
     return `${location.pathname}?${qs.stringify({ ...query, tab: key })}`
   }
 
+  const getSubdirHref = (name: string): string => {
+    const { pathname } = location
+    const hasVersionTag = pathname.includes('/@v/')
+    let href = ''
+    if (hasVersionTag) {
+      href = pathname.replace(/\/@v\//, `/${name}/@v/`)
+    } else {
+      href = pathname.replace(/\/?$/, `/${name}`)
+    }
+    return href
+  }
+
   const onTabsChange = (newCurrent) => {
     setCurrentTab(newCurrent)
     navigate(getNavItemHref(newCurrent), { replace: true })
   }
 
+  marked.setOptions({
+    baseUrl: `https://${ImportPath}`,
+    highlight(code, lang) {
+      if (lang) {
+        return prism.highlight(code, prism.languages[lang], lang)
+      }
+      return code
+    }
+  })
+
   return (
     <div>
       <PkgHeader>
-        <PkgName>{PackageName}</PkgName>
+        <PkgName>{packageName}</PkgName>
         <PkgVersion>{ModuleVersion}</PkgVersion>
         {Latest && <LatestTag>Latest</LatestTag>}
       </PkgHeader>
+      <p>
+        Module:&nbsp;
+        <a href={`/pkg/${ModuleRoot}`}>{ModuleRoot}</a>
+      </p>
       <PkgMeta>
         <PkgMetaLabel>Published:</PkgMetaLabel>
         <strong>{timeAgo.format(PublishedTime)}</strong>
         <PkgMetaDivider>|</PkgMetaDivider>
         <PkgMetaLabel>License:</PkgMetaLabel>
-        <strong>{Licenses && Licenses[0].Types[0]}</strong>
+        <strong>{hasLicenses ? Licenses[0].Types[0] : 'No License'}</strong>
       </PkgMeta>
       <Tabs current={currentTab} getNavItemHref={getNavItemHref} onChange={onTabsChange}>
         <TabPane title="Readme" key="readme">
-          <MarkdownContent html={marked(base64.decode(Readme))} />
+          {hasReadme
+            ? <MarkdownContent html={marked(base64.decode(Readme))} />
+            : <p><strong>No readme!</strong></p>
+          }
         </TabPane>
         <TabPane title="GoDoc" key="godoc">
           <GoDoc>
@@ -333,20 +345,25 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
           </GoDoc>
         </TabPane>
         <TabPane title="Subdirectories" key="subdirs">
-          {hasSubdirs && (
-            <ul>
-              {Subdirs.map((Subdir, i) => (
-                <li key={String(i)}>
-                  {Subdir.Name}
-                </li>
-              ))}
-            </ul>
-          )}
+          {hasSubdirs
+            ?
+              (
+                <ul>
+                  {Subdirs.map((Subdir, i) => (
+                    <li key={String(i)}>
+                      <a href={getSubdirHref(Subdir.Name)}>{Subdir.Name}</a>
+                    </li>
+                  ))}
+                </ul>
+              )
+            : <p><strong>No Subdirectories</strong></p>
+          }
         </TabPane>
         <TabPane title="GoMod" key="gomod">
-          <GoModWrapper>
-            <div dangerouslySetInnerHTML={{ __html: GoMod }} />
-          </GoModWrapper>
+          {hasGoMod
+            ? <CodeBlock code={goMod}></CodeBlock>
+            : <p><strong>No go.mod file</strong></p>
+          }
         </TabPane>
         <TabPane title="Versions" key="versions">
           {hasVerions && (
@@ -360,18 +377,19 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
           )}
         </TabPane>
         <TabPane title="Licenses" key="licenses">
-          {hasLicenses && (
-            <div>
-              {Licenses.map((License, i) => (
-                <div key={String(i)}>
-                  <p><strong>{License.Types[0]}</strong></p>
-                  <PkgLicense>
-                    <pre dangerouslySetInnerHTML={{ __html: base64.decode(License.Contents) }} />
-                  </PkgLicense>
-                </div>
-              ))}
-            </div>
-          )}
+          {hasLicenses
+            ? (
+              <div>
+                {Licenses.map((License, i) => (
+                  <div key={String(i)}>
+                    <p><strong>{License.Types[0]}</strong></p>
+                    <CodeBlock code={base64.decode(License.Contents || '')}></CodeBlock>
+                  </div>
+                ))}
+              </div>
+            )
+            : <p><strong>No License</strong></p>
+          }
         </TabPane>
       </Tabs>
     </div>

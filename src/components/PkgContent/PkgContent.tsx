@@ -14,6 +14,11 @@ const Wrapper = styled.div`
   padding: 20px 16px;
   max-width: 900px;
   min-height: calc(100vh - 174px);
+  background: #fff;
+
+  @media (min-width: 960px) {
+    padding: 20px 30px;
+  }
 `
 
 const Loading = styled.p`

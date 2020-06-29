@@ -36,7 +36,7 @@ const Icon = styled.i`
   color: #aaa;
 `
 
-const getSuggestionValue = suggestion => suggestion.ModuleRoot
+const getSuggestionValue = suggestion => suggestion.ImportPath
 
 const SuggestionHeader = styled.div`
   display: flex;
@@ -137,7 +137,6 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
   const inputProps = {
     ref: inputRef,
     placeholder: pkg.searchPlaceholder,
-    autoFocus: true,
     value,
     onChange
   }
@@ -170,7 +169,7 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
       cursor: 'pointer'
     },
     suggestionHighlighted: {
-      background: '#9bd3fd'
+      background: '#cde9fe'
     }
   }
   const onSuggestionsFetchRequested = async ({ value }) => {
@@ -208,6 +207,7 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
             theme={theme}
+            highlightFirstSuggestion
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
             onSuggestionsClearRequested={onSuggestionsClearRequested}
             onSuggestionSelected={onSuggestionSelected}

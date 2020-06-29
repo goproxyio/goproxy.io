@@ -140,19 +140,26 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
     let index = -1
     let lastIndex = 0
     index = PackageDoc.indexOf(startTag)
-    while (index > -1) {
+    if (index > -1) {
+      while (index > -1) {
+        overviewContents.push({
+          type: 'html',
+          text: PackageDoc.slice(lastIndex, index)
+        })
+        lastIndex = index + startTag.length
+        index = PackageDoc.indexOf(endTag, lastIndex)
+        overviewContents.push({
+          type: 'code',
+          text: he.decode(PackageDoc.slice(lastIndex, index))
+        })
+        lastIndex = index + endTag.length
+        index = PackageDoc.indexOf(startTag, lastIndex)
+      }
+    } else {
       overviewContents.push({
         type: 'html',
         text: PackageDoc.slice(lastIndex, index)
       })
-      lastIndex = index + startTag.length
-      index = PackageDoc.indexOf(endTag, lastIndex)
-      overviewContents.push({
-        type: 'code',
-        text: he.decode(PackageDoc.slice(lastIndex, index))
-      })
-      lastIndex = index + endTag.length
-      index = PackageDoc.indexOf(startTag, lastIndex)
     }
   }
 

@@ -88,7 +88,7 @@ const renderSuggestion = suggestion => {
     PackageName,
     ModuleVersion,
     PublishedTime,
-    ModuleRoot,
+    ImportPath,
     GithubRepo
   } = suggestion
   let Description = ''
@@ -102,7 +102,7 @@ const renderSuggestion = suggestion => {
   return (
     <div>
       <SuggestionHeader>
-        <SuggestionTitle>{ModuleRoot}</SuggestionTitle>
+        <SuggestionTitle>{ImportPath}</SuggestionTitle>
         {StargazersCount && StargazersCount > 0 && (
           <SuggestionStar>{StargazersCount} stars</SuggestionStar>
         )}

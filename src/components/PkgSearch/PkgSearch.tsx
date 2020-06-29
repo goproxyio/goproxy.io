@@ -38,13 +38,49 @@ const Icon = styled.i`
 
 const getSuggestionValue = suggestion => suggestion.ModuleRoot
 
+const SuggestionHeader = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+`
+
 const SuggestionTitle = styled.h4`
   margin: 0;
+`
+
+const SuggestionStar = styled.div`
+  font-size: 14px;
+  color: #aaa;
 `
 
 const SuggestionDescription = styled.p`
   margin: 0;
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+const ClearButton = styled.button`
+  appearance: none;
+  position: absolute;
+  top: 7px;
+  right: 4px;
+  margin: 0;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 10px;
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  color: #aaa;
+  overflow: hidden;
+
+  i {
+    font-size: 20px;
+  }
 `
 
 const renderSuggestion = suggestion => {
@@ -65,7 +101,12 @@ const renderSuggestion = suggestion => {
   }
   return (
     <div>
-      <SuggestionTitle>{ModuleRoot}</SuggestionTitle>
+      <SuggestionHeader>
+        <SuggestionTitle>{ModuleRoot}</SuggestionTitle>
+        {StargazersCount && StargazersCount > 0 && (
+          <SuggestionStar>{StargazersCount} stars</SuggestionStar>
+        )}
+      </SuggestionHeader>
       {Description && <SuggestionDescription>{Description}</SuggestionDescription>}
     </div>
   )
@@ -76,16 +117,27 @@ interface PkgSearchProps {
   siteConfig: SiteConfig
 }
 
+const inputRef = React.createRef()
+
 const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
   const [value, setValue] = useState('')
   const [error, setError] = useState('')
   const [suggestions, setSuggestions] = useState([])
   const { pkg } = siteConfig
+  const showClear = !!value.trim()
   const onChange = (e, { newValue }) => {
     setValue(newValue)
   }
+  const onClear = () => {
+    setValue('')
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }
   const inputProps = {
+    ref: inputRef,
     placeholder: pkg.searchPlaceholder,
+    autoFocus: true,
     value,
     onChange
   }
@@ -104,6 +156,7 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
       width: '100%',
       maxHeight: '400px',
       overflow: 'auto',
+      background: '#fff',
       border: '1px solid #ddd'
     },
     suggestionsList: {
@@ -114,7 +167,7 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
     },
     suggestion: {
       padding: '8px 16px',
-      cursor: 'default'
+      cursor: 'pointer'
     },
     suggestionHighlighted: {
       background: '#9bd3fd'
@@ -137,7 +190,6 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
   }
   const onSuggestionSelected = (e, { suggestionValue }) => {
     e.preventDefault()
-    console.log(suggestionValue)
     const path = `/pkg/${suggestionValue}`
     navigate(path)
   }
@@ -160,6 +212,11 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
             onSuggestionsClearRequested={onSuggestionsClearRequested}
             onSuggestionSelected={onSuggestionSelected}
           />
+          {showClear && (
+            <ClearButton type="button" onClick={onClear}>
+              <i className="iconfont icon-clear"></i>
+            </ClearButton>
+          )}
         </Search>
       </Wrapper>
     </Container>

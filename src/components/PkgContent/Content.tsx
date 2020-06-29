@@ -168,14 +168,14 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
     return `${location.pathname}?${qs.stringify({ ...query, tab: key })}`
   }
 
-  const getSubdirHref = (name: string): string => {
+  const getSubdirHref = (version: string, name: string): string => {
     const { pathname } = location
     const hasVersionTag = pathname.includes('/@v/')
     let href = ''
     if (hasVersionTag) {
       href = pathname.replace(/\/@v\//, `/${name}/@v/`)
     } else {
-      href = pathname.replace(/\/?$/, `/${name}`)
+      href = pathname.replace(/\/?$/, `/${name}/@v/${version}`)
     }
     return href
   }
@@ -365,7 +365,7 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
                 <ul>
                   {Subdirs.map((Subdir, i) => (
                     <li key={String(i)}>
-                      <a href={getSubdirHref(Subdir.Name)}>{Subdir.Name}</a>
+                      <a href={getSubdirHref(ModuleVersion, Subdir.Name)}>{Subdir.Name}</a>
                     </li>
                   ))}
                 </ul>

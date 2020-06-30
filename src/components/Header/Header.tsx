@@ -1,5 +1,5 @@
 import { Link, navigate } from 'gatsby'
-import React, { useState, useEffect, SyntheticEvent } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import isAbsoluteUrl from 'micell/url/isAbsolute'
 import locales from '../../../content/locales.json'
@@ -213,7 +213,10 @@ const Header = ({ location, siteConfig }: HeaderProps) => {
   const initLocale = getLocale(location.pathname)
   const [locale, setLocale] = useState(initLocale)
   const toggleOpened = () => setOpened(!opened)
-  const toggleLocale = (e: SyntheticEvent) => {
+  const onMenuItemClick = () => {
+    setOpened(false)
+  }
+  const toggleLocale = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLSelectElement
     setLocale(target.value)
   }
@@ -267,7 +270,7 @@ const Header = ({ location, siteConfig }: HeaderProps) => {
                       target="_blank"
                       rel="noopener noreferer"
                     >{item.title}</a> :
-                    <Link to={item.url}>{item.title}</Link>
+                    <Link to={item.url} onClick={onMenuItemClick}>{item.title}</Link>
                   }
                 </MenuItem>
               )}

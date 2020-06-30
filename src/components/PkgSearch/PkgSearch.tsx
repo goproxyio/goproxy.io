@@ -46,9 +46,14 @@ const SuggestionHeader = styled.div`
 
 const SuggestionTitle = styled.h4`
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 const SuggestionStar = styled.div`
+  margin-left: 16px;
+  flex: auto 0 0;
   font-size: 14px;
   color: #aaa;
 `
@@ -102,7 +107,7 @@ const renderSuggestion = suggestion => {
   return (
     <div>
       <SuggestionHeader>
-        <SuggestionTitle>{ImportPath}</SuggestionTitle>
+        <SuggestionTitle title={ImportPath}>{ImportPath}</SuggestionTitle>
         {StargazersCount && StargazersCount > 0 && (
           <SuggestionStar>{StargazersCount} stars</SuggestionStar>
         )}
@@ -125,7 +130,7 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
   const [suggestions, setSuggestions] = useState([])
   const { pkg } = siteConfig
   const showClear = !!value.trim()
-  const onChange = (e, { newValue }) => {
+  const onChange = (e: React.SyntheticEvent, { newValue }) => {
     setValue(newValue)
   }
   const onClear = () => {
@@ -148,12 +153,12 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
     input: {
       display: 'block',
       width: '100%',
-      padding: '8px 8px 8px 32px'
+      padding: '8px 32px 8px 32px'
     },
     suggestionsContainerOpen: {
       position: 'absolute',
       width: '100%',
-      maxHeight: '400px',
+      maxHeight: `300px`,
       overflow: 'auto',
       background: '#fff',
       border: '1px solid #ddd'
@@ -187,10 +192,13 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
   const onSuggestionsClearRequested = () => {
     setSuggestions([])
   }
-  const onSuggestionSelected = (e, { suggestionValue }) => {
+  const onSuggestionSelected = (e: React.SyntheticEvent, { suggestionValue }) => {
     e.preventDefault()
     const path = `/pkg/${suggestionValue}`
     navigate(path)
+  }
+  const onSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault()
   }
 
   return (
@@ -199,7 +207,7 @@ const PkgSearch = ({ location, siteConfig }: PkgSearchProps ) => {
         <Title>
           Go Package Search
         </Title>
-        <Search>
+        <Search onSubmit={onSubmit}>
           <Icon className="iconfont icon-search"></Icon>
           <AutoSuggest
             suggestions={suggestions}

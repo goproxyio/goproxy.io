@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { navigate } from 'gatsby'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { Link, navigate } from 'gatsby'
 import path from 'path'
 import marked from 'marked'
 import prism from 'prismjs'
@@ -19,20 +20,22 @@ const PkgHeader = styled.div`
   display: flex;
   align-items: center;
   margin: 8px 0;
+  flex-wrap: wrap;
 `
 
 const PkgName = styled.h1`
-  margin: 0;
+  flex: auto 0 0;
+  margin: 0 16px 0 0;
 `
 
 const PkgVersion = styled.div`
-  margin-left: 16px;
+  flex: auto 0 0;
+  margin-right: 4px;
   font-size: 16px;
 `
 
 const LatestTag = styled.div`
   display: inline-block;
-  margin-left: 4px;
   padding: 4px 8px;
   font-size: 14px;
   line-height: 1;
@@ -40,8 +43,46 @@ const LatestTag = styled.div`
   background: #9bd3fd;
 `
 
+const Code = styled.code`
+  display: inline-block;
+  padding: 2px 4px;
+  white-space: pre;
+  background: #eef3f7;
+  border-radius: 2px;
+  overflow-y: hidden;
+  overflow-x: auto;
+`
+
+const CopyButton = styled.button`
+  appearance: none;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  color: #aaa;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #444;
+  }
+
+  ${(props) => props.copied ? `
+    color: green;
+
+    &:hover,
+    &:focus {
+      color: green;
+    }
+  `: ''}
+`
+
 const PkgMeta = styled.div`
   margin: 8px 0 16px;
+  word-break: break-word;
 `
 
 const PkgMetaLabel = styled.span`
@@ -94,10 +135,10 @@ interface ContentProps {
   pkg: any
   tab: string
   getVersionPath: (version: string) => string
-  onVersionChange: (version: string) => void
 }
 
-const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: ContentProps) => {
+const Content = ({ location, pkg, tab, getVersionPath }: ContentProps) => {
+  const [copied, setCopied] = useState(false)
   const [currentTab, setCurrentTab] = useState(tab)
   const {
     ModuleVersion,
@@ -163,21 +204,28 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
     }
   }
 
+  const onCopy = () => {
+    setCopied(true)
+    const timer = setTimeout(() => {
+      setCopied(false)
+    }, 3000)
+  }
+
   const getNavItemHref = (key: string): string => {
     const query = qs.parse(location.search)
     return `${location.pathname}?${qs.stringify({ ...query, tab: key })}`
   }
 
-  const getSubdirHref = (version: string, name: string): string => {
+  const getSubdirPath = (version: string, name: string): string => {
     const { pathname } = location
     const hasVersionTag = pathname.includes('/@v/')
-    let href = ''
+    let subdirPath = ''
     if (hasVersionTag) {
-      href = pathname.replace(/\/@v\//, `/${name}/@v/`)
+      subdirPath = pathname.replace(/\/@v\//, `/${name}/@v/`)
     } else {
-      href = pathname.replace(/\/?$/, `/${name}/@v/${version}`)
+      subdirPath = pathname.replace(/\/?$/, `/${name}/@v/${version}`)
     }
-    return href
+    return subdirPath
   }
 
   const onTabsChange = (newCurrent) => {
@@ -210,8 +258,14 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
         {Latest && <LatestTag>Latest</LatestTag>}
       </PkgHeader>
       <p>
-        Module:&nbsp;
-        <a href={`/pkg/${ModuleRoot}`}>{ModuleRoot}</a>
+        <Code>
+          import <Link to={`/pkg/${ImportPath}`}>"{ImportPath}"</Link>
+          <CopyToClipboard text={`"${ImportPath}"`} onCopy={onCopy}>
+            <CopyButton copied={copied} type="button" title="Click to copy">
+              <i className="iconfont icon-copy"></i>
+            </CopyButton>
+          </CopyToClipboard>
+        </Code>
       </p>
       <PkgMeta>
         <PkgMetaLabel>Published:</PkgMetaLabel>
@@ -219,6 +273,9 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
         <PkgMetaDivider>|</PkgMetaDivider>
         <PkgMetaLabel>License:</PkgMetaLabel>
         <strong>{hasLicenses ? Licenses[0].Types[0] : 'No License'}</strong>
+        <PkgMetaDivider>|</PkgMetaDivider>
+        <PkgMetaLabel>Module:</PkgMetaLabel>
+        <Link to={`/pkg/${ModuleRoot}`}>{ModuleRoot}</Link>
       </PkgMeta>
       <Tabs current={currentTab} getNavItemHref={getNavItemHref} onChange={onTabsChange}>
         <TabPane title="Readme" key="readme">
@@ -365,7 +422,7 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
                 <ul>
                   {Subdirs.map((Subdir, i) => (
                     <li key={String(i)}>
-                      <a href={getSubdirHref(ModuleVersion, Subdir.Name)}>{Subdir.Name}</a>
+                      <Link to={getSubdirPath(ModuleVersion, Subdir.Name)}>{Subdir.Name}</Link>
                     </li>
                   ))}
                 </ul>
@@ -384,7 +441,7 @@ const Content = ({ location, pkg, tab, getVersionPath, onVersionChange }: Conten
             <ul>
               {semverRsort(Versions).map((Version, i) => (
                 <li key={String(i)}>
-                  <a href={getVersionPath(Version)} onClick={() => onVersionChange(Version)}>{Version}</a>
+                  <Link to={getVersionPath(Version)}>{Version}</Link>
                 </li>
               ))}
             </ul>

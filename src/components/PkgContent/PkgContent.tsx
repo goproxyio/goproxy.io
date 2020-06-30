@@ -58,9 +58,6 @@ const PkgContent = ({ location }: PkgContentProps) => {
     }
     return path.replace(/[^/]+$/, version)
   }
-  const onVersionChange = (version) => {
-    navigate(getVersionPath(version))
-  }
   useEffect(() => {
     async function fetchData() {
       try {
@@ -96,7 +93,6 @@ const PkgContent = ({ location }: PkgContentProps) => {
         pkg={pkg}
         tab={tab}
         getVersionPath={getVersionPath}
-        onVersionChange={onVersionChange}
       />
     )
   }

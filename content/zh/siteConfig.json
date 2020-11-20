@@ -4,8 +4,8 @@
   "dateFormat": "YYYY年MM月DD日",
   "nav": [
      {
-      "url": "https://user.goproxy.io",
-      "title": "私有库"
+      "url": "https://golangcn.org/sponsorship.html",
+      "title": "赞助"
     },
     {
       "url": "/zh/docs/introduction.html",

@@ -4,12 +4,12 @@
   "dateFormat": "YYYY年MM月DD日",
   "nav": [
      {
-      "url": "https://golangcn.org/sponsorship.html",
-      "title": "赞助"
+      "url": "https://golang.com.cn",
+      "title": "Go 包"
     },
     {
       "url": "/zh/docs/introduction.html",
-      "title": "文档"
+      "title": "使用文档"
     },
     {
       "url": "https://gomirrors.org",

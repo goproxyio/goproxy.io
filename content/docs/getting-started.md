@@ -4,7 +4,7 @@ title: "Getting Started"
 
 ## Enable Go module
 
-If your Go version is Go 1.11 and above, you only need to set an environment to enable Go module. [Click here to update Go](https://golang.org/dl/).
+If your Go version is Go 1.11 and above, you only need to set an environment to enable Go module. [We recommend you update Go to the latest version](https://golang.org/dl/).
 
 **Mac/Linux**
 
@@ -40,16 +40,16 @@ export GOPROXY="https://goproxy.io"
 $env:GOPROXY="https://goproxy.io"
 ```
 
-## Add Environments in your profile （optional）
+## Add Environments in your profile （RECOMMEND）
 
 **Mac/Linux**
 
 ```shell
 # add environment to your profile
-echo "export GOPROXY=https://goproxy.io" >> ~/.profile && source ~/.profile
+echo "export GOPROXY=https://goproxy.io,direct" >> ~/.profile && source ~/.profile
 
 # if your terminal is zsh，type the command below
-echo "export GOPROXY=https://goproxy.io" >> ~/.zshrc && source ~/.zshrc
+echo "export GOPROXY=https://goproxy.io,direct" >> ~/.zshrc && source ~/.zshrc
 ```
 
 **Windows**
@@ -58,6 +58,6 @@ echo "export GOPROXY=https://goproxy.io" >> ~/.zshrc && source ~/.zshrc
 1. Right click This PC -> Properties -> Advanced system settings -> Environment Variables
 2. Click "New" in Environment Variables
 3. Input Variable Name: “GOPROXY”
-4. Input Variable Value: “https://goproxy.io”
+4. Input Variable Value: “https://goproxy.io,direct”
 5. Click "OK", save your settings.
 ```

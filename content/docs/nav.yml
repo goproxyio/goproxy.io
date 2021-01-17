@@ -3,8 +3,8 @@
 - id: getting-started
   title: Getting Started
 - id: goproxyio-private
-  title: goproxy.io Private
-- id: GOPRIVATE-env
+  #  title: goproxy.io Private
+  #- id: GOPRIVATE-env
   title: GOPRIVATE Environment
 - id: GOSUMDB-env
   title: GOSUMDB Environment

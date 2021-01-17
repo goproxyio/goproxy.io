@@ -2,8 +2,8 @@
   title: 介绍
 - id: getting-started
   title: 立刻使用
-- id: goproxyio-private
-  title: Private 使用指南
+  #- id: goproxyio-private
+  # title: Private 使用指南
 - id: GOPRIVATE-env
   title: GOPRIVATE 环境变量
 - id: GOSUMDB-env

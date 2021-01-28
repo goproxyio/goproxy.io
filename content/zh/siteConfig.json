@@ -4,8 +4,8 @@
   "dateFormat": "YYYY年MM月DD日",
   "nav": [
      {
-      "url": "https://golang.com.cn",
-      "title": "Go 包"
+      "url": "https://beta.golang.com.cn",
+      "title": "Go 包 (beta)"
     },
     {
       "url": "/zh/docs/introduction.html",

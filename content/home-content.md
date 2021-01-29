@@ -10,7 +10,7 @@ title: ''
 export GOPROXY=https://goproxy.io,direct
 ```
 
-**Windows Powershell**
+**Windows**
 
 ```shell
 $env:GOPROXY="https://goproxy.io,direct"
@@ -18,7 +18,7 @@ $env:GOPROXY="https://goproxy.io,direct"
 
 **Optional Settings**
 
-```
+```shell
 # Set environment variable allow bypassing the proxy for selected modules (optional)
 go env -w GOPRIVATE="*.corp.example.com,github.com/org_private"
 ```

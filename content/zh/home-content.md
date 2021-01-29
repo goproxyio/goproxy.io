@@ -10,7 +10,7 @@ title: ''
 export GOPROXY=https://goproxy.io,direct
 ```
 
-**Windows Powershell**
+**Windows**
 
 ```shell
 $env:GOPROXY="https://goproxy.io,direct"

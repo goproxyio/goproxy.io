@@ -8,6 +8,8 @@
   title: GOPRIVATE 环境变量
 - id: GOSUMDB-env
   title: GOSUMDB 环境变量
+- id: Goland-configuration-goproxy
+  title: GoLand 中配置 goproxy
 - id: enterprise
   title: 企业部署自己的 goproxy.io
 - id: contributors

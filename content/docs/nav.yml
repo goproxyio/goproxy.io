@@ -8,6 +8,8 @@
   title: GOPRIVATE Environment
 - id: GOSUMDB-env
   title: GOSUMDB Environment
+- id: Goland-configuration-goproxy
+  title: GoLand configuration goproxy
 - id: contributors
   title: Contributors
 - id: contact-us

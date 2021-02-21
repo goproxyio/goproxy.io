@@ -13,7 +13,7 @@ export GOPROXY=https://goproxy.io,direct
 **Windows**
 
 ```shell
-$env:GOPROXY="https://goproxy.io,direct"
+go env -w GOPROXY="https://goproxy.io,direct"
 ```
 
 **可选设置**

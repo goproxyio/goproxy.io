@@ -2,42 +2,22 @@
 title: "快速上手"
 ---
 
-## 开启 Go module 功能
+##  Go 版本要求
 
-Go module 功能需要您的 Go 版本在 Go 1.11 及以上， [我们建议使用最新的 Go 稳定版本](https://golang.google.cn/dl/)。开启 Go module 功能只需配置一个环境变量。
-
-**Mac/Linux**
-
-```shell
-export GO111MODULE="on"
-```
-**Windows**
-
-```shell
-$env:GO111MODULE="on"
-```
+建议您使用 Go 1.13 及以上版本， [可以在这里下载最新的 Go 稳定版本](https://golang.google.cn/dl/)。
 
 ## 配置 Goproxy 环境变量
 
-如果您使用的 Go 版本是 [Go 1.13](https://golang.google.cn/dl/) 及以上，我们推荐您使用下面的 Go 命令来进行配置：
-
+**Bash (Linux or macOS)**
 
 ```shell
-go env -w GOPROXY="https://goproxy.io,direct"
+export GOPROXY=https://goproxy.io,direct
 ```
 
-
-但是如果您试用的 Go 版本小于 1.13, 可以按照下面的指引进行配置：
-
-**Mac/Linux**
+**PowerShell (Windows)**
 
 ```shell
-export GOPROXY="https://goproxy.io"
-```
-**Windows**
-
-```shell
-$env:GOPROXY="https://goproxy.io"
+$env:GOPROXY = "https://goproxy.io,direct"
 ```
 
 ## 使配置长久生效 （推荐）

@@ -2,42 +2,22 @@
 title: "Getting Started"
 ---
 
-## Enable Go module
+## Go Version
 
-If your Go version is Go 1.11 and above, you only need to set an environment to enable Go module. [We recommend you update Go to the latest version](https://golang.org/dl/).
-
-**Mac/Linux**
-
-```shell
-export GO111MODULE="on"
-```
-**Windows**
-
-```shell
-$env:GO111MODULE="on"
-```
+We recommend you upgrade Go to the latest version(>= Go1.13), [upgrade Go here].(https://golang.org/dl/).
 
 ## Set GOPROXY environment
 
-If you use Go 1.13 and above, we recommand you use this command to set GOPROXY environment. [Click here to update Go](https://golang.org/dl/).
-
+**Bash (Linux or macOS)**
 
 ```shell
-go env -w GOPROXY="https://goproxy.io,direct"
+export GOPROXY=https://goproxy.io,direct
 ```
 
-
-You could follow these instructions if your Go version < 1.13:
-
-**Mac/Linux**
+**PowerShell (Windows)**
 
 ```shell
-export GOPROXY="https://goproxy.io"
-```
-**Windows**
-
-```shell
-$env:GOPROXY="https://goproxy.io"
+$env:GOPROXY = "https://goproxy.io,direct"
 ```
 
 ## Add Environments in your profile （RECOMMEND）

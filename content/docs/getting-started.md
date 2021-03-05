@@ -4,7 +4,7 @@ title: "Getting Started"
 
 ## Go Version requirement
 
-We recommend you upgrade Go to the latest version(>= Go1.13), [upgrade Go here.](https://golang.org/dl/).
+We recommend you upgrade Go to the latest version ( >= Go1.13 ), you can [upgrade Go here](https://golang.org/dl/).
 
 ## Set GOPROXY environment
 

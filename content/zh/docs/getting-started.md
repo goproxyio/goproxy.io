@@ -43,3 +43,15 @@ echo "export GOPROXY=https://goproxy.io,direct" >> ~/.zshrc && source ~/.zshrc
 4. 在对应的 “变量值” 输入框中新增 “https://goproxy.io,direct”
 5. 最后点击 “确定” 按钮保存设置
 ```
+
+**GoLand**
+
+```
+1. ”偏好设置“ -> ”Go“ -> ”Go 模块“
+2. 勾选”启用 Go 模块集成“
+3. 环境内输入 ``GOPROXY=https://goproxy.io,direct;GOSUMDB=sum.golang.org;GOPRIVATE=git.yourcompany.com``
+4. 最后点击 “确定” 按钮保存设置
+```
+注：
+- 这样每次点击运行或者调试按钮时就会自动``go mod tidy``命令
+- “偏好设置”的快捷键 mac：`cmd + ,`  window: `ctr + alt + S`

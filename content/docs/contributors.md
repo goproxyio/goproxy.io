@@ -29,6 +29,7 @@ This is the official list of people who have contributed code to the [goproxy](h
 - 	[schemacs](https://github.com/schemacs)
 - 	[Senmumu](https://github.com/Senmumu)
 - 	[superryanguo](https://github.com/superryanguo)
+- 	[Y4ssss](https://github.com/Y4ssss)
 - 	[webboy89860](https://github.com/webboy89860)
 -   [wzqnls](https://github.com/wzqnls)
 - 	[Yan1](https://github.com/Yan1)

@@ -3,10 +3,6 @@
   "title": "GOPROXY.IO - A Global Proxy for Go Modules",
   "dateFormat": "YYYY-MM-DD",
   "nav": [
-     {
-      "url": "https://golangcn.org/sponsorship.html",
-      "title": "Sponsorship"
-    },
     {
       "url": "/docs/introduction.html",
       "title": "Document"

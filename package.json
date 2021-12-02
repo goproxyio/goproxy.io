@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Alex Chao",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.2",
     "babel-plugin-styled-components": "^1.10.7",
     "classnames": "^2.2.6",
     "gatsby": "^2.19.7",

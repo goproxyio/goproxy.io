@@ -2,6 +2,8 @@
   title: 介绍
 - id: getting-started
   title: 立刻使用
+- id: enterprise
+  title: Goproxy 企业版
   #- id: goproxyio-private
   # title: Private 使用指南
 - id: GOPRIVATE-env
@@ -10,8 +12,8 @@
   title: GOSUMDB 环境变量
 - id: GoLand-configuration-goproxy
   title: GoLand 中配置 goproxy
-- id: enterprise
-  title: 企业部署自己的 goproxy.io
+- id: enterprise-goproxyio
+  title: 企业部署开源 goproxy.io
 - id: contributors
   title: 社区贡献者
 - id: contact-us

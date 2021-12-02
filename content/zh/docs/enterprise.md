@@ -1,99 +1,69 @@
 ---
-title: 部署公司内部自己的 goproxy.io 服务
+title: Goproxy.io Enterprise 企业版本功能介绍
 ---
 
-![golang](/images/code1.jpg)
+![golang](/images/private.jpg)
 
-随着 go module 的不断普及，通常情况下，我们可以直接使用 `goproxy.io` 公共服务来解决海外依赖问题，但是有时候公司内部的仓库就很难办了，这些 git server 通常运行在企业内网环境下，开发人员既想能快速的下载海外依赖，又想能下载到公司内部的代码库。这时候可以在公司内部部署一个属于自己的 goproxy.io 服务来解决这个问题。还有哪些场景需要我们自己部署公司内部的 goproxy server 呢
+## 介绍
 
-* 访问公司内网的 git server
-* 防止公网仓库变更或者消失，导致线上编译失败或者紧急回退失败
-* 公司审计和安全需要
-* 防止公司内部开发人员配置不当造成 import path 泄露
-* cache 热点依赖，降低公司公网出口带宽
+goproxy.io 是 Go 语言公共的镜像代理服务，在中国乃至全球有众多 Go 语言开发者使用。但是对于企业来说，安全始终是企业的生命线，代码是公司的重要资产，服务的可审计性是企业内部不可或缺的。对于新入职的 Go 开发者，可能需要了解像 GOPROXY/GONOPROXY/GONOSUMDB 等一堆环境变量和繁琐的配置，配置不当还可能将公司机密项目仓库路径泄露到公网之中，带来不可估计的损失，Goproxy.io Enterprise 企业版本正是解决了这些痛点。
 
-## 编译
+## 相对于公共镜像代理服务，企业版有哪些优势呢 ？
 
-确保要运行的服务器是已经安装了 go 命令，goproxy 项目是开源的，用 go 语言开发，使用 go modules 可以很方便的进行编译：
+* 不仅可以拉取到内部 Git 平台的公有代码仓库，还可以获取私有代码仓库
+* 继承内部 Git 权限，做到用户粒度的权限隔离，降低开发者客户端繁琐配置
+* 支持企业内部 SSO，LDAP 等企业级认证方式
+* 方便企业内部统一管理和收敛访问公网的需求
+* 可以将代码持久化到对象存储服务中，防止公司仓库变更或者消失，导致线上编译失败或者紧急回退失败
+* 防止公司内部开发人员配置不当造成 import path 泄露到公网
+* 缓存热点代码依赖，降低公司公网出口带宽
+* 防止 Git 不稳定带来的 CI/CD 服务异常
+* 对于存在风险的第三方依赖进行同一收敛和管控
+* 内部独立的 sumdb 服务，保障编译的安全性和可重复性
+* 使用 goproxy 可以大大缩减代码拉取时间，降低编译时长
+* 不依赖用户端 VCS 和 版本（需要用户端安装 git、SVN、hg 等）
+* 支持 LFS
 
-```shell
-git clone https://github.com/goproxyio/goproxy.git
-cd goproxy
-make
-```
-## 服务运行模式
+## 使用文档
 
-编译好的文件位置是 `./bin/goproxy` ， 使用 `./bin/goproxy -h` 查看参数使用说明：
+### 开始使用，简单上手
 
-```shell
-Usage of ./bin/goproxy:
-  -cacheDir string
-        go modules cache dir  [指定 Go 模块的缓存目录]
-  -exclude string
-        exclude host pattern  [proxy 模式下指定哪些 path 不经过上游服务器]
-  -listen string
-        service listen address [服务监听端口，默认 8081]
-  -proxy string
-        next hop proxy for go modules [指定上游 proxy server，推荐 goproxy.io]
-```
-### Proxy Mode
+用户在登录认证成功后，配置企业版提供的两个环境变量即可开始时使用。
 
-如果服务没有访问海外资源的需求，只访问公司内部资源可以不指定上游服务器，启动服务：
+![enterprise](/images/enterprise-1.jpg)
 
-```shell
-./bin/goproxy -listen=0.0.0.0:80 -cacheDir=/tmp/test
-```
 
-### Router Mode
+### 开启企业版 Private 功能
 
-```
+在不开启 Private 功能时，可以获取到内部 Git 公开的仓库代码。如果点击授权按钮启用 Private 功能将获得一个专属 token，这时这个配置可以获取一些自己有权限的私有仓库的代码。
 
-                                         direct
-                      +----------------------------------> private repo
-                      |
-                 match|pattern
-                      |
-                  +---+---+           +----------+
-go get  +-------> |goproxy| +-------> |goproxy.io| +---> golang.org/x/net
-                  +-------+           +----------+
-                 router mode           proxy mode
-```
+![enterprise](/images/enterprise-2.jpg)
 
-使用 `-proxy` 参数启用 `Router mode`, Router 模式下你将可以配置哪些仓库从海外获取，哪些仓库从公司内部获取， 启动服务命令如下：
 
-```shell
-./bin/goproxy -listen=0.0.0.0:80 -cacheDir=/tmp/test -proxy https://goproxy.io -exclude "git.corp.example.com,rsc.io/private"
-```
+## 为什么使用企业版性能更好了，编译时间更短了 ？
 
-## 使用 docker 运行服务
+有些人说只有海外资源才有加速的需求，其实不是这样的，即使是内网的代码依赖模块，如果你使用 goproxy 也比直接拉取快很多，接下来我们分析下原因。
 
-如果上面这些你感觉非常麻烦，可以直接用 docker hub 上编译好的镜像来运行这个服务：
+Go 可以通过 HTTPS 协议通过 proxy 下载依赖模块，这要比直接从源代码库中拉取快 5 到 20 倍。GOPROXY 的协议是无状态的，它的设计非常简单以致于我们可以使用一个静态的文件服务来实现它。Go 内部在实现的时候也支持 `file://` 协议，这样避免了比如在测试场景中获取依赖时产生对网络的依赖，可以直接使用一个本地文件系统作为 goproxy 服务。下图是我们使用腾讯名字服务项目编译进行的一项拉取测试。
 
-```
-docker run -d -p80:8081 goproxy/goproxy
-```
+![enterprise](/images/enterprise-4.jpg)
 
-这样服务就运行在本地的 80 端口服务上了。
+使用 goproxy 下载之所以如此之快追究其原因有下面几个：
 
-## 测试
+* Go 无需下载整个代码仓库或者某个完整的 commit，它只需要下载相应版本的 zip 包，这个包中只包含编译所需的源码文件。
+* 在 Go 做版本选择时，Go 只需使用到 mod 文件，可以避免下载整个代码仓库或者 zip 包。
+* 如果这些 mod 和 zip 文件已经在 proxy 的缓存中了，获取非常快，甚至像 goproxy.io 这样的公共服务还使用了腾讯云的全球 CDN 进行了加速，并且在亚洲、美洲和欧洲部署了独立的服务进行就近回源。
+* 企业版 goproxy 将全部请求都通过 HTTPS 进行拉取，比单纯使用公共 goproxy 无论是性能和安全性上都要好很多。
 
-在本地开发机上，通过环境变量将 proxy server 指定到你刚部署的服务器：
+## fallback 机制
 
-Mac 和 Linux 用户：
-```shell
-export GO111MODULE=on
-export GOPROXY=http://[你的服务器IP]:80
-```
+虽然我们对自己服务的可用性剔除了很高的要求，但是天下没有不宕机的服务，如果用户配置的 goproxy 服务不可用了怎么办？ 好在 Go 支持配置逗号或者管道分隔的 goproxy 列表，如果第一个服务器返回了 404 或者 410，甚至是不可用（超时），Go 可以根据用户的配置尝试使用其他 goproxy 服务或者直接使用本地直接获取的方式。这种 fallback 机制使得 Go 不依赖于某一个 goproxy 服务的可用性。
 
-如果是 windows 用户：
 
-```
-$env:GO111MODULE="on"
-$env:GOPROXY="http://[你的服务器IP]:80"
-```
+## 服务架构
 
-接着运行下面命令，查看是否成功，观察服务器日志输出是否正常。
+![enterprise](/images/enterprise-3.jpg)
 
-> go get github.com/pkg/errors
+## 结语
 
-最后再给自己的服务绑定个域名就大功告成了。有任何问题和bug，欢迎[点击这里](https://github.com/goproxyio/goproxy/issues/new)进行反馈。
+目前，企业版 goproxy 在腾讯内部帮助了腾讯云、腾讯文档、腾讯新闻、腾讯游戏等多个 BG 和部门，为大家的编译节省了大量的等待时间，提高了内部服务的编译成功率和开发体验。各个 CI 系统已经在第一时间接入，极大的提升了内部的研发效率，保证了内部代码安全和编译安全。想了解更多，联系我微信：crossthelife

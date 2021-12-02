@@ -2,8 +2,6 @@
 title: Goproxy.io Enterprise 企业版本功能介绍
 ---
 
-![golang](/images/private.jpg)
-
 ## 介绍
 
 goproxy.io 是 Go 语言公共的镜像代理服务，在中国乃至全球有众多 Go 语言开发者使用。但是对于企业来说，安全始终是企业的生命线，代码是公司的重要资产，服务的可审计性是企业内部不可或缺的。对于新入职的 Go 开发者，可能需要了解像 GOPROXY/GONOPROXY/GONOSUMDB 等一堆环境变量和繁琐的配置，配置不当还可能将公司机密项目仓库路径泄露到公网之中，带来不可估计的损失，Goproxy.io Enterprise 企业版本正是解决了这些痛点。

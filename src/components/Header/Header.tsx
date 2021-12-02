@@ -8,8 +8,10 @@ import { SiteConfig, getLocale } from '../../utils'
 const defaultLocale = 'en'
 
 const Container = styled.header`
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   background: #004880;
   color: #66a0cc;
   z-index: 900;

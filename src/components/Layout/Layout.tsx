@@ -6,8 +6,6 @@
  */
 
 import React, { ReactNode } from 'react'
-import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import { SiteConfig } from '../../utils'
@@ -17,6 +15,7 @@ import '../../base.css'
 
 // TODO: use more precise computation
 const Main = styled.main`
+  padding-top: 64px;
   min-height: calc(100vh - 340px);
 `
 

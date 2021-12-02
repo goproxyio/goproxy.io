@@ -59,28 +59,22 @@ const Container = styled.div`
     align-items: flex-start;
     justify-content: center;
     margin-top: 0;
+    padding: 0;
+  }
+  @media (min-width: 1400px) {
+    padding: 0 16px;
   }
 `
 
+// min-width: 0; https://weblog.west-wind.com/posts/2016/feb/15/flexbox-containers-pre-tags-and-managing-overflow
 const Entry = styled.div`
   @media (min-width: 960px) {
     margin: 36px 0;
     width: 100%;
     max-width: 900px;
+    min-width: 0;
+    min-height: calc(100vh - 246px);
     padding: 0 32px;
-  }
-`
-
-const Summary = styled.summary`
-  padding: 8px;
-  background: #f4f4f4;
-  color: #03A9F4;
-
-  @media (min-width: 960px) {
-    padding: 8px;
-    background: transparent;
-    outline: 0;
-    user-select: none;
   }
 `
 
@@ -159,7 +153,7 @@ const NavTitle = styled.div`
 const Toc = styled.div`
   display: none;
 
-  @media (min-width: 960px) {
+  @media (min-width: 1280px) {
     position: sticky;
     top: 112px;
     display: block;

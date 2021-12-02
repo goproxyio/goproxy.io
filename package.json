@@ -42,6 +42,7 @@
     "url-join": "^4.0.1"
   },
   "devDependencies": {
+    "@babel/helper-compilation-targets": "^7.16.3",
     "@types/classnames": "^2.2.9",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.7.4",

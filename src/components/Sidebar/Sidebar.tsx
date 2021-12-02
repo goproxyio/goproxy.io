@@ -14,8 +14,7 @@ const Container = styled.div`
     display: block;
     margin: 36px 0;
     width: 360px;
-    height: calc(100vh - 160px);
-    padding: 16px 16px 16px 64px;
+    height: calc(100vh - 300px);
     border-right: 1px solid #e4e4e4;
 
     & > ul > li p a {
@@ -26,6 +25,9 @@ const Container = styled.div`
     & > ul > .active p a {
       border-right-color: #03A9F4;
     }
+  }
+  @media (min-width: 1400px) {
+    padding: 16px 16px 16px 64px;
   }
 `
 
@@ -67,7 +69,6 @@ const TreeNode = styled.li`
     ` : ''}
 
     ${(props: TreeNodeProps) => props.opened ? `
-      margin-top: -2px;
       border-left-color: transparent;
       border-top-color: #03A9F4;
     ` : ''}
@@ -91,7 +92,7 @@ const Text = styled.p`
 `
 
 interface AnchorProps {
-  active: boolean
+  active: string
 }
 
 const Anchor = styled(Link)`
@@ -158,7 +159,7 @@ const Sidebar = ({ location, nav }: SidebarProps) => {
                 hasSublist={Boolean(children)}
               >
                 <Text>
-                  <Anchor active={Boolean(isActive)} to={String(url)}>{title}</Anchor>
+                  <Anchor active={isActive ? 'true' : ''} to={String(url)}>{title}</Anchor>
                 </Text>
                 {sublist}
               </TreeNode>

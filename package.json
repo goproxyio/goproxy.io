@@ -27,7 +27,7 @@
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-remark": "^2.6.50",
     "gatsby-transformer-sharp": "^2.3.13",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "micell": "^0.6.2",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",

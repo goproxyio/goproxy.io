@@ -1,17 +1,27 @@
 import React, { useEffect } from 'react'
 import { navigate } from 'gatsby'
 import ClipboardJS from 'clipboard'
+import rehypeReact from 'rehype-react'
+import ContributorList from '../ContributorList/ContributorList'
 import { isSameSite } from '../../utils'
 import './prism.css'
 import './MarkdownContent.css'
 
 interface MarkdownContentProps {
-  html: string
+  htmlAst: any
   copyText: string
   copiedText: string
 }
 
-const MarkdownContent = ({ html, copyText, copiedText }: MarkdownContentProps) => {
+const renderAst = new (rehypeReact as any)({
+  createElement: React.createElement,
+  components: {
+    'contributor-list': ContributorList
+  },
+}).Compiler
+
+const MarkdownContent = ({ htmlAst, copyText, copiedText }: MarkdownContentProps) => {
+
   const onAnchorClick = (e: Event) => {
     const href = (e.target as HTMLAnchorElement).href
     if (isSameSite(href)) {
@@ -29,7 +39,7 @@ const MarkdownContent = ({ html, copyText, copiedText }: MarkdownContentProps) =
         anchor.removeEventListener('click', onAnchorClick)
       }
     }
-  })
+  }, [])
   useEffect(() => {
     const codeBlocks = Array.from(document.querySelectorAll('.gatsby-highlight'))
     for (const codeBlock of codeBlocks) {
@@ -60,9 +70,11 @@ const MarkdownContent = ({ html, copyText, copiedText }: MarkdownContentProps) =
       }
       clipboard.destroy()
     }
-  })
+  }, [])
   return (
-    <div className="markdown-content" dangerouslySetInnerHTML={{ __html: html }} />
+    <div
+      className="markdown-content"
+    >{ renderAst(htmlAst)}</div>
   )
 }
 

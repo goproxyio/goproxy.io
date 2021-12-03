@@ -32,7 +32,7 @@ interface Fields {
 }
 
 interface MarkdownRemark {
-  html: string
+  htmlAst: any
   frontmatter: Frontmatter
   tableOfContents: string
   fields: Fields
@@ -223,7 +223,7 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
   const sidebarData = getSidebarData(locale)
   const { dateFormat, doc } = siteConfig
   const docNode = data.markdownRemark
-  const { html, frontmatter, tableOfContents, fields } = docNode
+  const { htmlAst, frontmatter, tableOfContents, fields } = docNode
   const { title, author, toc } = frontmatter
   const { type, createdAt, updatedAt, sourceFileUrl, prevSlug, prevTitle, nextSlug, nextTitle } = fields
   const tocEl: Ref<HTMLDivElement> = useRef(null)
@@ -273,7 +273,7 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
         anchor.removeEventListener('click', onClick)
       })
     }
-  })
+  }, [])
 
   let bottomJustifyContent = 'flex-end'
   if (frontmatter.updatedAt && updatedAt) {
@@ -304,7 +304,7 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
             </div>
           )}
           <MarkdownContent
-            html={html}
+            htmlAst={htmlAst}
             copyText={doc.copy}
             copiedText={doc.copied}
           />
@@ -359,7 +359,7 @@ export default DocTemplate
 export const pageQuery = graphql`
   query DocBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+      htmlAst
       tableOfContents(
         absolute: false,
         maxDepth: 3

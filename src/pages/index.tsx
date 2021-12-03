@@ -28,7 +28,7 @@ interface Fields {
 }
 
 interface MarkdownRemark {
-  html: string
+  htmlAst: any
   frontmatter: Frontmatter
   tableOfContents: string
   fields: Fields
@@ -46,11 +46,12 @@ interface IndexPageProps {
 const IndexPage = ({ data, location }: IndexPageProps) => {
   const siteConfig = getSiteConfig(location.pathname)
   const { doc, title, slogan, features, userMapTitle } = siteConfig
+  console.log(data.markdownRemark)
   return (
     <Layout location={location} siteConfig={siteConfig}>
       <SEO title={title} />
       <Intro slogan={slogan} />
-      <HomeContent html={data.markdownRemark.html} copyText={doc.copy} copiedText={doc.copied} />
+      <HomeContent htmlAst={data.markdownRemark.htmlAst} copyText={doc.copy} copiedText={doc.copied} />
       <FeatureList features={features} />
       <UserMap title={userMapTitle} />
     </Layout>
@@ -60,7 +61,7 @@ const IndexPage = ({ data, location }: IndexPageProps) => {
 export const pageQuery = graphql`
   query HomeContent($homeContentSlug: String!) {
     markdownRemark(fields: { slug: { eq: $homeContentSlug } }) {
-      html
+      htmlAst
     }
   }
 `

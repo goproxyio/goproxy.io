@@ -76,8 +76,16 @@ const getSiteConfig = (pathname: string): SiteConfig => {
   return allSiteConfig[locale] || allSiteConfig[defaultLocale]
 }
 
+const isSameSite = (url: string): boolean => {
+  const urlObj = new URL(url);
+  const currentObj = new URL(window.location.href)
+  return urlObj.protocol === currentObj.protocol &&
+    urlObj.host === currentObj.host
+}
+
 export {
   defaultLocale,
   getLocale,
-  getSiteConfig
+  getSiteConfig,
+  isSameSite
 }

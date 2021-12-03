@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
+import { navigate } from 'gatsby'
 import ClipboardJS from 'clipboard'
-
+import { isSameSite } from '../../utils'
 import './prism.css'
 import './MarkdownContent.css'
 
@@ -11,6 +12,24 @@ interface MarkdownContentProps {
 }
 
 const MarkdownContent = ({ html, copyText, copiedText }: MarkdownContentProps) => {
+  const onAnchorClick = (e: Event) => {
+    const href = (e.target as HTMLAnchorElement).href
+    if (isSameSite(href)) {
+      e.preventDefault()
+      navigate(new URL(href).pathname)
+    }
+  }
+  useEffect(() => {
+    const anchors = Array.from(document.querySelectorAll('.markdown-content a[href]'))
+    for (const anchor of anchors) {
+      anchor.addEventListener('click', onAnchorClick)
+    }
+    return () => {
+      for (const anchor of anchors) {
+        anchor.removeEventListener('click', onAnchorClick)
+      }
+    }
+  })
   useEffect(() => {
     const codeBlocks = Array.from(document.querySelectorAll('.gatsby-highlight'))
     for (const codeBlock of codeBlocks) {

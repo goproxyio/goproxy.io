@@ -14,16 +14,16 @@ const Wrapper = styled.div`
 `
 
 interface HomeContentProps {
-  html: string
+  htmlAst: any
   copyText: string
   copiedText: string
 }
 
-const HomeContent = ({ html, copyText, copiedText }: HomeContentProps) => (
+const HomeContent = ({ htmlAst, copyText, copiedText }: HomeContentProps) => (
   <Container>
     <Wrapper>
       <MarkdownContent
-        html={html}
+        htmlAst={htmlAst}
         copyText={copyText}
         copiedText={copiedText}
       />

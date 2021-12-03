@@ -178,10 +178,18 @@ const Toc = styled.div`
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      & ul {
+        margin-top: 8px;
+      }
     }
 
     & p {
-      margin: 0 0 8px;
+      margin: 0;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;

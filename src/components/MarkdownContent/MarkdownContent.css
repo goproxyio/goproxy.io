@@ -96,6 +96,623 @@
   background-color: #2b3a42;
 }
 
+.markdown-content .gatsby-highlight {
+  position: relative;
+}
+.markdown-content .gatsby-highlight::before {
+  /* TODO: fix color contrast */
+  /* content: attr(data-language); */
+  position: absolute;
+  top: 0;
+  left: 1em;
+  padding: 4px 8px;
+  font-size: .75em;
+  text-transform: uppercase;
+  line-height: 1;
+  background-color: #3e525b;
+  color: #333;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.markdown-content .gatsby-highlight[data-language="abap"]::before {
+  background-color: #e8274b;
+}
+.markdown-content .gatsby-highlight[data-language="actionscript"]::before {
+  background-color: #882b0f;
+}
+.markdown-content .gatsby-highlight[data-language="ada"]::before {
+  background-color: #02f88c;
+}
+.markdown-content .gatsby-highlight[data-language="agda"]::before {
+  background-color: #315665;
+}
+.markdown-content .gatsby-highlight[data-language="ags-script"]::before {
+  background-color: #b9d9ff;
+}
+.markdown-content .gatsby-highlight[data-language="alloy"]::before {
+  background-color: #64c800;
+}
+.markdown-content .gatsby-highlight[data-language="ampl"]::before {
+  background-color: #e6efbb;
+}
+.markdown-content .gatsby-highlight[data-language="antlr"]::before {
+  background-color: #9dc3ff;
+}
+.markdown-content .gatsby-highlight[data-language="api-blueprint"]::before {
+  background-color: #2acca8;
+}
+.markdown-content .gatsby-highlight[data-language="apl"]::before {
+  background-color: #5a8164;
+}
+.markdown-content .gatsby-highlight[data-language="arc"]::before {
+  background-color: #aa2afe;
+}
+.markdown-content .gatsby-highlight[data-language="arduino"]::before {
+  background-color: #bd79d1;
+}
+.markdown-content .gatsby-highlight[data-language="asp"]::before {
+  background-color: #6a40fd;
+}
+.markdown-content .gatsby-highlight[data-language="aspectj"]::before {
+  background-color: #a957b0;
+}
+.markdown-content .gatsby-highlight[data-language="assembly"]::before {
+  background-color: #6e4c13;
+}
+.markdown-content .gatsby-highlight[data-language="ats"]::before {
+  background-color: #1ac620;
+}
+.markdown-content .gatsby-highlight[data-language="autohotkey"]::before {
+  background-color: #6594b9;
+}
+.markdown-content .gatsby-highlight[data-language="autoit"]::before {
+  background-color: #1c3552;
+}
+.markdown-content .gatsby-highlight[data-language="blitzmax"]::before {
+  background-color: #cd6400;
+}
+.markdown-content .gatsby-highlight[data-language="boo"]::before {
+  background-color: #d4bec1;
+}
+.markdown-content .gatsby-highlight[data-language="brainfuck"]::before {
+  background-color: #2f2530;
+}
+.markdown-content .gatsby-highlight[data-language="c-sharp"]::before {
+  background-color: #178600;
+}
+.markdown-content .gatsby-highlight[data-language="c"]::before {
+  background-color: #555555;
+}
+.markdown-content .gatsby-highlight[data-language="chapel"]::before {
+  background-color: #8dc63f;
+}
+.markdown-content .gatsby-highlight[data-language="cirru"]::before {
+  background-color: #ccccff;
+}
+.markdown-content .gatsby-highlight[data-language="clarion"]::before {
+  background-color: #db901e;
+}
+.markdown-content .gatsby-highlight[data-language="clean"]::before {
+  background-color: #3f85af;
+}
+.markdown-content .gatsby-highlight[data-language="click"]::before {
+  background-color: #e4e6f3;
+}
+.markdown-content .gatsby-highlight[data-language="clojure"]::before {
+  background-color: #db5855;
+}
+.markdown-content .gatsby-highlight[data-language="coffeescript"]::before {
+  background-color: #244776;
+}
+.markdown-content .gatsby-highlight[data-language="coldfusion-cfc"]::before {
+  background-color: #ed2cd6;
+}
+.markdown-content .gatsby-highlight[data-language="coldfusion"]::before {
+  background-color: #ed2cd6;
+}
+.markdown-content .gatsby-highlight[data-language="common-lisp"]::before {
+  background-color: #3fb68b;
+}
+.markdown-content .gatsby-highlight[data-language="component-pascal"]::before {
+  background-color: #b0ce4e;
+}
+.markdown-content .gatsby-highlight[data-language="cpp"]::before {
+  background-color: #f34b7d;
+}
+.markdown-content .gatsby-highlight[data-language="crystal"]::before {
+  background-color: #776791;
+}
+.markdown-content .gatsby-highlight[data-language="css"]::before {
+  background-color: #563d7c;
+}
+.markdown-content .gatsby-highlight[data-language="d"]::before {
+  background-color: #ba595e;
+}
+.markdown-content .gatsby-highlight[data-language="dart"]::before {
+  background-color: #00b4ab;
+}
+.markdown-content .gatsby-highlight[data-language="diff"]::before {
+  background-color: #88dddd;
+}
+.markdown-content .gatsby-highlight[data-language="dm"]::before {
+  background-color: #447265;
+}
+.markdown-content .gatsby-highlight[data-language="dogescript"]::before {
+  background-color: #cca760;
+}
+.markdown-content .gatsby-highlight[data-language="dylan"]::before {
+  background-color: #6c616e;
+}
+.markdown-content .gatsby-highlight[data-language="e"]::before {
+  background-color: #ccce35;
+}
+.markdown-content .gatsby-highlight[data-language="eagle"]::before {
+  background-color: #814c05;
+}
+.markdown-content .gatsby-highlight[data-language="ec"]::before {
+  background-color: #913960;
+}
+.markdown-content .gatsby-highlight[data-language="ecl"]::before {
+  background-color: #8a1267;
+}
+.markdown-content .gatsby-highlight[data-language="edn"]::before {
+  background-color: #db5855;
+}
+.markdown-content .gatsby-highlight[data-language="eiffel"]::before {
+  background-color: #946d57;
+}
+.markdown-content .gatsby-highlight[data-language="elixir"]::before {
+  background-color: #6e4a7e;
+}
+.markdown-content .gatsby-highlight[data-language="elm"]::before {
+  background-color: #60b5cc;
+}
+.markdown-content .gatsby-highlight[data-language="emacs-lisp"]::before {
+  background-color: #c065db;
+}
+.markdown-content .gatsby-highlight[data-language="emberscript"]::before {
+  background-color: #fff4f3;
+}
+.markdown-content .gatsby-highlight[data-language="erlang"]::before {
+  background-color: #b83998;
+}
+.markdown-content .gatsby-highlight[data-language="f-sharp"]::before {
+  background-color: #b845fc;
+}
+.markdown-content .gatsby-highlight[data-language="factor"]::before {
+  background-color: #636746;
+}
+.markdown-content .gatsby-highlight[data-language="fancy"]::before {
+  background-color: #7b9db4;
+}
+.markdown-content .gatsby-highlight[data-language="fantom"]::before {
+  background-color: #dbded5;
+}
+.markdown-content .gatsby-highlight[data-language="flux"]::before {
+  background-color: #88ccff;
+}
+.markdown-content .gatsby-highlight[data-language="forth"]::before {
+  background-color: #341708;
+}
+.markdown-content .gatsby-highlight[data-language="fortran"]::before {
+  background-color: #4d41b1;
+}
+.markdown-content .gatsby-highlight[data-language="freemarker"]::before {
+  background-color: #0050b2;
+}
+.markdown-content .gatsby-highlight[data-language="frege"]::before {
+  background-color: #00cafe;
+}
+.markdown-content .gatsby-highlight[data-language="game-maker-language"]::before {
+  background-color: #8fb200;
+}
+.markdown-content .gatsby-highlight[data-language="glyph"]::before {
+  background-color: #e4cc98;
+}
+.markdown-content .gatsby-highlight[data-language="gnuplot"]::before {
+  background-color: #f0a9f0;
+}
+.markdown-content .gatsby-highlight[data-language="go"]::before {
+  background-color: #375eab;
+}
+.markdown-content .gatsby-highlight[data-language="golo"]::before {
+  background-color: #88562a;
+}
+.markdown-content .gatsby-highlight[data-language="gosu"]::before {
+  background-color: #82937f;
+}
+.markdown-content .gatsby-highlight[data-language="grammatical-framework"]::before {
+  background-color: #79aa7a;
+}
+.markdown-content .gatsby-highlight[data-language="groovy"]::before {
+  background-color: #e69f56;
+}
+.markdown-content .gatsby-highlight[data-language="handlebars"]::before {
+  background-color: #01a9d6;
+}
+.markdown-content .gatsby-highlight[data-language="harbour"]::before {
+  background-color: #0e60e3;
+}
+.markdown-content .gatsby-highlight[data-language="haskell"]::before {
+  background-color: #29b544;
+}
+.markdown-content .gatsby-highlight[data-language="haxe"]::before {
+  background-color: #df7900;
+}
+.markdown-content .gatsby-highlight[data-language="html"]::before {
+  background-color: #e44b23;
+}
+.markdown-content .gatsby-highlight[data-language="hy"]::before {
+  background-color: #7790b2;
+}
+.markdown-content .gatsby-highlight[data-language="idl"]::before {
+  background-color: #a3522f;
+}
+.markdown-content .gatsby-highlight[data-language="io"]::before {
+  background-color: #a9188d;
+}
+.markdown-content .gatsby-highlight[data-language="ioke"]::before {
+  background-color: #078193;
+}
+.markdown-content .gatsby-highlight[data-language="isabelle"]::before {
+  background-color: #fefe00;
+}
+.markdown-content .gatsby-highlight[data-language="j"]::before {
+  background-color: #9eedff;
+}
+.markdown-content .gatsby-highlight[data-language="java"]::before {
+  background-color: #b07219;
+}
+.markdown-content .gatsby-highlight[data-language="javascript"]::before {
+  background-color: #f1e05a;
+}
+.markdown-content .gatsby-highlight[data-language="jflex"]::before {
+  background-color: #dbca00;
+}
+.markdown-content .gatsby-highlight[data-language="jsoniq"]::before {
+  background-color: #40d47e;
+}
+.markdown-content .gatsby-highlight[data-language="julia"]::before {
+  background-color: #a270ba;
+}
+.markdown-content .gatsby-highlight[data-language="jupyter-notebook"]::before {
+  background-color: #da5b0b;
+}
+.markdown-content .gatsby-highlight[data-language="kotlin"]::before {
+  background-color: #f18e33;
+}
+.markdown-content .gatsby-highlight[data-language="krl"]::before {
+  background-color: #28431f;
+}
+.markdown-content .gatsby-highlight[data-language="lasso"]::before {
+  background-color: #999999;
+}
+.markdown-content .gatsby-highlight[data-language="latte"]::before {
+  background-color: #a8ff97;
+}
+.markdown-content .gatsby-highlight[data-language="lex"]::before {
+  background-color: #dbca00;
+}
+.markdown-content .gatsby-highlight[data-language="lfe"]::before {
+  background-color: #004200;
+}
+.markdown-content .gatsby-highlight[data-language="livescript"]::before {
+  background-color: #499886;
+}
+.markdown-content .gatsby-highlight[data-language="lolcode"]::before {
+  background-color: #cc9900;
+}
+.markdown-content .gatsby-highlight[data-language="lookml"]::before {
+  background-color: #652b81;
+}
+.markdown-content .gatsby-highlight[data-language="lsl"]::before {
+  background-color: #3d9970;
+}
+.markdown-content .gatsby-highlight[data-language="lua"]::before {
+  background-color: #000080;
+}
+.markdown-content .gatsby-highlight[data-language="makefile"]::before {
+  background-color: #427819;
+}
+.markdown-content .gatsby-highlight[data-language="mask"]::before {
+  background-color: #f97732;
+}
+.markdown-content .gatsby-highlight[data-language="matlab"]::before {
+  background-color: #bb92ac;
+}
+.markdown-content .gatsby-highlight[data-language="max"]::before {
+  background-color: #c4a79c;
+}
+.markdown-content .gatsby-highlight[data-language="maxscript"]::before {
+  background-color: #00a6a6;
+}
+.markdown-content .gatsby-highlight[data-language="mercury"]::before {
+  background-color: #ff2b2b;
+}
+.markdown-content .gatsby-highlight[data-language="metal"]::before {
+  background-color: #8f14e9;
+}
+.markdown-content .gatsby-highlight[data-language="mirah"]::before {
+  background-color: #c7a938;
+}
+.markdown-content .gatsby-highlight[data-language="mtml"]::before {
+  background-color: #b7e1f4;
+}
+.markdown-content .gatsby-highlight[data-language="ncl"]::before {
+  background-color: #28431f;
+}
+.markdown-content .gatsby-highlight[data-language="nemerle"]::before {
+  background-color: #3d3c6e;
+}
+.markdown-content .gatsby-highlight[data-language="nesc"]::before {
+  background-color: #94b0c7;
+}
+.markdown-content .gatsby-highlight[data-language="netlinx"]::before {
+  background-color: #0aa0ff;
+}
+.markdown-content .gatsby-highlight[data-language="netlinx-erb"]::before {
+  background-color: #747faa;
+}
+.markdown-content .gatsby-highlight[data-language="netlogo"]::before {
+  background-color: #ff6375;
+}
+.markdown-content .gatsby-highlight[data-language="newlisp"]::before {
+  background-color: #87aed7;
+}
+.markdown-content .gatsby-highlight[data-language="nimrod"]::before {
+  background-color: #37775b;
+}
+.markdown-content .gatsby-highlight[data-language="nit"]::before {
+  background-color: #009917;
+}
+.markdown-content .gatsby-highlight[data-language="nix"]::before {
+  background-color: #7e7eff;
+}
+.markdown-content .gatsby-highlight[data-language="nu"]::before {
+  background-color: #c9df40;
+}
+.markdown-content .gatsby-highlight[data-language="objective-c"]::before {
+  background-color: #438eff;
+}
+.markdown-content .gatsby-highlight[data-language="objective-cpp"]::before {
+  background-color: #6866fb;
+}
+.markdown-content .gatsby-highlight[data-language="objective-j"]::before {
+  background-color: #ff0c5a;
+}
+.markdown-content .gatsby-highlight[data-language="ocaml"]::before {
+  background-color: #3be133;
+}
+.markdown-content .gatsby-highlight[data-language="omgrofl"]::before {
+  background-color: #cabbff;
+}
+.markdown-content .gatsby-highlight[data-language="ooc"]::before {
+  background-color: #b0b77e;
+}
+.markdown-content .gatsby-highlight[data-language="opal"]::before {
+  background-color: #f7ede0;
+}
+.markdown-content .gatsby-highlight[data-language="oxygene"]::before {
+  background-color: #cdd0e3;
+}
+.markdown-content .gatsby-highlight[data-language="oz"]::before {
+  background-color: #fab738;
+}
+.markdown-content .gatsby-highlight[data-language="pan"]::before {
+  background-color: #cc0000;
+}
+.markdown-content .gatsby-highlight[data-language="papyrus"]::before {
+  background-color: #6600cc;
+}
+.markdown-content .gatsby-highlight[data-language="parrot"]::before {
+  background-color: #f3ca0a;
+}
+.markdown-content .gatsby-highlight[data-language="pascal"]::before {
+  background-color: #b0ce4e;
+}
+.markdown-content .gatsby-highlight[data-language="pawn"]::before {
+  background-color: #dbb284;
+}
+.markdown-content .gatsby-highlight[data-language="perl"]::before {
+  background-color: #0298c3;
+}
+.markdown-content .gatsby-highlight[data-language="perl6"]::before {
+  background-color: #0000fb;
+}
+.markdown-content .gatsby-highlight[data-language="php"]::before {
+  background-color: #4f5d95;
+}
+.markdown-content .gatsby-highlight[data-language="piglatin"]::before {
+  background-color: #fcd7de;
+}
+.markdown-content .gatsby-highlight[data-language="pike"]::before {
+  background-color: #005390;
+}
+.markdown-content .gatsby-highlight[data-language="plsql"]::before {
+  background-color: #dad8d8;
+}
+.markdown-content .gatsby-highlight[data-language="pogoscript"]::before {
+  background-color: #d80074;
+}
+.markdown-content .gatsby-highlight[data-language="processing"]::before {
+  background-color: #0096d8;
+}
+.markdown-content .gatsby-highlight[data-language="prolog"]::before {
+  background-color: #74283c;
+}
+.markdown-content .gatsby-highlight[data-language="propeller-spin"]::before {
+  background-color: #7fa2a7;
+}
+.markdown-content .gatsby-highlight[data-language="puppet"]::before {
+  background-color: #302b6d;
+}
+.markdown-content .gatsby-highlight[data-language="pure data"]::before {
+  background-color: #91de79;
+}
+.markdown-content .gatsby-highlight[data-language="purebasic"]::before {
+  background-color: #5a6986;
+}
+.markdown-content .gatsby-highlight[data-language="purescript"]::before {
+  background-color: #1d222d;
+}
+.markdown-content .gatsby-highlight[data-language="python"]::before {
+  background-color: #3572a5;
+}
+.markdown-content .gatsby-highlight[data-language="qml"]::before {
+  background-color: #44a51c;
+}
+.markdown-content .gatsby-highlight[data-language="r"]::before {
+  background-color: #198ce7;
+}
+.markdown-content .gatsby-highlight[data-language="racket"]::before {
+  background-color: #22228f;
+}
+.markdown-content .gatsby-highlight[data-language="ragel-in-ruby-host"]::before {
+  background-color: #9d5200;
+}
+.markdown-content .gatsby-highlight[data-language="raml"]::before {
+  background-color: #77d9fb;
+}
+.markdown-content .gatsby-highlight[data-language="rebol"]::before {
+  background-color: #358a5b;
+}
+.markdown-content .gatsby-highlight[data-language="red"]::before {
+  background-color: #ee0000;
+}
+.markdown-content .gatsby-highlight[data-language="ren-py"]::before {
+  background-color: #ff7f7f;
+}
+.markdown-content .gatsby-highlight[data-language="rouge"]::before {
+  background-color: #cc0088;
+}
+.markdown-content .gatsby-highlight[data-language="ruby"]::before {
+  background-color: #701516;
+}
+.markdown-content .gatsby-highlight[data-language="rust"]::before {
+  background-color: #dea584;
+}
+.markdown-content .gatsby-highlight[data-language="saltstack"]::before {
+  background-color: #646464;
+}
+.markdown-content .gatsby-highlight[data-language="sas"]::before {
+  background-color: #b34936;
+}
+.markdown-content .gatsby-highlight[data-language="scala"]::before {
+  background-color: #dc322f;
+}
+.markdown-content .gatsby-highlight[data-language="scheme"]::before {
+  background-color: #1e4aec;
+}
+.markdown-content .gatsby-highlight[data-language="self"]::before {
+  background-color: #0579aa;
+}
+.markdown-content .gatsby-highlight[data-language="shell"]::before {
+  background-color: #89e051;
+}
+.markdown-content .gatsby-highlight[data-language="shen"]::before {
+  background-color: #120f14;
+}
+.markdown-content .gatsby-highlight[data-language="slash"]::before {
+  background-color: #007eff;
+}
+.markdown-content .gatsby-highlight[data-language="slim"]::before {
+  background-color: #ff8f77;
+}
+.markdown-content .gatsby-highlight[data-language="smalltalk"]::before {
+  background-color: #596706;
+}
+.markdown-content .gatsby-highlight[data-language="sourcepawn"]::before {
+  background-color: #5c7611;
+}
+.markdown-content .gatsby-highlight[data-language="sqf"]::before {
+  background-color: #3f3f3f;
+}
+.markdown-content .gatsby-highlight[data-language="squirrel"]::before {
+  background-color: #800000;
+}
+.markdown-content .gatsby-highlight[data-language="stan"]::before {
+  background-color: #b2011d;
+}
+.markdown-content .gatsby-highlight[data-language="standard-ml"]::before {
+  background-color: #dc566d;
+}
+.markdown-content .gatsby-highlight[data-language="supercollider"]::before {
+  background-color: #46390b;
+}
+.markdown-content .gatsby-highlight[data-language="swift"]::before {
+  background-color: #ffac45;
+}
+.markdown-content .gatsby-highlight[data-language="systemverilog"]::before {
+  background-color: #dae1c2;
+}
+.markdown-content .gatsby-highlight[data-language="tcl"]::before {
+  background-color: #e4cc98;
+}
+.markdown-content .gatsby-highlight[data-language="tex"]::before {
+  background-color: #3d6117;
+}
+.markdown-content .gatsby-highlight[data-language="text"]::before {
+  background-color: #666;
+}
+.markdown-content .gatsby-highlight[data-language="turing"]::before {
+  background-color: #45f715;
+}
+.markdown-content .gatsby-highlight[data-language="typescript"]::before {
+  background-color: #2b7489;
+}
+.markdown-content .gatsby-highlight[data-language="unified-parallel-c"]::before {
+  background-color: #4e3617;
+}
+.markdown-content .gatsby-highlight[data-language="unity3d-asset"]::before {
+  background-color: #ab69a1;
+}
+.markdown-content .gatsby-highlight[data-language="unrealscript"]::before {
+  background-color: #a54c4d;
+}
+.markdown-content .gatsby-highlight[data-language="vala"]::before {
+  background-color: #fbe5cd;
+}
+.markdown-content .gatsby-highlight[data-language="verilog"]::before {
+  background-color: #b2b7f8;
+}
+.markdown-content .gatsby-highlight[data-language="vhdl"]::before {
+  background-color: #adb2cb;
+}
+.markdown-content .gatsby-highlight[data-language="viml"]::before {
+  background-color: #199f4b;
+}
+.markdown-content .gatsby-highlight[data-language="visual-basic"]::before {
+  background-color: #945db7;
+}
+.markdown-content .gatsby-highlight[data-language="volt"]::before {
+  background-color: #1f1f1f;
+}
+.markdown-content .gatsby-highlight[data-language="vue"]::before {
+  background-color: #2c3e50;
+}
+.markdown-content .gatsby-highlight[data-language="web-ontology-language"]::before {
+  background-color: #9cc9dd;
+}
+.markdown-content .gatsby-highlight[data-language="wisp"]::before {
+  background-color: #7582d1;
+}
+.markdown-content .gatsby-highlight[data-language="x10"]::before {
+  background-color: #4b6bef;
+}
+.markdown-content .gatsby-highlight[data-language="xbase"]::before {
+  background-color: #403a40;
+}
+.markdown-content .gatsby-highlight[data-language="xc"]::before {
+  background-color: #99da07;
+}
+.markdown-content .gatsby-highlight[data-language="xquery"]::before {
+  background-color: #5232e7;
+}
+.markdown-content .gatsby-highlight[data-language="zephir"]::before {
+  background-color: #118f9e;
+}
+
 .markdown-content pre > code {
   margin: 0;
   padding: 0;

@@ -45,12 +45,12 @@ interface IndexPageProps {
 
 const IndexPage = ({ data, location }: IndexPageProps) => {
   const siteConfig = getSiteConfig(location.pathname)
-  const { title, slogan, features, userMapTitle } = siteConfig
+  const { doc, title, slogan, features, userMapTitle } = siteConfig
   return (
     <Layout location={location} siteConfig={siteConfig}>
       <SEO title={title} />
       <Intro slogan={slogan} />
-      <HomeContent html={data.markdownRemark.html} />
+      <HomeContent html={data.markdownRemark.html} copyText={doc.copy} copiedText={doc.copied} />
       <FeatureList features={features} />
       <UserMap title={userMapTitle} />
     </Layout>

@@ -10,7 +10,7 @@ import SEO from '../components/SEO/SEO'
 import Sidebar from '../components/Sidebar/Sidebar'
 import MarkdownContent from '../components/MarkdownContent/MarkdownContent'
 import getSidebarData from '../utils/getSidebarData'
-import { SiteConfig, getSiteConfig, getLocale } from '../utils'
+import { getSiteConfig, getLocale } from '../utils'
 
 interface Frontmatter {
   title: string
@@ -295,7 +295,11 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
               </CreateDate>
             </div>
           )}
-          <MarkdownContent html={html} />
+          <MarkdownContent
+            html={html}
+            copyText={doc.copy}
+            copiedText={doc.copied}
+          />
           <Bottom style={{ justifyContent: bottomJustifyContent }}>
             {frontmatter.updatedAt && updatedAt &&
               <div>

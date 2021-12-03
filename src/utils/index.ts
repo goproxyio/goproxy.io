@@ -24,6 +24,8 @@ export interface DocLocale {
   edit: string
   prev: string
   next: string
+  copy: string
+  copied: string
 }
 
 export interface SiteConfig {

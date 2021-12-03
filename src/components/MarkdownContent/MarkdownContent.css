@@ -99,6 +99,25 @@
 .markdown-content .gatsby-highlight {
   position: relative;
 }
+
+.markdown-content .copy-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #2b3a42;
+  appearance: none;
+  border: 0;
+  padding: 4px;
+  font-size: .75em;
+  line-height: 1;
+  color: #516c7b;
+  cursor: pointer;
+}
+
+.markdown-content .copy-btn:hover {
+  color: #ddd;
+}
+
 .markdown-content .gatsby-highlight::before {
   /* TODO: fix color contrast */
   /* content: attr(data-language); */

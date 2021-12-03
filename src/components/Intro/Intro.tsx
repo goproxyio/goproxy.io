@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ajax from 'micell/ajax'
-import Trianglify from 'trianglify'
 
 import animLogo from '../../images/anim-logo.svg'
 
@@ -173,17 +172,6 @@ const Intro = ({ slogan }: IntroProps) => {
   useEffect(() => {
     const intro = document.getElementById('intro')
     if (!intro) return
-    const { width, height } = intro.getBoundingClientRect()
-    const pattern = Trianglify({
-      width,
-      height,
-      cell_size: 48,
-      x_colors: ['#004880', '#004880'],
-      y_colors: ['#004880', '#005799', '#004880']
-    })
-    const svg = pattern.svg()
-    svg.style.cssText = 'position: absolute; top: 0; right: 0; width: 100%; height: 100%;'
-    intro.appendChild(svg)
   }, [])
 
   const title = slogan.split('\n').map((v, i) => (

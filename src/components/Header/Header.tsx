@@ -2,6 +2,7 @@ import { Link, navigate } from 'gatsby'
 import React, { useState, useEffect, SyntheticEvent } from 'react'
 import styled from 'styled-components'
 import isAbsoluteUrl from 'micell/url/isAbsolute'
+import join from 'micell/path/join';
 import locales from '../../../content/locales.json'
 import { SiteConfig, getLocale } from '../../utils'
 
@@ -210,6 +211,7 @@ const Header = ({ location, siteConfig }: HeaderProps) => {
   const initLocale = getLocale(location.pathname)
   const [locale, setLocale] = useState(initLocale)
   const toggleOpened = () => setOpened(!opened)
+  const homePath = () => locale === defaultLocale ? '/' : `/${locale}/`
   const toggleLocale = (e: SyntheticEvent) => {
     const target = e.target as HTMLSelectElement
     setLocale(target.value)
@@ -233,7 +235,7 @@ const Header = ({ location, siteConfig }: HeaderProps) => {
       to = to.replace(/\/.+?(\/.*)/, '$1')
     }
     if (locale !== defaultLocale) {
-      to = `/${locale}/${to}`
+      to = join(`/${locale}`, to)
     }
     navigate(to)
   })
@@ -243,7 +245,7 @@ const Header = ({ location, siteConfig }: HeaderProps) => {
       <Wrapper>
         <SiteTitle>
           <Link
-            to="/"
+            to={homePath()}
           >
             <span>{siteConfig.name}</span>
           </Link>

@@ -6,7 +6,7 @@
   "author": "Alex Chao",
   "dependencies": {
     "acorn": "^8.6.0",
-    "axios": "^0.19.2",
+    "axios": "^0.24.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^1.13.3",
     "classnames": "^2.3.1",

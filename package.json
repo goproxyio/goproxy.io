@@ -34,7 +34,7 @@
     "micell": "^0.13.3",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.27.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

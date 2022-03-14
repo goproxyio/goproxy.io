@@ -46,7 +46,6 @@ interface IndexPageProps {
 const IndexPage = ({ data, location }: IndexPageProps) => {
   const siteConfig = getSiteConfig(location.pathname)
   const { doc, title, slogan, features, userMapTitle } = siteConfig
-  console.log(data.markdownRemark)
   return (
     <Layout location={location} siteConfig={siteConfig}>
       <SEO title={title} />

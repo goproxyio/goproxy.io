@@ -238,7 +238,7 @@ const Header = ({ location, siteConfig }: HeaderProps) => {
       to = join(`/${locale}`, to)
     }
     navigate(to)
-  }, [])
+  }, [locale])
 
   return (
     <Container>

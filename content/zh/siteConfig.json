@@ -7,7 +7,7 @@
       "url": "/zh/docs/enterprise.html",
       "title": "企业版"
     },
-     {
+    {
       "url": "https://golang.com.cn",
       "title": "Go 包"
     },
@@ -45,6 +45,14 @@
       "icon": "box",
       "title": "支持官方sumdb",
       "description": "全面支持谷歌官方 sum.golang.org 的代理，无需任何配置。"
+    }
+  ],
+  "specialSponsorTitle": "特别赞助",
+  "specialSponsors": [
+    {
+      "title": "FASTCODING Inc",
+      "image": "/images/sponsors/fastcoding_inc.svg",
+      "href": "https://fastcoding.jp/javascript/"
     }
   ],
   "userMapTitle": "谁在使用 goproxy.io",

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/SEO/SEO'
 import Intro from '../components/Intro/Intro'
+import SpecialSponsor from '../components/SpecialSponsor/SpecialSponsor'
 import HomeContent from '../components/HomeContent/HomeContent'
 import FeatureList from '../components/FeatureList/FeatureList'
 import UserMap from '../components/UserMap/UserMap'
@@ -45,11 +46,12 @@ interface IndexPageProps {
 
 const IndexPage = ({ data, location }: IndexPageProps) => {
   const siteConfig = getSiteConfig(location.pathname)
-  const { doc, title, slogan, features, userMapTitle } = siteConfig
+  const { doc, title, slogan, specialSponsorTitle, specialSponsors, features, userMapTitle } = siteConfig
   return (
     <Layout location={location} siteConfig={siteConfig}>
       <SEO title={title} />
       <Intro slogan={slogan} />
+      <SpecialSponsor title={specialSponsorTitle} sponsors={specialSponsors} />
       <HomeContent htmlAst={data.markdownRemark.htmlAst} copyText={doc.copy} copiedText={doc.copied} />
       <FeatureList features={features} />
       <UserMap title={userMapTitle} />

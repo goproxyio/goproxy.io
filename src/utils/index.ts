@@ -7,6 +7,12 @@ export interface NavItem {
   title: string
 }
 
+export interface SpecialSponsor {
+  title: string
+  image: string
+  href: string
+}
+
 export interface Feature {
   icon?: string
   title?: string
@@ -34,6 +40,8 @@ export interface SiteConfig {
   dateFormat: string
   nav: NavItem[]
   slogan: string
+  specialSponsorTitle: string
+  specialSponsors: SpecialSponsor[]
   features: Feature[]
   userMapTitle: string
   copyright: string
@@ -47,7 +55,7 @@ export interface AllSiteConfig {
 
 const allSiteConfig = {
   en: enSiteConfig as SiteConfig,
-  zh: zhSiteConfig as SiteConfig
+  zh: zhSiteConfig as SiteConfig,
 } as AllSiteConfig
 
 export interface LocaleItem {
@@ -77,15 +85,11 @@ const getSiteConfig = (pathname: string): SiteConfig => {
 }
 
 const isSameSite = (url: string): boolean => {
-  const urlObj = new URL(url);
+  const urlObj = new URL(url)
   const currentObj = new URL(window.location.href)
-  return urlObj.protocol === currentObj.protocol &&
-    urlObj.host === currentObj.host
+  return (
+    urlObj.protocol === currentObj.protocol && urlObj.host === currentObj.host
+  )
 }
 
-export {
-  defaultLocale,
-  getLocale,
-  getSiteConfig,
-  isSameSite
-}
+export { defaultLocale, getLocale, getSiteConfig, isSameSite }

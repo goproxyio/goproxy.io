@@ -39,6 +39,14 @@
       "description": "Support sum.golang.org proxy."
     }
   ],
+  "specialSponsorTitle": "Special Sponsors",
+  "specialSponsors": [
+    {
+      "title": "FASTCODING Inc",
+      "image": "/images/sponsors/fastcoding_inc.svg",
+      "href": "https://fastcoding.jp/javascript/"
+    }
+  ],
   "userMapTitle": "Who are using goproxy.io",
   "copyright": "Under the MIT License. Logo copyright belongs to goproxy.io.",
   "notFound": {

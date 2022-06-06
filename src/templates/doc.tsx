@@ -149,8 +149,7 @@ const NavTitle = styled.div`
   white-space: nowrap;
   overflow: hidden;
 `
-
-const Toc = styled.div`
+const EntrySide = styled.div`
   display: none;
 
   @media (min-width: 1280px) {
@@ -166,62 +165,87 @@ const Toc = styled.div`
     overflow: auto;
     border-left: 1px solid #e4e4e4;
     font-size: 14px;
+  }
+`
+
+const Toc = styled.div`
+  & ul {
+    margin: 0 0 32px 16px;
+    padding: 0;
+    list-style: none;
+  }
+
+  & li {
+    margin-bottom: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     & ul {
-      margin: 0 0 0 16px;
-      padding: 0;
-      list-style: none;
-    }
-
-    & li {
-      margin-bottom: 8px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      & ul {
-        margin-top: 8px;
-      }
-    }
-
-    & p {
-      margin: 0;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    & a {
-      color: #777;
-    }
-
-    & a:hover {
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    & .active,
-    & .active:hover {
-      color: #03A9F4;
-    }
-
-    & code[class*=language-] {
-      background: transparent;
-      color: inherit;
-      white-space: inherit;
+      margin-top: 8px;
+      margin-bottom: 0;
     }
   }
+
+  & p {
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  & a {
+    color: #777;
+  }
+
+  & a:hover {
+    color: #aaa;
+    text-decoration: none;
+  }
+
+  & .active,
+  & .active:hover {
+    color: #03A9F4;
+  }
+
+  & code[class*=language-] {
+    background: transparent;
+    color: inherit;
+    white-space: inherit;
+  }
+`
+
+const Sponsor = styled.div`
+  margin-left: 16px;
+`
+
+const SponsorTitle = styled.p`
+  color: #ccc;
+  font-weight: 550;
+  text-transform: uppercase;
+`
+
+const SponsorList = styled.div`
+`
+
+const SponsorItem = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-bottom: 2px;
+  background: #f4f4f4;
 `
 
 const DocTemplate = ({ data, location }: DocTemplateProps) => {
   const siteConfig = getSiteConfig(location.pathname)
   const locale = getLocale(location.pathname)
   const sidebarData = getSidebarData(locale)
-  const { dateFormat, doc } = siteConfig
+  const { dateFormat, doc, specialSponsorTitle, specialSponsors } = siteConfig
   const docNode = data.markdownRemark
   const { htmlAst, frontmatter, tableOfContents, fields } = docNode
   const { title, author, toc } = frontmatter
@@ -343,11 +367,23 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
             </DocNav>
           )}
         </Entry>
-        <Toc
-          style={{ visibility: toc === false ? 'hidden' : 'visible'}}
-          ref={tocEl}
-          dangerouslySetInnerHTML={{ __html: tableOfContents }}
-        />
+        <EntrySide>
+          <Toc
+            style={{ visibility: toc === false ? 'hidden' : 'visible'}}
+            ref={tocEl}
+            dangerouslySetInnerHTML={{ __html: tableOfContents }}
+          />
+          <Sponsor>
+            <SponsorTitle>{ specialSponsorTitle }</SponsorTitle>
+            <SponsorList>
+              {specialSponsors.map(({ title, image, href }, index) => (
+                <SponsorItem key={index} href={href} target="_blank" rel="noopener noreferrer">
+                  <img src={image} alt={title} />
+                </SponsorItem>
+              ))}
+            </SponsorList>
+          </Sponsor>
+        </EntrySide>
         {sidebarData[type] && <Sidebar nav={sidebarData[type]} location={location} />}
       </Container>
     </Layout>

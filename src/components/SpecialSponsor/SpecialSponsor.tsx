@@ -3,8 +3,11 @@ import React from 'react'
 
 const Wrapper = styled.section`
   margin: 0 auto;
-  padding: 30px 16px;
+  padding: 16px;
   max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media (min-width: 960px) {
     display: flex;
@@ -30,10 +33,11 @@ const SponsorList = styled.div`
 
 const SponsorItem = styled.a`
   margin-right: 16px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
+  vertical-align: middle;
 
   & img {
     max-width: 180px;

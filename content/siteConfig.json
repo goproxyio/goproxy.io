@@ -42,9 +42,9 @@
   "specialSponsorTitle": "Special Sponsors",
   "specialSponsors": [
     {
-      "title": "FASTCODING Inc",
-      "image": "/images/sponsors/fastcoding_inc.svg",
-      "href": "https://fastcoding.jp/javascript/"
+      "title": "YunZhanghu Inc",
+      "image": "/images/sponsors/yzh_inc.png",
+      "href": "https://wwww.yunzhanghu.com"
     }
   ],
   "userMapTitle": "Who are using goproxy.io",

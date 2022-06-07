@@ -236,9 +236,14 @@ const SponsorItem = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  line-height: 1;
   margin-bottom: 2px;
-  background: #f4f4f4;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    max-height: 40px;
+  }
 `
 
 const DocTemplate = ({ data, location }: DocTemplateProps) => {

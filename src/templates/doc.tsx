@@ -382,7 +382,7 @@ const DocTemplate = ({ data, location }: DocTemplateProps) => {
             <SponsorTitle>{ specialSponsorTitle }</SponsorTitle>
             <SponsorList>
               {specialSponsors.map(({ title, image, href }, index) => (
-                <SponsorItem key={index} href={href} target="_blank" rel="noopener noreferrer">
+                <SponsorItem key={index} href={href} target="_blank" rel="noopener">
                   <img src={image} alt={title} />
                 </SponsorItem>
               ))}

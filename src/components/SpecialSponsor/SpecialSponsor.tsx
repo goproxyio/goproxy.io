@@ -63,7 +63,7 @@ const SpecialSponsor = ({ title, sponsors }: SponsorProps) => {
         <Title>{title}</Title>
         <SponsorList>
           {sponsors.map(({ title, image, href }, index) => (
-            <SponsorItem key={index} href={href} target="_blank" rel="noopener noreferrer">
+            <SponsorItem key={index} href={href} target="_blank" rel="noopener">
               <img src={image} alt={title} />
             </SponsorItem>
           ))}

@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import MarkdownContent from '../MarkdownContent/MarkdownContent'
 
 const Container = styled.div`
-  background: #f8f8f8;
+  background: var(--background-hover);
+  color: var(--text-color);
 `
 
 const Wrapper = styled.div`

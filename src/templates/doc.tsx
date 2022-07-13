@@ -79,7 +79,7 @@ const Entry = styled.div`
 `
 
 const Title = styled.h1`
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid var(--border-color);
 
   @media (min-width: 960px) {
     margin-top: 0;
@@ -94,7 +94,7 @@ const Author = styled.span`
 
 const CreateDate = styled.time`
   margin-left: 4px;
-  color: #777;
+  color: var(--text-color-secondary);
 `
 
 const Bottom = styled.div`
@@ -107,24 +107,24 @@ const Bottom = styled.div`
 const UpdateDateLabel = styled.span`
   margin-right: 8px;
   font-weight: 500;
-  color: #444;
+  color: var(--text-color);
 `
 
 const UpdateDateValue = styled.time`
-  color: #777;
+  color: var(--text-color-secondary);
 `
 
 const EditLink = styled.a`
-  color: #777;
+  color: var(--text-color-secondary);
 
   &:hover {
-    color: #333;
+    color: var(--text-color);
   }
 `
 
 const DocNav = styled.div`
   margin: 32px 0 16px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
   text-align: center;
 
   @media (min-width: 960px) {
@@ -139,7 +139,7 @@ const DocNavItem = styled.div`
 const NavLabel = styled.div`
   margin-bottom: 8px;
   font-size: 14px;
-  color: #777;
+  color: var(--text-color-secondary);
 `
 
 const NavTitle = styled.div`
@@ -163,7 +163,7 @@ const EntrySide = styled.div`
     min-height: 100px;
     max-height: calc(100vh - 112px);
     overflow: auto;
-    border-left: 1px solid #e4e4e4;
+    border-left: 1px solid var(--border-color);
     font-size: 14px;
   }
 `
@@ -199,17 +199,17 @@ const Toc = styled.div`
   }
 
   & a {
-    color: #777;
+    color: var(--text-color-secondary);
   }
 
   & a:hover {
-    color: #aaa;
+    color: var(--text-color);
     text-decoration: none;
   }
 
   & .active,
   & .active:hover {
-    color: #03A9F4;
+    color: var(--primary-color);
   }
 
   & code[class*=language-] {
@@ -224,7 +224,7 @@ const Sponsor = styled.div`
 `
 
 const SponsorTitle = styled.p`
-  color: #ccc;
+  color: var(--text-color-secondary);
   font-weight: 550;
   text-transform: uppercase;
 `

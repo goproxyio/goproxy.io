@@ -72,8 +72,8 @@ module.exports = {
         name: 'GOPROXY.IO',
         short_name: 'GOPROXY.IO',
         start_url: '/',
-        background_color: '#f8f8f8',
-        theme_color: '#03A9F4',
+        background_color: '#fefefe',
+        theme_color: '#0af',
         display: 'minimal-ui',
         icon: 'src/images/logo_512x512.png', // This path is relative to the root of the site.
       },

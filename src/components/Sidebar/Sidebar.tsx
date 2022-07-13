@@ -15,7 +15,7 @@ const Container = styled.div`
     margin: 36px 0;
     width: 360px;
     height: calc(100vh - 300px);
-    border-right: 1px solid #e4e4e4;
+    border-right: 1px solid var(--border-color);
 
     & > ul > li p a {
       font-weight: 500;
@@ -23,7 +23,7 @@ const Container = styled.div`
     }
 
     & > ul > .active p a {
-      border-right-color: #03A9F4;
+      border-right-color: var(--primary-color);
     }
   }
   @media (min-width: 1400px) {
@@ -63,14 +63,14 @@ const TreeNode = styled.li`
         margin-top: -4px;
         height: 4px;
         border: 4px solid transparent;
-        border-left-color: #03A9F4;
+        border-left-color: var(--primary-color);
         vertical-align: middle;
       }
     ` : ''}
 
     ${(props: TreeNodeProps) => props.opened ? `
       border-left-color: transparent;
-      border-top-color: #03A9F4;
+      border-top-color: var(--primary-color);
     ` : ''}
 
     & ul {
@@ -103,7 +103,7 @@ const Anchor = styled(Link)`
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    background: ${(props: AnchorProps) => props.active  ? '#f4f4f4' : 'transparent'};
+    background: ${(props: AnchorProps) => props.active  ? 'var(--background-hover)' : 'transparent'};
 
     &:hover {
       text-decoration: none;

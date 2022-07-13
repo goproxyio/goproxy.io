@@ -21,21 +21,21 @@ const Wrapper = styled.section`
 const Icon = styled.i`
   font-size: 72px;
   line-height: 1;
-  color: #03A9F4;
+  color: var(--primary-color);
 `
 
 const Title = styled.h4`
   margin: 1em 0;
   font-size: 24px;
   line-height: 1;
-  color: #03A9F4;
+  color: var(--primary-color);
 `
 
 const Description = styled.p`
   margin-left: auto;
   margin-right: auto;
   max-width: 300px;
-  color: #666;
+  color: var(--text-color-secondary);
 `
 
 const FeatureItem = styled.div`

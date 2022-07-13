@@ -27,17 +27,17 @@ const Table = styled.table`
 
   & th {
     font-weight: 600;
-    background: #e8e8e8;
+    background: var(--background-hover);
   }
 
   & tr {
     &:nth-child(2n) {
-      background: #e8e8e8;
+      background: var(--background-hover);
     }
   }
 
   & thead tr {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border-color);
   }
 
   & img {

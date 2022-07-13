@@ -7,8 +7,8 @@ const Container = styled.footer`
   padding: 50px 0 10px;
   font-size: 14px;
   text-align: center;
-  background: #004880;
-  color: #79acd2;
+  background: var(--primary-color-dark);
+  color: var(--primary-color-light);
   overflow: hidden;
 `
 

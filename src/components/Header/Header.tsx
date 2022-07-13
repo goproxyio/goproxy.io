@@ -13,12 +13,12 @@ const Container = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  background: #004880;
-  color: #66a0cc;
+  background: var(--primary-color-dark);
+  color: var(--primary-color-light);
   z-index: 900;
 
   & a {
-    color: #66a0cc;
+    color: var(--primary-color-light);
   }
 `
 
@@ -49,7 +49,7 @@ const SiteTitle = styled.h1`
   z-index: -1;
 
   & a:hover {
-    color: #fff;
+    color: var(--primary-color-light-hover);
     text-decoration: none;
   }
 
@@ -72,11 +72,11 @@ const MenuTrigger = styled.div`
     text-align: center;
     background: transparent;
     border: 0;
-    color: #66a0cc;
+    color: var(--primary-color-light);
 
     &:hover,
     &:focus {
-      color: #fff;
+      color: var(--primary-color-light-hover);
     }
   }
 
@@ -107,7 +107,7 @@ const Select = styled.select`
   font-size: 16px;
   line-height: 18px;
   border: 0;
-  color: #66a0cc;
+  color: var(--primary-color-light);
   background: transparent;
 `
 
@@ -116,7 +116,7 @@ const SelectArrow = styled.span`
   top: 11px;
   right: 6px;
   border: 4px solid transparent;
-  border-top-color: #66a0cc;
+  border-top-color: var(--primary-color-light);
 `
 
 interface MenuProps {
@@ -137,7 +137,7 @@ const Menu = styled.nav`
     bottom: 0;
     z-index: 1000;
     width: 100%;
-    background: #004880;
+    background: var(--primary-color-dark);
   ` : ''}
 
   @media (min-width: 960px) {
@@ -175,7 +175,7 @@ const MenuItem = styled.li`
       transition: all .15s ease-in;
 
       &:hover {
-        color: #fff;
+        color: var(--primary-color-light-hover);
         text-decoration: none;
         transition: all .15s ease-out;
       }

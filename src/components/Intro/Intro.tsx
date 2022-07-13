@@ -6,8 +6,8 @@ import animLogo from '../../images/anim-logo.svg'
 
 const Container = styled.div`
   position: relative;
-  background: #004880;
-  color: #fff;
+  background: var(--primary-color-dark);
+  color: var(--primary-color-light);
 `
 
 const Wrapper = styled.div`
@@ -42,9 +42,11 @@ const Main = styled.div`
 
 const Title = styled.h2`
   font-size: 48px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 64px;
-  color: #B3E5FC;
+  background: -webkit-linear-gradient(115deg, #a57ef3, #33ecff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `
 
 const GithubButtonWrapper = styled.span`

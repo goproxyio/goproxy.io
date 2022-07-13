@@ -1,5 +1,6 @@
 @import "//at.alicdn.com/t/font_1211640_qzmvsiid949.css";
 @import "~normalize.css/normalize.css";
+@import "./theme.css";
 
 html {
   box-sizing: border-box;
@@ -13,12 +14,12 @@ html {
 
 body {
   font: 16px/1.6 sans-serif;
-  background: #fefefe;
-  color: #333;
+  background: var(--background);
+  color: var(--text-color);
 }
 
 a {
-  color: #03A9F4;
+  color: var(--primary-color);
   text-decoration: none;
 }
 

@@ -18,12 +18,12 @@ const Wrapper = styled.section`
 `
 
 const SponsorContainer = styled.div`
-  background: #fff;
+  background: var(--background-light);
 `
 
 const Title = styled.span`
   margin-right: 16px;
-  color: #888;
+  color: var(--text-color-secondary);
 `
 
 const SponsorList = styled.div`

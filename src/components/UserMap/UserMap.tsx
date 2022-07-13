@@ -5,7 +5,8 @@ import userMapImg from '../../images/users-map.svg'
 
 const Wrapper = styled.section`
   padding: 32px 0 64px;
-  background: #f8f8f8;
+  background: var(--background-hover);
+  color: var(--text-color);
   text-align: center;
 `
 

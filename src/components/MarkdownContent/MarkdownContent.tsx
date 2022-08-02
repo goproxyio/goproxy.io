@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { navigate } from 'gatsby'
 import ClipboardJS from 'clipboard'
 import rehypeReact from 'rehype-react'
+import _ from 'lodash'
 import ContributorList from '../ContributorList/ContributorList'
 import { isSameSite } from '../../utils'
 import './prism.css'
@@ -43,11 +44,16 @@ const MarkdownContent = ({ htmlAst, copyText, copiedText }: MarkdownContentProps
   useEffect(() => {
     const codeBlocks = Array.from(document.querySelectorAll('.gatsby-highlight'))
     for (const codeBlock of codeBlocks) {
-      const copyBtn = document.createElement('button')
-      copyBtn.textContent = copyText
-      copyBtn.className = 'copy-btn'
-      copyBtn.setAttribute('data-clipboard-target', 'pre')
-      codeBlock.appendChild(copyBtn)
+      const id = _.uniqueId('code')
+      const pre = codeBlock.querySelector('pre')
+      if (pre) {
+        pre.id = id
+        const copyBtn = document.createElement('button')
+        copyBtn.textContent = copyText
+        copyBtn.className = 'copy-btn'
+        copyBtn.setAttribute('data-clipboard-target', `#${id}`)
+        codeBlock.appendChild(copyBtn)
+      }
     }
     const clipboard = new ClipboardJS('.copy-btn')
     const timers: number[] = []

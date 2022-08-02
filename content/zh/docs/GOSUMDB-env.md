@@ -8,7 +8,9 @@ title: GOSUMDB 环境变量
 
 Go1.13 会尝试对你的每一次依赖包下载操作进行验证，从而保证你下载的依赖包始终是一致的。这样就保证了每一次的编译都是可重复的，也能很好的发现异常的变更。和 `go.mod` 一样，Go 会帮我们维护一个名为 `go.sum` 的文件，它包含了对依赖包进行计算得到的校验值，文件中的每一行由三部分组成：
 
-	<module> <version>[/go.mod] <hash>
+```
+<module> <version>[/go.mod] <hash>
+```
 
 如果 go.sum 中的校验匹配失败了，Go 在编译下载的时候会给出提示，一定要关注下为什么今天你下载的代码和昨天不一样了。
 
@@ -21,7 +23,9 @@ Go1.13 中当设置了 GOPROXY="https://proxy.golang.org" 时 GOSUMDB 默认指�
 如果你的代码仓库或者模块是私有的，那么它的校验值不应该出现在互联网的公有数据库里面，但是我们本地编译的时候默认所有的依赖下载都会去尝试做校验，这样不仅会校验失败，更会泄漏一些私有仓库的路径等信息，我们可以使用 `GONOSUMDB` 这个环境变量来设置不做校验的代码仓库， 它可以设置多个匹配路径，用逗号相隔.
 举个例子,
 
-	GONOSUMDB=*.corp.example.com,rsc.io/private
+```
+GONOSUMDB=*.corp.example.com,rsc.io/private
+```
 
 这样的话，像 "git.corp.example.com/xyzzy", "rsc.io/private", 和 "rsc.io/private/quux"这些公司和自己的私有仓库就都不会做校验了。
 
@@ -46,8 +50,6 @@ Disable:
 ```
  GOSUMDB='off'
 ```
-
-
 
 [goproxy.io](https://goproxy.io/) 也已经第一时间完成了对 `sum.golang.org` 和 `gosum.io` 的代理的支持, 大家不用担心访问不到这两个服务。
 

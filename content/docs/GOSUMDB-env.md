@@ -13,7 +13,9 @@ module's dependencies.
 
 The form of each line in go.sum is three fields:
 
-        <module> <version>[/go.mod] <hash>
+```
+<module> <version>[/go.mod] <hash>
+```
 
 Each known module version results in two lines in the go.sum file.
 The first line gives the hash of the module version's file tree.
@@ -42,10 +44,12 @@ the code downloaded today differs from what was downloaded yesterday.
 The GOSUMDB environment variable identifies the name of checksum database
 to use and optionally its public key and URL, as in:
 
-        GOSUMDB="sum.golang.org"
-        GOSUMDB="sum.golang.org+<publickey>"
-        GOSUMDB="sum.golang.org+<publickey> https://sum.golang.org"
-		GOSUMDB="gosum.io+ce6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6"
+```
+GOSUMDB="sum.golang.org"
+GOSUMDB="sum.golang.org+<publickey>"
+GOSUMDB="sum.golang.org+<publickey> https://sum.golang.org"
+GOSUMDB="gosum.io+ce6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6"
+```
 
 The go command knows the public key of sum.golang.org, and also that the name
 sum.golang.google.cn (available inside mainland China) connects to the
@@ -58,7 +62,7 @@ the checksum database is not consulted, and all unrecognized modules are
 accepted, at the cost of giving up the security guarantee of verified repeatable
 downloads for all modules. A better way to bypass the checksum database
 for specific modules is to use the GOPRIVATE or GONOSUMDB environment
-variables. 
+variables.
 
 ![](https://baokun.li/images/2019/proxy-sum.png)
 

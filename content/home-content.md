@@ -20,4 +20,4 @@ $env:GOPROXY = "https://goproxy.io,direct"
 $env:GOPRIVATE = "git.mycompany.com,github.com/my/private"
 ```
 
-Now, when you build your applications, `Go` will fetch dependencies via goproxy.io. You can also permanently export the `GOPROXY` environment in `~/.bashrc` or `~/.profile` file. If Go version < 1.13, we recommend you [update to the latest version](https://gomirrors.org). See more information in the [documention](docs/getting-started.html).
+Now, when you build your applications, `Go` will fetch dependencies via goproxy.io. You can also permanently export the `GOPROXY` environment in `~/.bashrc` or `~/.profile` file. If Go version < 1.13, we recommend you [update to the latest version](https://go.dev/dl/). See more information in the [documention](docs/getting-started.html).

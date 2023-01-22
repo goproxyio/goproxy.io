@@ -9,14 +9,14 @@
     },
     {
       "url": "https://golang.com.cn",
-      "title": "Go 包"
+      "title": "贡献者"
     },
     {
       "url": "/zh/docs/introduction.html",
       "title": "使用文档"
     },
     {
-      "url": "https://gomirrors.org",
+      "url": "https://golang.google.cn/dl/",
       "title": "下载 Go"
     },
     {

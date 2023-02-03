@@ -19,6 +19,11 @@ export interface Feature {
   description?: string
 }
 
+export interface CryptoSponsor {
+  title: string
+  address: string
+}
+
 export interface NotFound {
   title: string
   description: string
@@ -44,6 +49,8 @@ export interface SiteConfig {
   specialSponsors: SpecialSponsor[]
   features: Feature[]
   userMapTitle: string
+  cryptoSponsorTitle: string
+  cryptoSponsors: CryptoSponsor[]
   copyright: string
   notFound: NotFound
   doc: DocLocale

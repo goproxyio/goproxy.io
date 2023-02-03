@@ -8,6 +8,7 @@ import SpecialSponsor from '../components/SpecialSponsor/SpecialSponsor'
 import HomeContent from '../components/HomeContent/HomeContent'
 import FeatureList from '../components/FeatureList/FeatureList'
 import UserMap from '../components/UserMap/UserMap'
+import CryptoSponsorList from '../components/CryptoSponsorList/CryptoSponsorList'
 import { getSiteConfig } from '../utils'
 
 interface Frontmatter {
@@ -46,7 +47,17 @@ interface IndexPageProps {
 
 const IndexPage = ({ data, location }: IndexPageProps) => {
   const siteConfig = getSiteConfig(location.pathname)
-  const { doc, title, slogan, specialSponsorTitle, specialSponsors, features, userMapTitle } = siteConfig
+  const {
+    doc,
+    title,
+    slogan,
+    specialSponsorTitle,
+    specialSponsors,
+    features,
+    userMapTitle,
+    cryptoSponsorTitle,
+    cryptoSponsors,
+  } = siteConfig
   return (
     <Layout location={location} siteConfig={siteConfig}>
       <SEO title={title} />
@@ -55,6 +66,7 @@ const IndexPage = ({ data, location }: IndexPageProps) => {
       <HomeContent htmlAst={data.markdownRemark.htmlAst} copyText={doc.copy} copiedText={doc.copied} />
       <FeatureList features={features} />
       <UserMap title={userMapTitle} />
+      <CryptoSponsorList title={cryptoSponsorTitle} cryptoSponsors={cryptoSponsors} copyText={doc.copy} />
     </Layout>
   )
 }

@@ -56,6 +56,25 @@
     }
   ],
   "userMapTitle": "谁在使用 goproxy.io",
+  "cryptoSponsorTitle": "赞助 goproxy.io",
+  "cryptoSponsors": [
+    {
+      "title": "BTC",
+      "address": ""
+    },
+    {
+      "title": "ETH",
+      "address": ""
+    },
+    {
+      "title": "DOGE",
+      "address": ""
+    },
+    {
+      "title": "USDT",
+      "address": ""
+    }
+  ],
   "copyright": "源码遵循 MIT 开源协议。 Logo 版权归属于 goproxy.io。",
   "notFound": {
     "title": "404 不存在的页面",

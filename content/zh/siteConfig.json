@@ -60,19 +60,19 @@
   "cryptoSponsors": [
     {
       "title": "BTC",
-      "address": ""
+      "address": "bc1q3ss267pcg4awz6n235ergttpxdcv25e9895h2a"
     },
     {
       "title": "ETH",
-      "address": ""
+      "address": "0x756127bC829EA4F2988783ed7f257f7B574AaB6C"
     },
     {
       "title": "DOGE",
-      "address": ""
+      "address": "D9KgxrxvB7N3skcSJMbQy7ihcTW638jNjZ"
     },
     {
-      "title": "USDT",
-      "address": ""
+      "title": "USDT(TRC20)",
+      "address": "TQFazNoiqY8GZdFKNQtoHmvvmkZhg7BA1d"
     }
   ],
   "copyright": "源码遵循 MIT 开源协议。 Logo 版权归属于 goproxy.io。",

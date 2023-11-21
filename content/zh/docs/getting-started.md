@@ -11,13 +11,13 @@ title: "快速上手"
 **Bash (Linux or macOS)**
 
 ```shell
-export GOPROXY=https://proxy.golang.com.cn,direct
+export GOPROXY=https://goproxy.io,direct
 ```
 
 **PowerShell (Windows)**
 
 ```shell
-$env:GOPROXY = "https://proxy.golang.com.cn,direct"
+$env:GOPROXY = "https://goproxy.io,direct"
 ```
 
 ## 使配置长久生效 （推荐）
@@ -28,10 +28,10 @@ $env:GOPROXY = "https://proxy.golang.com.cn,direct"
 
 ```shell
 # 设置你的 bash 环境变量
-echo "export GOPROXY=https://proxy.golang.com.cn,direct" >> ~/.profile && source ~/.profile
+echo "export GOPROXY=https://goproxy.io,direct" >> ~/.profile && source ~/.profile
 
 # 如果你的终端是 zsh，使用以下命令
-echo "export GOPROXY=https://proxy.golang.com.cn,direct" >> ~/.zshrc && source ~/.zshrc
+echo "export GOPROXY=https://goproxy.io,direct" >> ~/.zshrc && source ~/.zshrc
 ```
 
 **Windows**
@@ -40,6 +40,6 @@ echo "export GOPROXY=https://proxy.golang.com.cn,direct" >> ~/.zshrc && source ~
 1. 右键 我的电脑 -> 属性 -> 高级系统设置 -> 环境变量
 2. 在 “[你的用户名]的用户变量” 中点击 ”新建“ 按钮
 3. 在 “变量名” 输入框并新增 “GOPROXY”
-4. 在对应的 “变量值” 输入框中新增 “https://proxy.golang.com.cn,direct”
+4. 在对应的 “变量值” 输入框中新增 “https://goproxy.io,direct”
 5. 最后点击 “确定” 按钮保存设置
 ```

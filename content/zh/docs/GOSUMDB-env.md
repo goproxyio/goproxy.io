@@ -16,7 +16,7 @@ Go1.13 会尝试对你的每一次依赖包下载操作进行验证，从而保�
 
 环境变量 `GOSUMDB` 可以用来配置你使用哪个校验服务器和公钥来做依赖包的校验, 就像下面:
 
-	GOSUMDB="gosum.io+ce6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6"
+	GOSUMDB="sum.golang.org"
 
 Go1.13 中当设置了 GOPROXY="https://proxy.golang.org" 时 GOSUMDB 默认指向 "sum.golang.org"，其他情况默认都是关闭的状态。如果设置了 GOSUMDB 为 “off” 或者使用 go get 的时候启用了 `-insecure` 参数，Go 不会去对下载的依赖包做安全校验，存在一定的安全隐患，所以给大家推荐接下来的环境变量。
 
@@ -29,20 +29,20 @@ GONOSUMDB=*.corp.example.com,rsc.io/private
 
 这样的话，像 "git.corp.example.com/xyzzy", "rsc.io/private", 和 "rsc.io/private/quux"这些公司和自己的私有仓库就都不会做校验了。
 
-## 使用 gosum.io 保证下载依赖的完整性和安全性
+## 使用 GOSUMDB 保证下载依赖的完整性和安全性
 
-由于众所周知的原因，golang 的服务器由 Google 托管，所以这项服务我们并不能顺利享受到，那么我们如何能享受到这项集成在 1.13 版本中的服务呢，不用慌，google 特别为我们推出了 [sum.golang.google.cn](https://sum.golang.google.cn/)， 如果还访问不了或者速度不够理想，可以尝试使用 [gosum.io](https://gosum.io/), 通过设置环境变量进行配置：
+由于众所周知的原因，golang 的服务器由 Google 托管，所以这项服务我们并不能顺利享受到，那么我们如何能享受到这项集成在 1.13 版本中的服务呢，不用慌，google 特别为我们推出了 [sum.golang.google.cn](https://sum.golang.google.cn/)， 通过设置环境变量进行配置：
 
 Bash（MAC/Linux）:
 
 ```
-export GOSUMDB=gosum.io+ce6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6
+export GOSUMDB=sum.golang.google.cn
 ```
 
 PowerShell（Windows）:
 
 ```
-$env:GOSUMDB = "gosum.io+ce6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6"
+$env:GOSUMDB = "sum.golang.google.cn"
 ```
 
 Disable:
@@ -51,7 +51,7 @@ Disable:
  GOSUMDB='off'
 ```
 
-[goproxy.io](https://goproxy.io/) 也已经第一时间完成了对 `sum.golang.org` 和 `gosum.io` 的代理的支持, 大家不用担心访问不到这两个服务。
+[goproxy.io](https://goproxy.io/) 也已经第一时间完成了对 `sum.golang.org` 和 `sum.golang.google.cn` 的代理的支持, 大家不用担心访问不到这两个服务。
 
 ![](https://baokun.li/images/2019/proxy-sum.png)
 
@@ -60,5 +60,4 @@ Happy coding，gophers！
 References:
 
 - *[https://goproxy.io/](https://goproxy.io/)*
-- *[https://gosum.io/](https://gosum.io/)*
 - *[https://sum.golang.org/](https://sum.golang.org/)*

@@ -18,10 +18,6 @@
     {
       "url": "https://golang.google.cn/dl/",
       "title": "下载 Go"
-    },
-    {
-      "url": "https://gosum.io",
-      "title": "gosum.io"
     }
   ],
   "slogan": "一个全球代理\n为 Go 模块而生",

@@ -10,10 +10,6 @@
     {
       "url": "https://go.dev/dl/",
       "title": "Download Go"
-    },
-    {
-      "url": "https://gosum.io",
-      "title": "gosum.io"
     }
   ],
   "slogan": "A Global Proxy\n for Go Modules",

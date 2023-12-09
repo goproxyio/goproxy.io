@@ -48,7 +48,6 @@ to use and optionally its public key and URL, as in:
 GOSUMDB="sum.golang.org"
 GOSUMDB="sum.golang.org+<publickey>"
 GOSUMDB="sum.golang.org+<publickey> https://sum.golang.org"
-GOSUMDB="gosum.io+ce6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6"
 ```
 
 The go command knows the public key of sum.golang.org, and also that the name
@@ -71,5 +70,4 @@ Happy coding，gophers！
 References:
 
 - *[https://goproxy.io/](https://goproxy.io/)*
-- *[https://gosum.io/](https://gosum.io/)*
 - *[https://sum.golang.org/](https://sum.golang.org/)*

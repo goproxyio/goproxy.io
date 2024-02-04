@@ -36,13 +36,7 @@
     }
   ],
   "specialSponsorTitle": "Special Sponsors",
-  "specialSponsors": [
-    {
-      "title": "YunZhanghu Inc",
-      "image": "/images/sponsors/yzh_inc.png",
-      "href": "https://wwww.yunzhanghu.com"
-    }
-  ],
+  "specialSponsors": [],
   "userMapTitle": "Who are using goproxy.io",
   "cryptoSponsorTitle": "Sponsor goproxy.io",
   "cryptoSponsors": [

@@ -4,7 +4,7 @@ goproxy.io official site
 
 ## Prerequisites
 
-* Node
+* Node: 16.x
 * npm
 * gatsby-cli
 
@@ -15,7 +15,7 @@ goproxy.io official site
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 
 # Node.js and npm has been integrated.
-nvm install stable
+nvm install 16.20.2
 
 # gatsby-cli
 npm i -g gatsby-cli

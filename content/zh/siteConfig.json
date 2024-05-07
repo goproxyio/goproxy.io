@@ -44,7 +44,14 @@
     }
   ],
   "specialSponsorTitle": "特别赞助",
-  "specialSponsors": [],
+  "specialSponsors": [
+    {
+      "title": "UniOne AI",
+      "image": "/images/sponsors/unione-ai.svg",
+      "href": "https://unione.ai",
+      "description": "一个集成多个大模型的人工智能助手"
+    }
+  ],
   "userMapTitle": "谁在使用 goproxy.io",
   "cryptoSponsorTitle": "赞助 goproxy.io",
   "cryptoSponsors": [

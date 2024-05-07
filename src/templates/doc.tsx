@@ -242,7 +242,6 @@ const SponsorItem = styled.a`
 
   img {
     max-width: 100%;
-    max-height: 40px;
   }
 `
 

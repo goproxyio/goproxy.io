@@ -29,15 +29,21 @@ const Title = styled.span`
 const SponsorList = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
 `
 
-const SponsorItem = styled.a`
+const SponsorItem = styled.div`
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+`
+
+const SponsorItemLink = styled.a`
   margin-right: 16px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   line-height: 1;
-  vertical-align: middle;
 
   & img {
     max-width: 180px;
@@ -45,6 +51,10 @@ const SponsorItem = styled.a`
   }
 `
 
+const SponsorItemDescription = styled.div`
+  color: #666;
+  font-size: 14px;
+`
 interface SponsorDatum {
   title: string
   image: string
@@ -62,9 +72,14 @@ const SpecialSponsor = ({ title, sponsors }: SponsorProps) => {
       <Wrapper>
         <Title>{title}</Title>
         <SponsorList>
-          {sponsors.map(({ title, image, href }, index) => (
-            <SponsorItem key={index} href={href} target="_blank" rel="noopener">
-              <img src={image} alt={title} />
+          {sponsors.map(({ title, image, href, description }, index) => (
+            <SponsorItem key={index}>
+              <SponsorItemLink href={href} target="_blank" rel="noopener">
+                <img src={image} alt={title} />
+              </SponsorItemLink>
+              {description && <SponsorItemDescription>
+                {description}
+              </SponsorItemDescription>}
             </SponsorItem>
           ))}
         </SponsorList>

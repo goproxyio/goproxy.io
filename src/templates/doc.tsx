@@ -243,6 +243,13 @@ const SponsorItem = styled.a`
   img {
     max-width: 100%;
   }
+
+  @media (prefers-color-scheme: dark) {
+    & img {
+      filter: invert(1) grayscale(100);
+      opacity: 0.7;
+    }
+  }
 `
 
 const DocTemplate = ({ data, location }: DocTemplateProps) => {

@@ -49,6 +49,13 @@ const SponsorItemLink = styled.a`
     max-width: 180px;
     max-height: 50px;
   }
+
+  @media (prefers-color-scheme: dark) {
+    & img {
+      filter: invert(1) grayscale(100);
+      opacity: 0.7;
+    }
+  }
 `
 
 const SponsorItemDescription = styled.div`
@@ -59,6 +66,7 @@ interface SponsorDatum {
   title: string
   image: string
   href: string
+  description: string
 }
 
 interface SponsorProps {

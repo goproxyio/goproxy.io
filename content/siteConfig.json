@@ -43,19 +43,19 @@
   "cryptoSponsors": [
     {
       "title": "BTC",
-      "address": "bc1q3ss267pcg4awz6n235ergttpxdcv25e9895h2a"
+      "address": "34Z4KN8k5iHLrauGoiuGx3RBBruKPWetxv"
     },
     {
-      "title": "ETH",
-      "address": "0x756127bC829EA4F2988783ed7f257f7B574AaB6C"
+      "title": "USDT(ERC20)",
+      "address": "0xA1aAd40db76367e43e11BBfbB4851cc73FCDe4FA"
     },
     {
-      "title": "DOGE",
-      "address": "D9KgxrxvB7N3skcSJMbQy7ihcTW638jNjZ"
+      "title": "Solana",
+      "address": "AN9yScjd5ZeVQYygXcQ6YiwsNehhmJQ8awwz2MjkExFp"
     },
     {
       "title": "USDT(TRC20)",
-      "address": "TQFazNoiqY8GZdFKNQtoHmvvmkZhg7BA1d"
+      "address": "TTuFcE1cTEzeHVZ66P7XLu8a2zNKnWVknE"
     }
   ],
   "copyright": "Under the MIT License. Logo copyright belongs to goproxy.io.",
